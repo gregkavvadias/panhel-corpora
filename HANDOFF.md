@@ -149,7 +149,7 @@ All figures come from `reanalysis/results/`. Sample: 28 coursebook texts vs 13 e
     - Within the current scope: *Research Papers in Language Teaching and Learning*, GALA's *Journal of Applied Linguistics*, ISTAL proceedings.
     - With the upgraded methods: *RELC Journal*, *Reading in a Foreign Language*.
 14. **Co-authorship:** raise the plan with Karasimos, the MA supervisor, first.
-15. **Open-data statement:** point to this repo. A planned rename to `panhel-corpora` has to be done by Greg in GitHub Settings; the old URL redirects.
+15. **Open-data statement:** point to https://github.com/gregkavvadias/panhel-corpora (renamed from `thesis-corpora`; the old URL printed in the thesis redirects).
 
 ---
 
