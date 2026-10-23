@@ -1,0 +1,4 @@
+reanalysis/data/bnc_coca/
+reanalysis/data/brysbaert_concreteness.xlsx
+__pycache__/
+.pytest_cache/

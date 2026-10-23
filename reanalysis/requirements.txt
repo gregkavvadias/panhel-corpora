@@ -7,4 +7,6 @@ spacy
 pyphen
 wordfreq
 lexical-diversity
+openpyxl
+pytest
 # plus: python -m spacy download en_core_web_sm
