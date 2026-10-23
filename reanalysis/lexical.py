@@ -93,3 +93,34 @@ def profile(tokens, families, norms, overrides):
     row['conc_type'] = sum(types.values()) / len(types) if types else float('nan')
     row['conc_cov'] = _pct(len(conc), n_content)
     return row, hits
+
+def main():
+    import spacy
+    from collections import Counter
+    from corpus import iter_texts, window, is_exam
+    here = Path(__file__).resolve().parent
+    families = load_families(here / 'data' / 'bnc_coca')
+    norms = load_norms(here / 'data' / 'brysbaert_concreteness.xlsx')
+    overrides = load_overrides(here / 'data' / 'propn_overrides.csv')
+    nlp = spacy.load('en_core_web_sm')
+    rows, counts, reasons = [], {'school': Counter(), 'exam': Counter()}, {}
+    for book, text, raw in iter_texts():
+        doc = nlp(raw)
+        row, hits = profile(doc, families, norms, overrides)
+        rows.append(dict(book=book, text=text, version='full', **row))
+        grp = 'exam' if is_exam(book) else 'school'
+        for form, reason in hits:
+            counts[grp][form] += 1; reasons.setdefault(form, reason)
+        if not is_exam(book):
+            row, _ = profile(nlp(window(doc)), families, norms, overrides)
+            rows.append(dict(book=book, text=text, version='first360', **row))
+    F = pd.DataFrame(rows)
+    F.to_csv(here / 'results' / 'lexical_features.csv', index=False)
+    P = pd.DataFrame([dict(type=t, reason=r, n_school=counts['school'][t], n_exam=counts['exam'][t],
+                           also_common_word=(r == 'list31' and t in norms)) for t, r in reasons.items()])
+    P = P.assign(_n=P.n_school + P.n_exam).sort_values(['_n', 'type'], ascending=[False, True]).drop(columns='_n')
+    P.to_csv(here / 'results' / 'propn_types.csv', index=False)
+    print(F.groupby(['book', 'version'])[['cov5k', 'conc_tok', 'conc_cov', 'propn_pct']].mean().round(2))
+
+if __name__ == '__main__':
+    main()
