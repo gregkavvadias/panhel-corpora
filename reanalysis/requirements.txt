@@ -1,0 +1,10 @@
+pandas
+numpy
+scipy
+statsmodels
+pdfplumber
+spacy
+pyphen
+wordfreq
+lexical-diversity
+# plus: python -m spacy download en_core_web_sm
