@@ -1,6 +1,8 @@
 import pandas as pd
 import pytest
-from lexical import classify, load_families, load_norms, load_overrides
+import math
+from collections import namedtuple
+from lexical import classify, load_families, load_norms, load_overrides, profile
 
 LISTS = {
     1: 'HUNGRY 3194\r\n\tHUNGER 1124\r\nGO 1\r\n\tWENT 1\r\nMAY 1\r\n',
@@ -63,3 +65,32 @@ def test_load_norms_lowercase_singleword(tmp_path):
     p = tmp_path / 'n.xlsx'
     pd.DataFrame({'Word': ['Apple', 'a cappella', 'idea'], 'Conc.M': [5.0, 3.0, 1.6]}).to_excel(p, index=False)
     assert load_norms(p) == {'apple': 5.0, 'idea': 1.6}
+
+Tok = namedtuple('Tok', 'text lemma_ pos_ is_alpha')
+NORMS = {'hunger': 2.0, 'ray': 4.0}
+
+def test_profile_coverage_excludes_propn(families):
+    toks = [Tok('hunger', 'hunger', 'NOUN', True), Tok('ray', 'ray', 'NOUN', True),
+            Tok('heft', 'heft', 'VERB', True), Tok('oh', 'oh', 'INTJ', True),
+            Tok('Zorba', 'Zorba', 'PROPN', True), Tok(',', ',', 'PUNCT', False)]
+    row, hits = profile(toks, families, NORMS, {})
+    assert row['n_tokens'] == 5 and row['n_propn'] == 1
+    assert row['cov1k'] == 50.0            # hunger + oh / 4
+    assert row['cov5k'] == 75.0            # + ray
+    assert row['cov9k'] == 75.0            # heft is list 12
+    assert row['cov5k_base_only'] == 50.0  # hunger + ray
+    assert row['cov5k_propn_known'] == 80.0
+    assert row['beyond9k_pct'] == 20.0
+    assert hits == [('zorba', 'tag')]
+
+def test_concreteness_token_vs_type(families):
+    toks = [Tok('hunger', 'hunger', 'NOUN', True)] * 3 + [Tok('ray', 'ray', 'NOUN', True),
+            Tok('heft', 'heft', 'VERB', True)]
+    row, _ = profile(toks, families, NORMS, {})
+    assert row['conc_tok'] == 2.5          # (2+2+2+4)/4
+    assert row['conc_type'] == 3.0         # (2+4)/2
+    assert row['conc_cov'] == 80.0         # 4 of 5 content tokens matched
+
+def test_concreteness_no_matches_is_nan(families):
+    row, _ = profile([Tok('heft', 'heft', 'VERB', True)], families, NORMS, {})
+    assert math.isnan(row['conc_tok']) and math.isnan(row['conc_type'])

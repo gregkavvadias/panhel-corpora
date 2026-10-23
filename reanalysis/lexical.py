@@ -55,3 +55,41 @@ def classify(form, lemma, pos, families, overrides):
     if pos == 'PROPN' and ov != 'common':
         return ('propn', None, 'tag')
     return ('offlist', None, '')
+
+CONTENT_POS = {'NOUN', 'VERB', 'ADJ', 'ADV'}
+
+def _pct(num, den):
+    return 100 * num / den if den else float('nan')
+
+def profile(tokens, families, norms, overrides):
+    """Coverage (percent) and concreteness for one text; also the (form, reason) of every proper-noun token."""
+    bands, n_supp, n_propn, n_off, hits, conc, n_content = [], 0, 0, 0, [], [], 0
+    n = 0
+    for t in tokens:
+        if not t.is_alpha:
+            continue
+        n += 1
+        cat, lst, reason = classify(t.text, t.lemma_, t.pos_, families, overrides)
+        if cat == 'propn':
+            n_propn += 1; hits.append((t.text.lower(), reason)); continue
+        if cat == 'band': bands.append(lst)
+        elif cat == 'supp': n_supp += 1
+        else: n_off += 1
+        if t.pos_ in CONTENT_POS:
+            n_content += 1
+            lemma = t.lemma_.lower()
+            if lemma in norms: conc.append((lemma, norms[lemma]))
+    known = n - n_propn
+    upto = lambda k: sum(b <= k for b in bands)
+    row = dict(n_tokens=n, n_propn=n_propn, n_supp=n_supp, n_offlist=n_off)
+    for k in range(1, 10):
+        row[f'cov{k}k'] = _pct(upto(k) + n_supp, known)
+    row['cov5k_base_only'] = _pct(upto(5), known)
+    row['cov5k_propn_known'] = _pct(upto(5) + n_supp + n_propn, n)
+    row.update(propn_pct=_pct(n_propn, n), supp_pct=_pct(n_supp, n), offlist_pct=_pct(n_off, n),
+               beyond9k_pct=_pct(len(bands) - upto(9), n))
+    types = dict(conc)
+    row['conc_tok'] = sum(c for _, c in conc) / len(conc) if conc else float('nan')
+    row['conc_type'] = sum(types.values()) / len(types) if types else float('nan')
+    row['conc_cov'] = _pct(len(conc), n_content)
+    return row, hits
