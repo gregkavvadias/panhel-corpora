@@ -17,6 +17,9 @@ Run every script from this folder (`cd reanalysis`).
 - `data/exam_corrections.csv`: Greg's corrections to the extracted passages, applied by `extract_exams.py`.
 - `data/exam_approvals.csv`: Greg's approval of each new passage, with the SHA-256 hash of the approved content. `promote_exams.py` refuses any file that has changed since approval.
 - `staging/Panhellenics/`: the extracted passages before promotion; `results/exam_review.md` is the review report Greg checked.
+- `data/excluded_texts.csv`: texts left out of every analysis from Phase 3 part 2 on. Currently English 2 unit-4-1, a formatting exercise.
+- `data/heading_lines.csv`: the title and subheading lines that the sentence-based measures skip.
+- `data/glasgow_norms.csv`, `data/taaco/`: the Glasgow Norms and TAACO's connective lists, downloaded by `fetch_resources.py` and not committed. Word vectors come from spaCy's `en_core_web_md` 3.8.0.
 - `data/propn_overrides.csv`: manual corrections to proper-noun detection, from Greg's review of `results/propn_types.csv`. Each listed word is marked `proper` or `common`.
 
 ## Scripts
@@ -37,6 +40,9 @@ Run every script from this folder (`cd reanalysis`).
 | `promote_exams.py` | Copies approved passages into `Texts/Panhellenics/`. It refuses to overwrite a file that differs | `Texts/Panhellenics/` |
 
 `stats5.py` also writes `results/lexical_subsets.csv` (the primary tests for all 26 exam texts, June-only and the original 13) and `results/lexical_sitting.csv` (June vs resit).
+
+| `difficulty.py` | Phase 3 part 2: open difficulty measures for each text (vocabulary, syntax, cohesion, readability; definitions below) | `results/difficulty_features.csv` |
+| `stats6.py` | The difficulty table: four primary tests in one BH family, robustness checks, descriptive effect sizes, and validation against the thesis Coh-Metrix values | `results/difficulty_comparisons.csv`, `results/difficulty_validation.csv` |
 
 `corpus.py` (text loading, length-matching window) and `effects.py` (Hedges' g, bootstrap CI) are shared helpers. Tests: `python -m pytest tests`.
 
@@ -226,4 +232,71 @@ TAACO's "caveat" items (*since*, *after*, *before*, …), which need context to 
 
 ### Post-freeze changes
 
-None yet.
+None. No rule changed after the freeze commit (528abe9).
+
+### Results: the difficulty table (27 coursebook vs 26 exam texts)
+
+**What changed in the corpus**
+- English 2 unit-4-1 is excluded from here on, so `results/lexical_features.csv` now holds 27 coursebook texts.
+- The Phase 2 and Phase 3 part 1 figures above were computed with 28 coursebook texts. They remain as published in git history (commits `ee0280e` and `e9fbaab`), and rerunning `stats5.py` now gives the 27-text versions.
+- The Phase 1 Coh-Metrix analyses are unchanged and keep all 28 texts.
+
+**Primary tests** (one BH family of four; Welch tests; exam − school)
+
+| Dimension | Measure | Coursebook | Exam | g [95% CI] | p | BH p |
+|---|---|---|---|---|---|---|
+| Vocabulary | 5k coverage (%) | 97.86 | 98.20 | 0.33 [−0.21, 0.98] | .24 | .31 |
+| Vocabulary | Concreteness (1–5) | 3.13 | 2.91 | −1.15 [−1.85, −0.62] | .0001 | .0004 |
+| Syntax | Mean length of clause (words) | 11.39 | 10.27 | −0.55 [−1.15, −0.05] | .045 | .09 |
+| Cohesion | Content-word overlap, adjacent sentences | 0.061 | 0.069 | 0.21 [−0.26, 1.17] | .45 | .45 |
+
+- **5k coverage:** still equivalent within ±2 points. The difference is +0.35, 90% CI [−0.14, 0.83], equivalence p < .001.
+- **Concreteness:** the only primary difference that survives correction. The exam texts are more abstract.
+- **Clause length:** the exam texts have *shorter* clauses (g = −0.55), significant before correction but not after (BH p = .09).
+  - The direction holds in every robustness check: length-matched g = −0.67, p = .017; June-only g = −0.58, p = .057; original 13 g = −0.65, p = .053.
+  - So the exam texts are not syntactically harder by this measure. If anything, their clauses are shorter.
+- **Content-word overlap:** no difference by the pre-specified Welch test.
+  - The Mann–Whitney test gives p = .029. The rank-based test detects a shift that the Welch test, which is sensitive to skew and outliers, does not.
+  - This is reported, not used to change the primary result.
+  - The robustness rows agree with Welch: length-matched g = 0.18, p = .51; June-only g = 0.11, p = .70; original 13 g = 0.24, p = .41.
+
+**Descriptive measures** (Hedges' g, exam − school, 95% CI; not tested)
+- **Vocabulary:**
+  - imageability −1.19 [−1.87, −0.65];
+  - familiarity 0.74 [0.27, 1.26];
+  - MTLD 0.74 [0.26, 1.28];
+  - HD-D 0.89 [0.43, 1.44].
+  - The exam vocabulary is less imageable but more varied, and slightly more familiar.
+- **Syntax:**
+  - clauses per sentence 0.97 [0.46, 1.62];
+  - sentence length 0.41 [−0.12, 0.99];
+  - passives −1.17 [−1.74, −0.75];
+  - prepositional phrases −0.53 [−1.08, −0.02];
+  - adjectives 0.66 [0.14, 1.25];
+  - negation 0.53 [0.01, 1.14].
+  - The exam sentences hold more, shorter clauses, with fewer passives.
+- **Cohesion:**
+  - semantic overlap 1.21 [0.70, 1.95];
+  - connectives 0.60 [0.07, 1.25];
+  - causal connectives 0.46 [−0.06, 1.03].
+- **Readability:**
+  - Flesch Reading Ease −0.38 [−0.85, 0.14];
+  - Flesch–Kincaid 0.44 [−0.06, 0.95].
+
+**Validation against Coh-Metrix** (Spearman ρ over the 40 original texts, pooled; `results/difficulty_validation.csv` also gives ρ within each group)
+
+| Agreement | Measures (ρ) |
+|---|---|
+| Strong (ρ ≥ .85) | HD-D/VOCD .98; prepositional phrases .97; infinitives .97; passives .95; Flesch Reading Ease .93; Flesch–Kincaid .92; sentence length .91; concreteness .90; imageability .87; connectives .85 |
+| Moderate | gerunds .84; negation .79; verb phrases .70; content-word overlap .52 (its Coh-Metrix counterpart is a different overlap index, CRFSOa); noun phrases .51 |
+| Weak or none | causal connectives .15; semantic overlap vs LSA .12; adjective incidence vs adjective phrases −.24 |
+
+- **Weakly agreeing measures don't measure what Coh-Metrix did.**
+  - Our adjective count is not Coh-Metrix's adjective-phrase density.
+  - TAACO's causal list differs from Coh-Metrix's causal verbs and particles.
+  - Word-vector similarity is not LSA.
+- **None of them is a primary measure.** In the paper they should be described as related open measures, not replacements.
+- **Glasgow coverage:** the norms cover on average 59% (coursebooks) and 54% (exam) of content tokens, so imageability and familiarity rest on about half of each text's content words.
+- **Skipped pairs:** under 1% of adjacent sentence pairs are skipped on average for the overlap measures (maximum 17% in one text).
+
+**Scope paragraph for the paper (draft, replaces the Phase 2 draft):** Text difficulty was measured along four dimensions identified in the readability literature: vocabulary, syntax, cohesion (Graesser, McNamara & Kulikowich, 2011; Crossley, Greenfield & McNamara, 2008) and, for reference, classic readability formulas. Each dimension used open, reproducible measures computed on all texts. One or two measures per dimension were pre-specified as primary, giving four tests in a single Benjamini–Hochberg family: word-family coverage (Nation, 2017), concreteness (Brysbaert et al., 2014), mean length of clause (Lu, 2010), and adjacent-sentence content-word overlap. All other measures are reported descriptively with effect sizes, and each rebuilt measure was validated against the Coh-Metrix values reported for the original corpus.
