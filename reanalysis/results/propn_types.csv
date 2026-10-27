@@ -50,14 +50,12 @@ american,list31,3,1,False
 andrea,list31,4,0,False
 athens,list31,4,0,False
 carcassonne,tag,4,0,False
-cyber,tag,0,4,False
 del,list31,4,0,False
 gauguin,list31,4,0,False
 giovanni,list31,4,0,False
 google,list31,0,4,True
 ii,list31,4,0,False
 julius,list31,4,0,False
-kommunisten,tag,4,0,False
 lorenzo,list31,4,0,False
 nazis,list31,4,0,False
 paris,list31,4,0,False
@@ -105,12 +103,10 @@ beltrame,tag,2,0,False
 bernard,list31,2,0,False
 britain,list31,1,1,False
 carl,list31,2,0,False
-chorio,tag,2,0,False
 christakis,tag,0,2,False
 collomb,tag,2,0,False
 credi,tag,2,0,False
 david,list31,1,1,False
-deutscher,tag,2,0,False
 english,list31,2,0,False
 erich,list31,2,0,False
 france,list31,2,0,False
@@ -133,7 +129,6 @@ markus,list31,2,0,False
 massachusetts,list31,0,2,False
 melissa,list31,2,0,False
 meryton,tag,2,0,False
-mikro,tag,2,0,False
 milan,list31,2,0,False
 mona,list31,2,0,False
 naomi,list31,1,1,False
@@ -218,7 +213,6 @@ dimitri,list31,0,1,False
 domenico,list31,1,0,False
 donatello,tag,1,0,False
 donato,list31,1,0,False
-dummkopf,tag,1,0,False
 döblin,tag,1,0,False
 eco,list31,1,0,False
 edgar,list31,1,0,False
@@ -251,7 +245,6 @@ gertrud,list31,1,0,False
 gestapo,list31,1,0,False
 ghirlandaio,tag,1,0,False
 goebbels,list31,1,0,False
-gravedigger,tag,1,0,False
 greenpeace,list31,1,0,False
 gérard,tag,1,0,False
 hampshire,list31,1,0,False
@@ -260,7 +253,6 @@ hedwig,list31,1,0,False
 henri,list31,1,0,False
 hertfordshire,list31,1,0,False
 holland,list31,1,0,False
-horio,tag,1,0,False
 hosseini,tag,1,0,False
 humboldt,list31,1,0,False
 ian,list31,1,0,False
@@ -274,7 +266,6 @@ jerome,list31,1,0,False
 jordanian,list31,1,0,False
 joseph,list31,1,0,False
 joshua,list31,0,1,False
-juden,tag,1,0,False
 kakuma,tag,1,0,False
 karl,list31,1,0,False
 khaled,list31,1,0,False
@@ -290,7 +281,6 @@ longbourn,tag,1,0,False
 lucas,list31,1,0,False
 lydia,list31,1,0,False
 madan,list31,0,1,False
-magia,tag,1,0,False
 malcolm,list31,1,0,False
 mann,list31,1,0,False
 marx,list31,1,0,False
@@ -298,7 +288,6 @@ marxist,list31,1,0,True
 mary,list31,1,0,False
 maryland,list31,0,1,False
 maya,list31,0,1,False
-megalo,tag,1,0,False
 micha,tag,1,0,False
 michael,list31,1,0,False
 michele,list31,1,0,False
@@ -318,7 +307,6 @@ mühsam,tag,1,0,False
 müller,tag,1,0,False
 nasa,list31,0,1,False
 nationalsozialistischer,tag,1,0,False
-neologic,tag,0,1,False
 norman,list31,0,1,False
 nour,list31,1,0,False
 nsdstb,tag,1,0,False
@@ -337,7 +325,6 @@ pennsylvania,list31,1,0,False
 percival,list31,1,0,False
 peter,list31,1,0,True
 petroni,tag,1,0,False
-pfiffikus,tag,1,0,False
 philadelphia,list31,0,1,False
 pietà,tag,1,0,False
 pipitsa,tag,1,0,False
@@ -353,9 +340,7 @@ rockies,list31,1,0,False
 salah,list31,1,0,False
 san,list31,0,1,False
 santo,list31,1,0,False
-saukerl,tag,1,0,False
 scandinavians,list31,1,0,False
-schreierei,tag,1,0,False
 scotch,list31,1,0,True
 sean,list31,0,1,False
 seattle,list31,0,1,False
