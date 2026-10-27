@@ -1,7 +1,7 @@
 import math
 from collections import namedtuple
 import pytest
-from difficulty import load_glasgow, content_tokens, norm_mean
+from difficulty import load_glasgow, content_tokens, norm_mean, syntax
 
 Tok = namedtuple('Tok', 'text lemma_ pos_ is_alpha')
 
@@ -25,3 +25,26 @@ def test_norm_mean_empty_and_unmatched():
     assert all(math.isnan(v) for v in norm_mean([], {}, 'imag'))
     m, cov = norm_mean([Tok('idea', 'idea', 'NOUN', True)], {}, 'imag')
     assert math.isnan(m) and cov == 0.0
+
+@pytest.fixture(scope='module')
+def nlp():
+    import spacy
+    return spacy.load('en_core_web_sm')
+
+def test_clause_count_simple_and_subordinate(nlp):
+    s = syntax(nlp('The dog barked because the cat ran. She left.'))
+    assert s['n_sents'] == 2 and s['n_clauses'] == 3 and s['mlc'] == pytest.approx(9 / 3)
+
+def test_relative_clause_and_coordinated_clause(nlp):
+    assert syntax(nlp('I saw the man who called, and she waved.'))['n_clauses'] == 3
+
+def test_nonfinite_is_not_a_clause(nlp):
+    assert syntax(nlp('He wanted to leave early.'))['n_clauses'] == 1
+
+def test_mlc_no_clause_sentence_and_nan(nlp):
+    s = syntax(nlp('Yes, Papa. The end.'))
+    assert s['n_sents'] == 2 and s['n_clauses'] == 0 and math.isnan(s['mlc'])
+
+def test_passive_and_negation_incidence(nlp):
+    s = syntax(nlp('The letter was not written by him.'))
+    assert s['passive_inc'] == pytest.approx(1000 / 7) and s['neg_inc'] == pytest.approx(1000 / 7)
