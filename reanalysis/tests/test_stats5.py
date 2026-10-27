@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
-from stats5 import tost_welch, thresholds
+import pytest
+from stats5 import tost_welch, thresholds, sitting, exam_subsets
 
 def test_tost_equivalent_when_ci_inside_margin():
     a = np.array([90., 91, 92, 90, 91, 92, 90, 91]); b = a + 0.3
@@ -24,3 +25,13 @@ def test_thresholds_levels():
     T = thresholds(F).set_index('group')
     assert T.loc['exam', 'level_95'] == 5 and T.loc['school', 'level_95'] == 8
     assert T.loc['school', 'level_98'] == 'not reached by 9k'
+
+def test_sitting():
+    assert sitting('2023-06') == 'june' and sitting('2018-09') == 'resit'
+    with pytest.raises(ValueError):
+        sitting('unit-2-1')
+
+def test_exam_subsets_sizes():
+    ids = [f'{y}-06' for y in range(2010, 2027)] + [f'{y}-09' for y in range(2018, 2027)]
+    S = exam_subsets(pd.DataFrame({'text': ids}))
+    assert (len(S['all']), len(S['june']), len(S['original13'])) == (26, 17, 13)

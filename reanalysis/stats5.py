@@ -42,6 +42,43 @@ def thresholds(F):
                             for _, r in T.iterrows()]
     return T
 
+def sitting(text_id):
+    """'june' for YYYY-06, 'resit' for YYYY-09 (September resits)."""
+    if text_id.endswith('-06'):
+        return 'june'
+    if text_id.endswith('-09'):
+        return 'resit'
+    raise ValueError(f'not an exam text id: {text_id!r}')
+
+def exam_subsets(exam):
+    """all (26), june (17), original13 (the June 2010-2022 texts of the thesis corpus)."""
+    june = exam[exam.text.map(sitting) == 'june']
+    return {'all': exam, 'june': june, 'original13': june[june.text.str[:4].astype(int) <= 2022]}
+
+def subset_rows(school, exam):
+    """Primary comparisons for each exam subset, BH within each subset."""
+    rows = []
+    for name, E in exam_subsets(exam).items():
+        part = []
+        for m in ('cov5k', 'conc_tok'):
+            r = dict(subset=name, measure=m, n_exam=len(E), **compare(school[m].values, E[m].values))
+            if m == 'cov5k':
+                t = tost_welch(school[m].values, E[m].values, MARGIN)
+                r.update(ci90_lo=t['ci90_lo'], ci90_hi=t['ci90_hi'], p_tost=t['p_tost'], equivalent=t['equivalent'])
+            part.append(r)
+        bh = multipletests([r['p_welch'] for r in part], method='fdr_bh')[1]
+        for r, q in zip(part, bh):
+            r['p_welch_BH'] = q
+        rows += part
+    return pd.DataFrame(rows)
+
+def sitting_rows(exam):
+    """June vs resit exam texts (diff = resit - june); descriptive."""
+    s = exam.text.map(sitting)
+    june, resit = exam[s == 'june'], exam[s == 'resit']
+    return pd.DataFrame([dict(measure=m, n_june=len(june), n_resit=len(resit),
+                              **compare(june[m].values, resit[m].values)) for m in ('cov5k', 'conc_tok')])
+
 def main():
     F = pd.read_csv('results/lexical_features.csv')
     exam = F[F.book.map(is_exam) & (F.version == 'full')]
@@ -69,8 +106,11 @@ def main():
     T.to_csv('results/lexical_tost.csv', index=False)
     H = thresholds(F)
     H.to_csv('results/lexical_thresholds.csv', index=False)
+    U = subset_rows(school['full'], exam); U.to_csv('results/lexical_subsets.csv', index=False)
+    Z = sitting_rows(exam); Z.to_csv('results/lexical_sitting.csv', index=False)
     pd.set_option('display.width', 250); pd.set_option('display.max_columns', 30)
-    for name, D in (('Comparisons', C), ('TOST (exam - school, percentage points)', T), ('Thresholds', H)):
+    for name, D in (('Comparisons', C), ('TOST (exam - school, percentage points)', T), ('Thresholds', H),
+                    ('Exam subsets', U), ('Sitting: resit - june', Z)):
         print(f'\n== {name}'); print(D.round(4).to_string(index=False))
     if T.equivalent.nunique() > 1:
         print('\nDISAGREEMENT: full vs length-matched TOST differ — equivalence must be reported as qualified (spec §5).')
