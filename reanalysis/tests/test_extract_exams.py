@@ -1,4 +1,6 @@
-from extract_exams import style, passage_lines, is_end_marker, paragraphs, clean
+import pytest
+from extract_exams import (style, passage_lines, is_end_marker, paragraphs, clean, apply_corrections,
+                           suspects, split_headings, write_text, extract, load_sources, PDFS, SOURCES)
 
 def W(text, x0, top, font='GCNONE+ArialMT', size=10.0):
     return dict(text=text, x0=x0, x1=x0 + 6 * len(text), top=top, bottom=top + 10, fontname=font, size=size)
@@ -48,3 +50,75 @@ def test_dehyphenation_is_recorded():
 
 def test_clean_ligatures_and_soft_hyphen():
     assert clean('ﬁne  ﬂow co­operate') == 'fine flow cooperate'
+
+def test_correction_applies_once():
+    rows = [{'file': '2023-06', 'find': 'schooIs', 'replace': 'schools', 'note': ''}]
+    assert apply_corrections('in schooIs or', '2023-06', rows) == 'in schools or'
+    assert apply_corrections('in schooIs or', '2024-06', rows) == 'in schooIs or'
+
+def test_correction_must_match_exactly_once():
+    rows = [{'file': 'x', 'find': 'a', 'replace': 'b', 'note': ''}]
+    with pytest.raises(ValueError, match="x.*'a'.*2"):
+        apply_corrections('a a', 'x', rows)
+    with pytest.raises(ValueError, match="x.*'a'.*0"):
+        apply_corrections('zzz', 'x', rows)
+
+def test_suspects():
+    fam = {'school': 1, 'cat': 1, 'the': 1, 'had': 1, 'a': 1, 'how': 1, 'odd': 1}
+    s = dict(suspects('The schooIs had a cat. H ow odd zqxv.', fam, {}))
+    assert s['schooIs'] == 'capital-I' and s['zqxv'] == 'unknown' and s['H ow'] == 'split-letter'
+
+def test_split_headings():
+    ps, hs = split_headings(['Pet care and self-care', 'Pet care and self-care are linked.', 'A short one.'])
+    assert hs == ['Pet care and self-care'] and ps == ['Pet care and self-care are linked.', 'A short one.']
+
+def test_write_text_crlf_paragraphs(tmp_path):
+    p = tmp_path / 't.txt'; write_text(p, ['One.', 'Two.'])
+    assert p.read_bytes() == b'One.\r\n\r\nTwo.'
+
+real = pytest.mark.skipif(not (PDFS / '2024-09.pdf').exists(), reason='exam PDFs not downloaded')
+
+@real
+def test_real_2024_09_excludes_hidden_layer():
+    r = extract(PDFS / '2024-09.pdf', 1); text = ' '.join(r['paragraphs'])
+    assert text.startswith('How can we protect children') and 'burdening' not in text
+    assert 340 <= len(text.split()) <= 400 and r['dropped_offstyle']
+
+@real
+def test_real_2018_09_columns_in_order():
+    text = ' '.join(extract(PDFS / '2018-09.pdf', 2)['paragraphs'])
+    assert text.startswith('Many people would find long dark nights and bitter cold pretty depressing.')
+
+@real
+def test_real_2020_09_keeps_pet_care_sentence_in_paragraph():
+    ps = extract(PDFS / '2020-09.pdf', 2)['paragraphs']
+    assert any(p.startswith('Pet care and self-care are linked.') for p in ps)
+    assert not any(p == 'Pet care and self-care' for p in ps)
+
+@real
+def test_real_all_word_counts_plausible():
+    for row in load_sources(SOURCES):
+        n = len(' '.join(extract(PDFS / f"{row['file']}.pdf", int(row['columns']))['paragraphs']).split())
+        assert 300 <= n <= 420, (row['file'], n)
+
+def test_superscript_attached_to_previous_word():
+    ws = [W('Read the text below', 50, 100), W('10', 50, 120), W('th', 62, 119.7, size=7.0), W('graders', 80, 120)]
+    lines, dropped = passage_lines(ws, 600, 1)
+    assert [l['text'] for l in lines] == ['10th graders'] and dropped == []
+
+def test_suspects_ignore_newlines_and_one_letter_words():
+    fam = {'moved': 1, 'recent': 1, 'b': 1}
+    assert suspects('I moved.\n\nA recent b', fam, {}) == []
+
+def test_end_marker_footer_half():
+    assert is_end_marker('ΑΠΟ 6 ΣΕΛΙΔΕΣ')
+
+def test_dehyphenation_keeps_hyphen_in_compound_when_lexicon_says_so():
+    ls = [L('the problem-', 50, 450, 100), L('solving skills', 50, 450, 112)]
+    ps, dh = paragraphs(ls, known={'problem', 'solving', 'skills', 'the'})
+    assert ps == ['the problem-solving skills'] and dh == ['problem-solving']
+
+@real
+def test_real_2025_09_superscript_ordinal_kept():
+    r = extract(PDFS / '2025-09.pdf', 1)
+    assert '10th graders' in ' '.join(r['paragraphs']) and r['dropped_offstyle'] == []

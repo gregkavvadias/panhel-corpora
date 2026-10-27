@@ -1,0 +1,17 @@
+# Exam paper sources
+
+| File | Page | Download | SHA-256 | Downloaded |
+|---|---|---|---|---|
+| 2023-06 | https://www.panellinies.net/agglika-2023/ | https://drive.google.com/uc?export=download&id=1bVSjtJUAu0id-mfCEbPLIGhuJQ6naVWG | `86abcda5f14a40b8e9c65aa52e4f565aeab4706100fe7e48ede9fb9280b98a6a` | 2026-10-27 |
+| 2024-06 | https://www.panellinies.net/agglika-2024/ | https://drive.google.com/uc?export=download&id=1AqGpKo4SXtcizQ3vQP5-EbG3D9aNfDqu | `28e28950825d0b43a446df2c4c6ede1381b6ffafca721a287794f41a84d53499` | 2026-10-27 |
+| 2025-06 | https://www.panellinies.net/agglika-2025/ | https://www.panellinies.net/wp-content/uploads/2025_them/2025_them_eidika/agglika_2025_00.pdf | `e2eb26d187b467bed634c14c36bb92c330425859532dd643eba09213878bb8cf` | 2026-10-27 |
+| 2026-06 | https://www.panellinies.net/agglika-2026/ | https://www.panellinies.net/wp-content/uploads/2026_them/2026_them_eidika/agglika_2026.pdf | `6429ed5b516c463e6854f5a1669438215adccd80ccabd8157c43ca9b0879bdcf` | 2026-10-27 |
+| 2018-09 | https://www.panellinies.net/%ce%b1%ce%b3%ce%b3%ce%bb%ce%b9%ce%ba%ce%ac-%ce%b5%cf%80%ce%b1%ce%bd%ce%b1%ce%bb%ce%b7%cf%80%cf%84%ce%b9%ce%ba%ce%ad%cf%82-2018/ | https://drive.google.com/uc?export=download&id=16miilGBwkHO5nOqZWnhXkNDGXbp4qTTw | `5046a46ea0305b675804b82a29e4f1357f2d89ed1064765ecd87b28fc8936725` | 2026-10-27 |
+| 2019-09 | https://www.panellinies.net/%ce%b1%ce%b3%ce%b3%ce%bb%ce%b9%ce%ba%ce%ac-%ce%b5%cf%80%ce%b1%ce%bd%ce%b1%ce%bb%ce%b7%cf%80%cf%84%ce%b9%ce%ba%ce%ad%cf%82-2019/ | https://drive.google.com/uc?export=download&id=12iNtH_HMe7chDtiaT2-dLj0qbp5tbRnm | `d300903e39700f0892f1992573fa197d2414ac4c7040f280723cf5124a9d18c1` | 2026-10-27 |
+| 2020-09 | https://www.panellinies.net/%ce%b1%ce%b3%ce%b3%ce%bb%ce%b9%ce%ba%ce%ac-%ce%b5%cf%80%ce%b1%ce%bd%ce%b1%ce%bb%ce%b7%cf%80%cf%84%ce%b9%ce%ba%ce%ad%cf%82-2020/ | https://drive.google.com/uc?export=download&id=1sIGNJ-FIxPabwEOV5xu4qvZv52GGoaT8 | `dc3299a6703ff5c161ffdba460954b5787d916b3687bd7f5257711545eacfe2b` | 2026-10-27 |
+| 2021-09 | https://www.panellinies.net/agglika-epanaliptikes-2021/ | https://drive.google.com/uc?export=download&id=1oOxQcGMYuhzZrX9yxdHig_rpAbloHUtv | `569b8c2c4a1893b9fa5a782abec79240ae0f2332188c5c8819641450bcf7c290` | 2026-10-27 |
+| 2022-09 | https://www.panellinies.net/agglika-epanaliptikes-2022/ | https://drive.google.com/uc?export=download&id=1900AalHuwGgkyLI5Jtc78OwN6Q_mXmqv | `ca8df711cfbd35638c1deb69a4342be5f78428c415af31f59879cfbe980d1a43` | 2026-10-27 |
+| 2023-09 | https://www.panellinies.net/agglika-epanaliptikes-2023/ | https://drive.google.com/uc?export=download&id=1kFa-NEY7v08CLgLpIqPKfZutUfvoC-7V | `baa0c74778002ec6af763e278dd0398b287ee2e3af57ee2457260a160f9e08be` | 2026-10-27 |
+| 2024-09 | https://www.panellinies.net/agglika-epanaliptikes-2024/ | https://drive.google.com/uc?export=download&id=1CAk8OFX9rwARXqHZ6dS8J5COFVnSsbjy | `b47902087b1954c02652a6e07f3072bf23681fc9ea84b1f8ca4ead729ec6dda6` | 2026-10-27 |
+| 2025-09 | https://www.panellinies.net/agglika-epanaliptikes-2025/ | https://drive.google.com/uc?export=download&id=11ho542jvHPGmw34egyLwWa_QLWe_zukZ | `de49de84fc18e8728617676650c4df3b4476fa3ff450e61958f5b7f39bc34f66` | 2026-10-27 |
+| 2026-09 | https://www.panellinies.net/agglika-epanaliptikes-2026/ | https://drive.google.com/uc?export=download&id=1DMcOWHIv_z0ZWpZc9yhQoG3mvGTBqUte | `9c276aa94b6731b9a9cdb492ec494bdccb684c67c77839b9513a8cac0c1b0715` | 2026-10-27 |
