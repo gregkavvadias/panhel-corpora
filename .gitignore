@@ -3,3 +3,5 @@ reanalysis/data/brysbaert_concreteness.xlsx
 __pycache__/
 .pytest_cache/
 reanalysis/data/exam_pdfs/
+reanalysis/data/glasgow_norms.csv
+reanalysis/data/taaco/
