@@ -256,8 +256,9 @@ None. No rule changed after the freeze commit (528abe9).
   - The direction holds in every robustness check: length-matched g = −0.67, p = .017; June-only g = −0.58, p = .057; original 13 g = −0.65, p = .053.
   - So the exam texts are not syntactically harder by this measure. If anything, their clauses are shorter.
 - **Content-word overlap:** no difference by the pre-specified Welch test.
-  - The Mann–Whitney test gives p = .029. The rank-based test detects a shift that the Welch test, which is sensitive to skew and outliers, does not.
-  - This is reported, not used to change the primary result.
+  - The Mann–Whitney test gives p = .029, slightly higher overlap in the exam texts by rank.
+  - **Why the two tests disagree:** one coursebook outlier, English 2 unit-6-1 ("I Have A Dream", whose "Let freedom ring…" repetition gives `cwo_adj` = 0.268). The coursebook median is 0.049 and the exam maximum 0.124. The outlier inflates the coursebook variance and skews the g CI, so the Welch test misses the rank shift.
+  - The pre-specified Welch test stands. This is reported, not used to change the primary result.
   - The robustness rows agree with Welch: length-matched g = 0.18, p = .51; June-only g = 0.11, p = .70; original 13 g = 0.24, p = .41.
 
 **Descriptive measures** (Hedges' g, exam − school, 95% CI; not tested)
@@ -283,13 +284,34 @@ None. No rule changed after the freeze commit (528abe9).
   - Flesch Reading Ease −0.38 [−0.85, 0.14];
   - Flesch–Kincaid 0.44 [−0.06, 0.95].
 
-**Validation against Coh-Metrix** (Spearman ρ over the 40 original texts, pooled; `results/difficulty_validation.csv` also gives ρ within each group)
+**Validation against Coh-Metrix** (Spearman ρ with 95% CI over the 40 original texts; pooled, and within the 27 coursebook and 13 exam texts)
 
-| Agreement | Measures (ρ) |
-|---|---|
-| Strong (ρ ≥ .85) | HD-D/VOCD .98; prepositional phrases .97; infinitives .97; passives .95; Flesch Reading Ease .93; Flesch–Kincaid .92; sentence length .91; concreteness .90; imageability .87; connectives .85 |
-| Moderate | gerunds .84; negation .79; verb phrases .70; content-word overlap .52 (its Coh-Metrix counterpart is a different overlap index, CRFSOa); noun phrases .51 |
-| Weak or none | causal connectives .15; semantic overlap vs LSA .12; adjective incidence vs adjective phrases −.24 |
+Pooled ρ partly reflects the difference between the groups, so the within-group columns are the stricter test. CIs use the Fisher z transformation with SE = 1/√(n − 3), which is slightly narrow for Spearman ρ at n = 13.
+
+| New measure | Coh-Metrix | Pooled | Coursebook | Exam |
+|---|---|---|---|---|
+| Concreteness (primary) | WRDCNCc | .90 [.81, .94] | .85 [.70, .93] | .92 [.76, .98] |
+| Content-word overlap (primary) | CRFSOa | .52 [.25, .72] | .38 [.00, .67] | .89 [.67, .97] |
+| Imageability | WRDIMGc | .87 [.77, .93] | .78 [.57, .89] | .87 [.62, .96] |
+| HD-D | LDVOCD | .98 [.96, .99] | .96 [.92, .98] | .91 [.71, .97] |
+| Sentence length | DESSL | .91 [.83, .95] | .88 [.74, .94] | .89 [.68, .97] |
+| Passives | DRPVAL | .95 [.91, .97] | .97 [.94, .99] | .82 [.48, .94] |
+| Prepositional phrases | DRPP | .97 [.94, .98] | .96 [.91, .98] | .98 [.93, .99] |
+| Infinitives | DRINF | .97 [.94, .98] | .95 [.89, .98] | .96 [.88, .99] |
+| Gerunds | DRGERUND | .84 [.71, .91] | .82 [.64, .92] | .86 [.59, .96] |
+| Negation | DRNEG | .79 [.64, .88] | .68 [.40, .84] | .89 [.66, .97] |
+| Verb phrases | DRVP | .70 [.50, .83] | .75 [.51, .88] | .51 [−.06, .83] |
+| Noun phrases | DRNP | .51 [.24, .71] | .54 [.20, .76] | .31 [−.29, .73] |
+| Connectives | CNCAll | .85 [.73, .92] | .82 [.64, .92] | .93 [.79, .98] |
+| Causal connectives | SMCAUSvp | .15 [−.16, .44] | .23 [−.16, .56] | .63 [.12, .88] |
+| Semantic overlap | LSASSp | .12 [−.19, .42] | .26 [−.14, .58] | .25 [−.35, .70] |
+| Adjectives | DRAP | −.24 [−.51, .08] | −.32 [−.62, .07] | −.15 [−.65, .44] |
+| Flesch Reading Ease | RDFRE | .93 [.87, .96] | .93 [.85, .97] | .94 [.81, .98] |
+| Flesch–Kincaid | RDFKGL | .92 [.85, .96] | .89 [.76, .95] | .92 [.74, .97] |
+
+- **Not validated:** mean length of clause (a primary measure), clauses per sentence, MTLD and familiarity have no counterpart among the thesis's Coh-Metrix indices. MLC follows Lu's (2010) L2SCA definition instead.
+- **Content-word overlap agrees well only within the exam texts** (ρ = .89). Within the coursebooks, agreement is weak (ρ = .38, CI reaching 0). The two indices differ by design: CRFSOa is binary stem overlap across all sentence pairs, `cwo_adj` is proportional lemma overlap between adjacent sentences. The paper should present `cwo_adj` as following CRFCWO1, not as a reproduction of the thesis index.
+- **Clause rule limitations:** a check of all 1,431 sentences found the rule misses about 1% of finite clauses. These are wh-clauses inside prepositional phrases ("than where we were before"), parenthetical clauses ("it seems"), conjuncts whose only subject is expletive "there", and a few past-tense verbs mis-tagged by the parser. The misses are spread across both groups. 51 sentences have no finite clause at all (0.75% of coursebook tokens, 0.55% of exam tokens). This is a limitation to state in the paper; the rule stays as frozen.
 
 - **Weakly agreeing measures don't measure what Coh-Metrix did.**
   - Our adjective count is not Coh-Metrix's adjective-phrase density.
@@ -299,4 +321,4 @@ None. No rule changed after the freeze commit (528abe9).
 - **Glasgow coverage:** the norms cover on average 59% (coursebooks) and 54% (exam) of content tokens, so imageability and familiarity rest on about half of each text's content words.
 - **Skipped pairs:** under 1% of adjacent sentence pairs are skipped on average for the overlap measures (maximum 17% in one text).
 
-**Scope paragraph for the paper (draft, replaces the Phase 2 draft):** Text difficulty was measured along four dimensions identified in the readability literature: vocabulary, syntax, cohesion (Graesser, McNamara & Kulikowich, 2011; Crossley, Greenfield & McNamara, 2008) and, for reference, classic readability formulas. Each dimension used open, reproducible measures computed on all texts. One or two measures per dimension were pre-specified as primary, giving four tests in a single Benjamini–Hochberg family: word-family coverage (Nation, 2017), concreteness (Brysbaert et al., 2014), mean length of clause (Lu, 2010), and adjacent-sentence content-word overlap. All other measures are reported descriptively with effect sizes, and each rebuilt measure was validated against the Coh-Metrix values reported for the original corpus.
+**Scope paragraph for the paper (draft, replaces the Phase 2 draft):** Text difficulty was measured along four dimensions identified in the readability literature: vocabulary, syntax, cohesion (Graesser, McNamara & Kulikowich, 2011; Crossley, Greenfield & McNamara, 2008) and, for reference, classic readability formulas. Each dimension used open, reproducible measures computed on all texts. One or two measures per dimension were pre-specified as primary, giving four tests in a single Benjamini–Hochberg family: word-family coverage (Nation, 2017), concreteness (Brysbaert et al., 2014), mean length of clause (Lu, 2010), and adjacent-sentence content-word overlap. All other measures are reported descriptively with effect sizes. Where the thesis reported a corresponding Coh-Metrix index, the rebuilt measure was validated against it on the original texts, pooled and within each group. Mean length of clause has no Coh-Metrix counterpart and follows the L2SCA definition.
