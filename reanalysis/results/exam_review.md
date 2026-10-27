@@ -8,6 +8,7 @@ Nothing listed below has been changed automatically.
 - Words: 340; paragraphs: 6; columns: 1; approved: yes
 - Corrections applied: 1
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: none
@@ -17,15 +18,17 @@ Nothing listed below has been changed automatically.
 - Words: 364; paragraphs: 5; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: none
 
 ## 2025-06
 
-- Words: 363; paragraphs: 6; columns: 1; approved: yes
+- Words: 362; paragraphs: 6; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: millennials (unknown)
@@ -35,15 +38,17 @@ Nothing listed below has been changed automatically.
 - Words: 375; paragraphs: 9; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: none
 
 ## 2018-09
 
-- Words: 374; paragraphs: 7; columns: 2; approved: yes
+- Words: 372; paragraphs: 7; columns: 2; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: Helliwell (unknown), hygge (unknown), hooga (unknown), Hygge (unknown), ‐ (odd-char)
@@ -51,8 +56,9 @@ Nothing listed below has been changed automatically.
 ## 2019-09
 
 - Words: 369; paragraphs: 5; columns: 2; approved: yes
-- Corrections applied: 1
+- Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: Olafur (unknown), ‐ (odd-char)
@@ -62,15 +68,17 @@ Nothing listed below has been changed automatically.
 - Words: 350; paragraphs: 6; columns: 2; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: problem-solving
 - Suspect tokens: none
 
 ## 2021-09
 
-- Words: 375; paragraphs: 5; columns: 1; approved: yes
+- Words: 369; paragraphs: 5; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: ‐ (odd-char)
@@ -80,6 +88,7 @@ Nothing listed below has been changed automatically.
 - Words: 367; paragraphs: 5; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: Marcin (unknown)
@@ -89,15 +98,17 @@ Nothing listed below has been changed automatically.
 - Words: 372; paragraphs: 5; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: Malbert (unknown)
 
 ## 2024-09
 
-- Words: 374; paragraphs: 5; columns: 1; approved: yes
-- Corrections applied: 0
+- Words: 357; paragraphs: 4; columns: 1; approved: yes
+- Corrections applied: 1
 - Off-style text excluded: By studying history, young people learn that the world is constantly evolving, and they have the; power to influence it. This understanding can help liberate them from the belief that their current; way of life is the only way. It can inspire them to think differently and make positive changes. Teaching; history to young people should not be about burdening them with our own issues but about helping; them understand the world and liberate themselves from fears and misconceptions. History should; be a tool for freedom and positive change.
+- **Overlapping lines (one may be hidden text; check the page):** [u to look at the world — one not mediated through a screen — and translate that."] / [By studying history, young people learn that the world is constantly evolving, and they have the power]
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: none
@@ -107,6 +118,7 @@ Nothing listed below has been changed automatically.
 - Words: 337; paragraphs: 4; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: none
@@ -116,6 +128,7 @@ Nothing listed below has been changed automatically.
 - Words: 355; paragraphs: 6; columns: 1; approved: yes
 - Corrections applied: 0
 - Off-style text excluded: none
+- **Overlapping lines (one may be hidden text; check the page):** none
 - Headings dropped: none
 - Words rejoined across a line-end hyphen: none
 - Suspect tokens: none

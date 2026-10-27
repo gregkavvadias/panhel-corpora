@@ -76,8 +76,9 @@ def sitting_rows(exam):
     """June vs resit exam texts (diff = resit - june); descriptive."""
     s = exam.text.map(sitting)
     june, resit = exam[s == 'june'], exam[s == 'resit']
-    return pd.DataFrame([dict(measure=m, n_june=len(june), n_resit=len(resit),
-                              **compare(june[m].values, resit[m].values)) for m in ('cov5k', 'conc_tok')])
+    D = pd.DataFrame([dict(measure=m, n_june=len(june), n_resit=len(resit),
+                           **compare(june[m].values, resit[m].values)) for m in ('cov5k', 'conc_tok')])
+    return D.rename(columns={'school_M': 'june_M', 'exam_M': 'resit_M'})
 
 def main():
     F = pd.read_csv('results/lexical_features.csv')

@@ -58,7 +58,10 @@ def group_lines(words):
     out = []
     for l in lines:
         ws = sorted(l['words'], key=lambda w: w['x0'])
-        out.append(dict(text=' '.join(w['text'] for w in ws), x0=ws[0]['x0'], x1=max(w['x1'] for w in ws),
+        text = ws[0]['text']
+        for a, b in zip(ws, ws[1:]):  # words split by a font change (e.g. a U+2010 hyphen) touch: no space
+            text += ('' if b['x0'] - a['x1'] < 0.5 else ' ') + b['text']
+        out.append(dict(text=text, x0=ws[0]['x0'], x1=max(w['x1'] for w in ws),
                         top=min(w['top'] for w in ws), bottom=max(w['bottom'] for w in ws)))
     return out
 
@@ -99,6 +102,11 @@ def passage_lines(words, page_width, columns):
             lines.append(dict(l, col=i))
         dropped += [l['text'] for l in group_lines(off)]
     return lines, dropped
+
+def overlapping_lines(lines):
+    """(upper, lower) text of vertically overlapping consecutive lines in a column: one of them is likely hidden."""
+    return [(a['text'], b['text']) for a, b in zip(lines, lines[1:])
+            if a.get('col') == b.get('col') and b['top'] < a['bottom'] - 1]
 
 def paragraphs(lines, known=None):
     """Join one column's lines into paragraphs; returns (paragraphs, words rejoined at a line-end hyphen).
@@ -196,7 +204,8 @@ def extract(pdf, columns, known=None):
             paras[-1] = f'{paras[-1]} {ps.pop(0)}'   # paragraph continues into the next column
         paras += ps; dehyph += dh
     paras, heads = split_headings([clean(p) for p in paras])
-    return dict(paragraphs=paras, dropped_offstyle=dropped, dropped_headings=heads, dehyphenated=dehyph)
+    return dict(paragraphs=paras, dropped_offstyle=dropped, dropped_headings=heads, dehyphenated=dehyph,
+                overlapping_lines=overlapping_lines(lines))
 
 def write_text(path, paras):
     Path(path).write_bytes('\r\n\r\n'.join(paras).encode('utf-8'))
@@ -224,6 +233,7 @@ def main():
                    f"- Words: {len(text.split())}; paragraphs: {len(paras)}; columns: {row['columns']}; approved: {'yes' if f in approved else 'no'}",
                    f"- Corrections applied: {sum(c['file'] == f for c in corrections)}",
                    f"- Off-style text excluded: {'; '.join(r['dropped_offstyle']) or 'none'}",
+                   f"- **Overlapping lines (one may be hidden text; check the page):** {'; '.join(f'[{a}] / [{b}]' for a, b in r['overlapping_lines']) or 'none'}",
                    f"- Headings dropped: {'; '.join(r['dropped_headings']) or 'none'}",
                    f"- Words rejoined across a line-end hyphen: {', '.join(r['dehyphenated']) or 'none'}",
                    f"- Suspect tokens: {', '.join(f'{t} ({why})' for t, why in flagged) or 'none'}", '']

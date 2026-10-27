@@ -35,3 +35,11 @@ def test_exam_subsets_sizes():
     ids = [f'{y}-06' for y in range(2010, 2027)] + [f'{y}-09' for y in range(2018, 2027)]
     S = exam_subsets(pd.DataFrame({'text': ids}))
     assert (len(S['all']), len(S['june']), len(S['original13'])) == (26, 17, 13)
+
+def test_sitting_rows_labels_and_direction():
+    from stats5 import sitting_rows
+    E = pd.DataFrame({'text': ['2020-06', '2021-06', '2022-06', '2020-09', '2021-09', '2022-09'],
+                      'cov5k': [97., 98, 99, 98, 99, 100], 'conc_tok': [3., 3, 3.1, 3, 3.1, 3]})
+    Z = sitting_rows(E).set_index('measure')
+    assert {'june_M', 'resit_M'} <= set(Z.columns) and not {'school_M', 'exam_M'} & set(Z.columns)
+    assert Z.loc['cov5k', 'diff'] == 1.0 and Z.loc['cov5k', 'june_M'] == 98.0

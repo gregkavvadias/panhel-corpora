@@ -1,20 +1,23 @@
 # Copy Greg-approved exam passages from staging/Panhellenics/ into Texts/Panhellenics/.
 # Every approved file is checked before anything is copied, so a conflict leaves the corpus untouched.
-import csv
+import csv, hashlib
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 
 def promote(staging, target, approvals):
-    """Copy approved files; return the ones copied. Identical targets are skipped; differing ones refuse."""
+    """Copy approved files whose content matches the approved sha256; return the ones copied.
+    Identical targets are skipped; differing ones refuse."""
     staging, target = Path(staging), Path(target)
     with Path(approvals).open(encoding='utf-8-sig', newline='') as fh:
-        approved = [r['file'] for r in csv.DictReader(fh)]
+        approved = [(r['file'], r['sha256']) for r in csv.DictReader(fh)]
     todo = []
-    for f in approved:
+    for f, sha in approved:
         src, dst = staging / f'{f}.txt', target / f'{f}.txt'
         if not src.exists():
             raise FileNotFoundError(f'{f}: approved but not in {staging}')
+        if hashlib.sha256(src.read_bytes()).hexdigest() != sha:
+            raise ValueError(f'{f}: staging content differs from the approved version (sha256); needs re-approval')
         if dst.exists():
             if dst.read_bytes() != src.read_bytes():
                 raise FileExistsError(f'{f}: {dst} exists with different content; not overwriting')

@@ -1,6 +1,7 @@
 import pytest
 from extract_exams import (style, passage_lines, is_end_marker, paragraphs, clean, apply_corrections,
-                           suspects, split_headings, write_text, extract, load_sources, PDFS, SOURCES)
+                           suspects, split_headings, write_text, extract, load_sources, PDFS, SOURCES,
+                           group_lines, overlapping_lines)
 
 def W(text, x0, top, font='GCNONE+ArialMT', size=10.0):
     return dict(text=text, x0=x0, x1=x0 + 6 * len(text), top=top, bottom=top + 10, fontname=font, size=size)
@@ -122,3 +123,25 @@ def test_dehyphenation_keeps_hyphen_in_compound_when_lexicon_says_so():
 def test_real_2025_09_superscript_ordinal_kept():
     r = extract(PDFS / '2025-09.pdf', 1)
     assert '10th graders' in ' '.join(r['paragraphs']) and r['dropped_offstyle'] == []
+
+def test_group_lines_joins_touching_words_without_space():
+    ws = [W('mid', 50, 120), W('‐', 68, 120, font='X+Calibri'), W('winter', 74.2, 120), W('next', 120, 120)]
+    assert group_lines(ws)[0]['text'] == 'mid‐winter next'
+
+def test_overlapping_lines_reported():
+    ls = [dict(L('visible one', 50, 450, 96), col=0), dict(L('u to look hidden', 50, 450, 108), col=0),
+          dict(L('visible two', 50, 450, 112), col=0)]
+    assert overlapping_lines(ls) == [('u to look hidden', 'visible two')]
+
+@real
+def test_real_2024_09_hidden_fragment_is_reported():
+    r = extract(PDFS / '2024-09.pdf', 1)
+    assert any(a.startswith('u to look at the world') for a, b in r['overlapping_lines'])
+
+@real
+def test_real_2018_09_hyphen_not_spaced():
+    assert 'mid‐winter' in ' '.join(extract(PDFS / '2018-09.pdf', 2)['paragraphs'])
+
+def test_corpus_2024_09_has_no_hidden_fragment():
+    from corpus import TEXTS_DIR
+    assert 'mediated through a screen' not in (TEXTS_DIR / 'Panhellenics' / '2024-09.txt').read_text(encoding='utf-8')
