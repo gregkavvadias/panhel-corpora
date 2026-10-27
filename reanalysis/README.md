@@ -150,4 +150,4 @@ The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-desi
 - **2025-09 superscript:** the "th" of "10th" is kept.
 - **Greg's corrections** (`data/exam_corrections.csv`): 2023-06 "schooIs" → "schools", a typo in the paper; 2019-09 "gallery-going", a spacing artefact.
 - **Characters kept as printed:** quotes, dashes and the U+2010 hyphen are kept as in each PDF, because the existing exam files already mix ASCII and typographic forms.
-- **Passage length:** the 13 new passages run 335–382 alphabetic tokens; the original 13 June texts are of similar length.
+- **Passage length:** the 13 new passages run 335–382 alphabetic tokens; the original 13 June texts run 308–376.
