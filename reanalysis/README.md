@@ -15,7 +15,7 @@ Run every script from this folder (`cd reanalysis`).
 - `data/exam_sources.csv`: download URL, source page and column layout for each new exam paper.
 - `data/EXAM_SOURCES.md`: the same sources with a SHA-256 hash of each PDF. The PDFs themselves are downloaded to `data/exam_pdfs/` and not committed.
 - `data/exam_corrections.csv`: Greg's corrections to the extracted passages, applied by `extract_exams.py`.
-- `data/exam_approvals.csv`: Greg's approval of each new passage.
+- `data/exam_approvals.csv`: Greg's approval of each new passage, with the SHA-256 hash of the approved content. `promote_exams.py` refuses any file that has changed since approval.
 - `staging/Panhellenics/`: the extracted passages before promotion; `results/exam_review.md` is the review report Greg checked.
 - `data/propn_overrides.csv`: manual corrections to proper-noun detection, from Greg's review of `results/propn_types.csv`. Each listed word is marked `proper` or `common`.
 
@@ -33,7 +33,7 @@ Run every script from this folder (`cd reanalysis`).
 | `lexical.py` | Phase 2 profile of each text: BNC/COCA word-family coverage at 1k–9k (proper nouns left out of the count; supplementary lists counted as known) and mean Brysbaert concreteness of content words, for full texts and the length-matched school texts. Also lists every word classed as a proper noun, for manual review | `results/lexical_features.csv`, `results/propn_types.csv` |
 | `stats5.py` | Phase 2 comparisons: an equivalence test (TOST) on 5k coverage with a ±2-point margin; Welch and Mann–Whitney tests with Hedges' g and bootstrap CIs; BH correction over the two primary tests; the 95% and 98% coverage thresholds | `results/lexical_comparisons.csv`, `results/lexical_tost.csv`, `results/lexical_thresholds.csv` |
 
-| `extract_exams.py` | Downloads the new exam papers and extracts the main reading passage from page 2. Only the text visible on the page is kept: words in another font, such as a hidden text layer, are excluded and reported. Two-column papers are read left column first. Paragraphs are rebuilt from the layout, and Greg's corrections are applied. Writes the review report | `staging/Panhellenics/`, `results/exam_review.md`, `data/EXAM_SOURCES.md` |
+| `extract_exams.py` | Downloads the new exam papers and extracts the main reading passage from page 2. Only the text visible on the page is kept. Words in another font, such as a hidden text layer, are excluded and reported. Lines that overlap vertically, a sign of hidden text in the body font, are also reported for removal by correction. Two-column papers are read left column first. Paragraphs are rebuilt from the layout, and Greg's corrections are applied. Writes the review report | `staging/Panhellenics/`, `results/exam_review.md`, `data/EXAM_SOURCES.md` |
 | `promote_exams.py` | Copies approved passages into `Texts/Panhellenics/`. It refuses to overwrite a file that differs | `Texts/Panhellenics/` |
 
 `stats5.py` also writes `results/lexical_subsets.csv` (the primary tests for all 26 exam texts, June-only and the original 13) and `results/lexical_sitting.csv` (June vs resit).
@@ -103,17 +103,17 @@ The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-desi
 ### Primary results: 28 coursebook vs 26 exam texts
 
 - **5k coverage: equivalent within ±2 points.**
-  - Exam 98.21%, coursebooks 97.80%: a difference of +0.41, 90% CI [−0.08, 0.89].
+  - Exam 98.20%, coursebooks 97.80%: a difference of +0.40, 90% CI [−0.08, 0.89].
   - Equivalence test: p < .001 for both one-sided tests (Welch df = 48.4).
   - Difference test: g = 0.38, 95% CI [−0.15, 1.05], Welch p = .17, BH-corrected p = .17.
 - **The length-matched check agrees on equivalence:** +0.59, 90% CI [0.07, 1.11], equivalence p < .001.
   - Here the CI excludes 0. So once length is matched, the exam texts have slightly *higher* 5k coverage, by under 1.2 points.
 - **Concreteness: exam texts are clearly more abstract.**
-  - 2.91 vs 3.14; g = −1.18, 95% CI [−1.89, −0.65], Welch p = .00005, BH-corrected p = .0001.
+  - 2.91 vs 3.14; g = −1.19, 95% CI [−1.90, −0.67], Welch p = .00005, BH-corrected p = .0001.
   - The robustness checks agree:
-    - length-matched: g = −1.25;
-    - type-weighted: g = −1.14;
-    - 5k coverage from the band lists only: g = 0.34, p = .22;
+    - length-matched: g = −1.26;
+    - type-weighted: g = −1.15;
+    - 5k coverage from the band lists only: g = 0.34, p = .21;
     - 5k coverage with proper nouns counted as known: g = 0.27, p = .32.
 - **Thresholds (group means):** the exam texts reach 95% coverage at 3k and 98% at 5k. The coursebooks reach 95% at 4k and 98% at 6k.
   - Text by text: at 6k, 18 of 26 exam texts reach 98%. At 5k, 25 of 26 reach 95%; the exception is 2016-06, at 94.4%.
@@ -122,7 +122,7 @@ The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-desi
 
 | Exam texts | n | 5k diff [90% CI] | Equivalent ±2 | Concreteness g [95% CI] | BH p |
 |---|---|---|---|---|---|
-| All | 26 | +0.41 [−0.08, 0.89] | yes | −1.18 [−1.89, −0.65] | .0001 |
+| All | 26 | +0.40 [−0.08, 0.89] | yes | −1.19 [−1.90, −0.67] | .0001 |
 | June only | 17 | +0.22 [−0.37, 0.80] | yes | −1.09 [−1.82, −0.54] | .0007 |
 | Original 13 (June 2010–2022) | 13 | +0.16 [−0.51, 0.83] | yes | −1.00 [−1.75, −0.42] | .005 |
 
@@ -130,8 +130,8 @@ The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-desi
 
 ### June vs resit (`results/lexical_sitting.csv`; resit − June; descriptive)
 
-- 5k coverage: +0.54 points, g = 0.45, 95% CI [−0.31, 1.24], p = .24.
-- Concreteness: g = −0.04 [−0.75, 0.75], p = .91.
+- 5k coverage: +0.54 points, g = 0.45, 95% CI [−0.32, 1.24], p = .25.
+- Concreteness: g = −0.08 [−0.79, 0.71], p = .82.
 - No clear difference between the sittings, but with 9 resit texts the CIs are wide. The June-only results above show that pooling the sittings does not drive any conclusion.
 
 ### Token accounting (mean % of tokens, 26 exam vs 28 coursebook texts)
@@ -139,15 +139,18 @@ The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-desi
 | | Exam | Coursebook |
 |---|---|---|
 | Proper nouns | 1.12 | 6.43 |
-| Supplementary lists | 0.75 | 0.78 |
+| Supplementary lists | 0.74 | 0.78 |
 | Off-list | 0.25 | 0.20 |
-| Excluded non-alphabetic tokens containing letters | 1.47 | 1.21 |
+| Excluded non-alphabetic tokens containing letters | 1.54 | 1.21 |
 
 ### Extraction notes
 
-- **2024-09 hidden text:** the PDF carries a hidden older draft of the last paragraph (about 100 words in a different font). It was excluded; only the visible passage is used.
+- **2024-09 hidden text:** the PDF carries two hidden layers, and both are excluded.
+  - An older draft of the last paragraph, about 100 words in a different font, removed by the font filter.
+  - A fragment of the 2023-09 passage in the body font (*"u to look at the world — one not mediated through a screen…"*). The extractor reports it as overlapping lines, and it is removed by a recorded correction after a visual check. The final code review caught it after the first promotion; the corrected file was re-approved.
 - **Two-column resits:** 2018-09, 2019-09 and 2020-09 are set in two columns and were read left column first.
 - **2025-09 superscript:** the "th" of "10th" is kept.
-- **Greg's corrections** (`data/exam_corrections.csv`): 2023-06 "schooIs" → "schools", a typo in the paper; 2019-09 "gallery-going", a spacing artefact.
+- **Corrections** (`data/exam_corrections.csv`): 2023-06 "schooIs" → "schools", a typo in the paper; and the 2024-09 hidden fragment.
+- **Words split by a font change:** where a word is split at a U+2010 hyphen set in another font, the pieces are joined without a space ("mid‐winter", "gallery‐going").
 - **Characters kept as printed:** quotes, dashes and the U+2010 hyphen are kept as in each PDF, because the existing exam files already mix ASCII and typographic forms.
 - **Passage length:** the 13 new passages run 335–382 alphabetic tokens; the original 13 June texts run 308–376.
