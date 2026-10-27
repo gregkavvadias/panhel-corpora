@@ -1,6 +1,8 @@
 # Reanalysis (2026)
 
-A reanalysis of the MA thesis data (Kavvadias, 2023, Hellenic Open University), comparing reading texts in the Greek state high-school English coursebooks (*English 1*, *English 2*; n = 28) with the Panhellenic English reading texts (2010–2022; n = 13).
+A reanalysis of the MA thesis data (Kavvadias, 2023, Hellenic Open University), comparing reading texts in the Greek state high-school English coursebooks (*English 1*, *English 2*; n = 28) with the Panhellenic English reading texts. The exam corpus originally held the 13 June papers of 2010–2022. Phase 3 extended it to **26** texts: 17 June papers (2010–2026) and 9 September resit papers (2018–2026).
+- **Diaspora (ομογενείς) papers are excluded.** They are a separate exam for a different group of candidates, widely believed to be easier.
+- **Coh-Metrix analyses stay at 13 exam texts.** The Phase 1 Coh-Metrix analyses and `features.py`/`stats4.py` still cover the original 13 only; part 2 of Phase 3 replaces them with open measures on all texts.
 
 Run every script from this folder (`cd reanalysis`).
 
@@ -10,6 +12,11 @@ Run every script from this folder (`cd reanalysis`).
   - In Appendix A, CRFSOa and LSASSp are rounded to one decimal place, so results for those two indices are approximate.
   - Appendix A has a WRDPRO (pronoun) column, while Appendices B–D report WRDPOLc (polysemy), so polysemy can't be reproduced from this file.
 - `data/bnc_coca/` and `data/brysbaert_concreteness.xlsx`: the BNC/COCA word-family lists (basewords 1.3.0) and the Brysbaert et al. (2014) concreteness norms. Both are downloaded by `python fetch_resources.py` and are not committed. Their sources, versions and citations are in `data/SOURCES.md`.
+- `data/exam_sources.csv`: download URL, source page and column layout for each new exam paper.
+- `data/EXAM_SOURCES.md`: the same sources with a SHA-256 hash of each PDF. The PDFs themselves are downloaded to `data/exam_pdfs/` and not committed.
+- `data/exam_corrections.csv`: Greg's corrections to the extracted passages, applied by `extract_exams.py`.
+- `data/exam_approvals.csv`: Greg's approval of each new passage.
+- `staging/Panhellenics/`: the extracted passages before promotion; `results/exam_review.md` is the review report Greg checked.
 - `data/propn_overrides.csv`: manual corrections to proper-noun detection, from Greg's review of `results/propn_types.csv`. Each listed word is marked `proper` or `common`.
 
 ## Scripts
@@ -26,6 +33,11 @@ Run every script from this folder (`cd reanalysis`).
 | `lexical.py` | Phase 2 profile of each text: BNC/COCA word-family coverage at 1k–9k (proper nouns left out of the count; supplementary lists counted as known) and mean Brysbaert concreteness of content words, for full texts and the length-matched school texts. Also lists every word classed as a proper noun, for manual review | `results/lexical_features.csv`, `results/propn_types.csv` |
 | `stats5.py` | Phase 2 comparisons: an equivalence test (TOST) on 5k coverage with a ±2-point margin; Welch and Mann–Whitney tests with Hedges' g and bootstrap CIs; BH correction over the two primary tests; the 95% and 98% coverage thresholds | `results/lexical_comparisons.csv`, `results/lexical_tost.csv`, `results/lexical_thresholds.csv` |
 
+| `extract_exams.py` | Downloads the new exam papers and extracts the main reading passage from page 2. Only the text visible on the page is kept: words in another font, such as a hidden text layer, are excluded and reported. Two-column papers are read left column first. Paragraphs are rebuilt from the layout, and Greg's corrections are applied. Writes the review report | `staging/Panhellenics/`, `results/exam_review.md`, `data/EXAM_SOURCES.md` |
+| `promote_exams.py` | Copies approved passages into `Texts/Panhellenics/`. It refuses to overwrite a file that differs | `Texts/Panhellenics/` |
+
+`stats5.py` also writes `results/lexical_subsets.csv` (the primary tests for all 26 exam texts, June-only and the original 13) and `results/lexical_sitting.csv` (June vs resit).
+
 `corpus.py` (text loading, length-matching window) and `effects.py` (Hedges' g, bootstrap CI) are shared helpers. Tests: `python -m pytest tests`.
 
 ## Main findings
@@ -40,6 +52,8 @@ Run every script from this folder (`cd reanalysis`).
 Caveat: coverage is calculated from wordfreq word-form lists, not BNC/COCA word families, so treat it as indicative. Phase 2 (below) replaces it.
 
 ## Phase 2: lexical measures
+
+*The figures in this section are the original pre-specified run on 13 exam texts, as published in commit `ee0280e`. Since Phase 3, `results/lexical_comparisons.csv`, `lexical_tost.csv` and `lexical_thresholds.csv` hold the 26-text results. The 13-text primary figures are reproduced exactly in the `original13` rows of `results/lexical_subsets.csv`.*
 
 The design is in `docs/superpowers/specs/2026-10-23-phase2-lexical-design.md`. The analysis choices were fixed before any results were seen:
 - **Primary comparisons:** 5k coverage and token-weighted concreteness, on the full texts.
@@ -81,3 +95,59 @@ Differences are exam − school.
   - **Ceiling effect:** word-family coverage is near the ceiling for every text (5k range 94.4–100%). It correlates only weakly with the Phase 1 word-form coverage (ρ = .35, before the proper-noun review).
 
 **Scope rationale (draft for the paper's methods):** Lexical difficulty was operationalised with two well-established, openly available resources that answer the research question directly. The first is text coverage by BNC/COCA word-family frequency bands (Nation, 2017), which links directly to established comprehension thresholds (Hu & Nation, 2000; Laufer & Ravenhorst-Kalovski, 2010). The second is word concreteness ratings (Brysbaert et al., 2014). Broader multi-index tools (e.g. TAALES) were not used, because with 41 texts, adding many correlated indices would raise the multiple-comparison burden without sharpening the test of the central claim.
+
+## Phase 3: extended exam corpus (26 texts)
+
+The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-design.md`. Thirteen exam passages were added: June 2023–2026 and the September resits of 2018–2026. Each was extracted from the official paper PDF and checked by Greg against the page before entering the corpus. The Phase 2 settings are unchanged: 5k coverage with a ±2-point equivalence margin, token-weighted concreteness, full texts as primary, and BH correction over the two primary tests. Differences are exam − school.
+
+### Primary results: 28 coursebook vs 26 exam texts
+
+- **5k coverage: equivalent within ±2 points.**
+  - Exam 98.21%, coursebooks 97.80%: a difference of +0.41, 90% CI [−0.08, 0.89].
+  - Equivalence test: p < .001 for both one-sided tests (Welch df = 48.4).
+  - Difference test: g = 0.38, 95% CI [−0.15, 1.05], Welch p = .17, BH-corrected p = .17.
+- **The length-matched check agrees on equivalence:** +0.59, 90% CI [0.07, 1.11], equivalence p < .001.
+  - Here the CI excludes 0. So once length is matched, the exam texts have slightly *higher* 5k coverage, by under 1.2 points.
+- **Concreteness: exam texts are clearly more abstract.**
+  - 2.91 vs 3.14; g = −1.18, 95% CI [−1.89, −0.65], Welch p = .00005, BH-corrected p = .0001.
+  - The robustness checks agree:
+    - length-matched: g = −1.25;
+    - type-weighted: g = −1.14;
+    - 5k coverage from the band lists only: g = 0.34, p = .22;
+    - 5k coverage with proper nouns counted as known: g = 0.27, p = .32.
+- **Thresholds (group means):** the exam texts reach 95% coverage at 3k and 98% at 5k. The coursebooks reach 95% at 4k and 98% at 6k.
+  - Text by text: at 6k, 18 of 26 exam texts reach 98%. At 5k, 25 of 26 reach 95%; the exception is 2016-06, at 94.4%.
+
+### The same tests on subsets of the exam texts (`results/lexical_subsets.csv`)
+
+| Exam texts | n | 5k diff [90% CI] | Equivalent ±2 | Concreteness g [95% CI] | BH p |
+|---|---|---|---|---|---|
+| All | 26 | +0.41 [−0.08, 0.89] | yes | −1.18 [−1.89, −0.65] | .0001 |
+| June only | 17 | +0.22 [−0.37, 0.80] | yes | −1.09 [−1.82, −0.54] | .0007 |
+| Original 13 (June 2010–2022) | 13 | +0.16 [−0.51, 0.83] | yes | −1.00 [−1.75, −0.42] | .005 |
+
+**The conclusions agree across all three subsets.** The original-13 row reproduces the published Phase 2 figures exactly, so the new proper-noun override (*hygge*) did not change them.
+
+### June vs resit (`results/lexical_sitting.csv`; resit − June; descriptive)
+
+- 5k coverage: +0.54 points, g = 0.45, 95% CI [−0.31, 1.24], p = .24.
+- Concreteness: g = −0.04 [−0.75, 0.75], p = .91.
+- No clear difference between the sittings, but with 9 resit texts the CIs are wide. The June-only results above show that pooling the sittings does not drive any conclusion.
+
+### Token accounting (mean % of tokens, 26 exam vs 28 coursebook texts)
+
+| | Exam | Coursebook |
+|---|---|---|
+| Proper nouns | 1.12 | 6.43 |
+| Supplementary lists | 0.75 | 0.78 |
+| Off-list | 0.25 | 0.20 |
+| Excluded non-alphabetic tokens containing letters | 1.47 | 1.21 |
+
+### Extraction notes
+
+- **2024-09 hidden text:** the PDF carries a hidden older draft of the last paragraph (about 100 words in a different font). It was excluded; only the visible passage is used.
+- **Two-column resits:** 2018-09, 2019-09 and 2020-09 are set in two columns and were read left column first.
+- **2025-09 superscript:** the "th" of "10th" is kept.
+- **Greg's corrections** (`data/exam_corrections.csv`): 2023-06 "schooIs" → "schools", a typo in the paper; 2019-09 "gallery-going", a spacing artefact.
+- **Characters kept as printed:** quotes, dashes and the U+2010 hyphen are kept as in each PDF, because the existing exam files already mix ASCII and typographic forms.
+- **Passage length:** the 13 new passages run 335–382 alphabetic tokens; the original 13 June texts are of similar length.
