@@ -78,3 +78,83 @@ def syntax(doc):
         neg_inc=inc(sum(t.dep_ == 'neg' for t in doc)),
         gerund_inc=inc(sum(t.tag_ == 'VBG' and not any(c.dep_ == 'aux' for c in t.children) for t in doc)),
         inf_inc=inc(sum(t.tag_ == 'TO' and t.head.tag_ == 'VB' for t in doc)))
+
+# ---- cohesion ----
+
+def _pairs(sents, score):
+    """Mean of score(a, b) over adjacent sentence pairs, skipping pairs scored None; (mean, percent skipped)."""
+    pairs = list(zip(sents, sents[1:]))
+    vals = [v for v in (score(a, b) for a, b in pairs) if v is not None]
+    skipped = 100 * (len(pairs) - len(vals)) / len(pairs) if pairs else NAN
+    return (sum(vals) / len(vals) if vals else NAN), skipped
+
+def cwo_adj(sents, is_content):
+    """Content-word overlap of adjacent sentences: content tokens of A and B whose lower-cased lemma occurs in
+    both sentences, divided by all content tokens of A and B. Pairs with an empty side are skipped."""
+    def score(a, b):
+        ca, cb = [t for t in a if is_content(t)], [t for t in b if is_content(t)]
+        if not ca or not cb:
+            return None
+        shared = {t.lemma_.lower() for t in ca} & {t.lemma_.lower() for t in cb}
+        return sum(t.lemma_.lower() in shared for t in ca + cb) / (len(ca) + len(cb))
+    return _pairs(sents, score)
+
+def semantic_overlap(sents, is_content, vec):
+    """Cosine between the mean word vectors of adjacent sentences' content lemmas (vec(lemma) -> array or None)."""
+    import numpy as np
+    def mean_vec(s):
+        vs = [v for v in (vec(t.lemma_.lower()) for t in s if is_content(t)) if v is not None]
+        return np.mean(vs, axis=0) if vs else None
+    means = [mean_vec(s) for s in sents]
+    def score(a, b):
+        if a is None or b is None:
+            return None
+        na, nb = np.linalg.norm(a), np.linalg.norm(b)
+        return float(a @ b / (na * nb)) if na and nb else None
+    return _pairs(means, score)
+
+TAACO_NAMES = {'causal': 'all_causal', 'connective': 'all_connective',
+               'connective_ngram': 'all_connective_ngram', 'basic': 'basic_connectives'}
+
+def load_taaco(path):
+    """Connective word lists from TAACO's source (string literals split on tabs); the code itself is not run."""
+    import re
+    src = Path(path).read_text(encoding='utf-8')
+    out = {}
+    for key, name in TAACO_NAMES.items():
+        m = re.search(rf'^\s*{name} = "([^"]*)"\.split\(', src, re.M)
+        if not m:
+            raise ValueError(f'{name} not found in {path}')
+        out[key] = [w for w in m.group(1).replace('\\t', '\t').split('\t') if w]
+    return out
+
+def _count(words, items):
+    """Occurrences of list items in the word sequence; multiword items first (longest, non-overlapping)."""
+    used, n = [False] * len(words), 0
+    for item in sorted({tuple(i.split()) for i in items}, key=len, reverse=True):
+        k = len(item)
+        for i in range(len(words) - k + 1):
+            if not any(used[i:i + k]) and tuple(words[i:i + k]) == item:
+                used[i:i + k] = [True] * k; n += 1
+    return n
+
+def connectives(tokens, lists):
+    """All and causal connectives per 1,000 alphabetic tokens (TAACO lists; caveat lists not counted)."""
+    words = [t.text.lower() for t in tokens if t.is_alpha]
+    if not words:
+        return {'conn_inc': NAN, 'causal_inc': NAN}
+    conn = _count(words, lists['connective_ngram'] + lists['connective'] + lists['basic'])
+    return {'conn_inc': 1000 * conn / len(words), 'causal_inc': 1000 * _count(words, lists['causal']) / len(words)}
+
+# ---- readability (same formulas and syllable counter as features.py) ----
+
+def readability(doc):
+    import pyphen
+    dic = pyphen.Pyphen(lang='en_US')
+    words = [t.text.lower() for t in doc if t.is_alpha]
+    n_sents = sum(1 for s in doc.sents if any(t.is_alpha for t in s))
+    if not words or not n_sents:
+        return {'fre': NAN, 'fkgl': NAN}
+    wps = len(words) / n_sents
+    spw = sum(max(1, len(dic.positions(w)) + 1) for w in words) / len(words)
+    return {'fre': 206.835 - 1.015 * wps - 84.6 * spw, 'fkgl': 0.39 * wps + 11.8 * spw - 15.59}

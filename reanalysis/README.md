@@ -154,3 +154,76 @@ The design is in `docs/superpowers/specs/2026-10-27-phase3-corpus-extension-desi
 - **Words split by a font change:** where a word is split at a U+2010 hyphen set in another font, the pieces are joined without a space ("mid‐winter", "gallery‐going").
 - **Characters kept as printed:** quotes, dashes and the U+2010 hyphen are kept as in each PDF, because the existing exam files already mix ASCII and typographic forms.
 - **Passage length:** the 13 new passages run 335–382 alphabetic tokens; the original 13 June texts run 308–376.
+
+## Phase 3 part 2: definitions (frozen before any corpus run)
+
+The design is in `docs/superpowers/specs/2026-10-27-phase3-open-measures-design.md`. These definitions were committed before `difficulty.py` was run on any corpus text.
+
+After the freeze, a rule may change only to fix a bug, meaning the code does not do what is written here. Every such change is listed under "Post-freeze changes" with its before and after values.
+
+### Corpus and text versions
+
+- **Corpus:** 27 coursebook texts and 26 exam texts. English 2 unit-4-1 is excluded as a formatting exercise (`data/excluded_texts.csv`). `**` markdown is removed from every text.
+- **Two text versions:**
+  - **Vocabulary measures** use the full text.
+  - **Syntax, cohesion and readability measures** use the *heading-free* text: the title and subheading lines in `data/heading_lines.csv` (16 lines in 10 coursebook files) are removed first, because headings parse as sentences and noun phrases.
+- **Length-matched version (`first360`):** whole sentences from the start of the heading-free text until at least 360 alphabetic tokens. All measures are recomputed on it.
+- **Parser:** spaCy `en_core_web_sm` 3.8.0. Sentences are spaCy sentences containing at least one alphabetic token.
+- **Content tokens:** alphabetic tokens tagged NOUN, VERB, ADJ or ADV that `lexical.classify` does not mark as proper nouns. That means Nation's proper-noun list (list 31) plus `data/propn_overrides.csv`, as in Phase 2.
+
+### Measures (`results/difficulty_features.csv`)
+
+**Vocabulary**
+
+| Column | Definition |
+|---|---|
+| `imag`, `fam` | Token-weighted mean Glasgow Norms imageability and familiarity (1–7) of content tokens, matched by lower-cased lemma. Sense-tagged and multiword norm entries are ignored. |
+| `imag_cov`, `fam_cov` | Percent of content tokens matched in the norms. |
+| `mtld`, `hdd` | MTLD and HD-D (`lexical-diversity` package) on lower-cased alphabetic tokens. HD-D stands in for VOCD-D. |
+
+**Syntax**
+
+| Column | Definition |
+|---|---|
+| `n_clauses` | Count of finite-clause heads (see below). |
+| `mlc` | Alphabetic tokens ÷ finite clauses; NaN if there are no clauses. **Primary.** |
+| `clauses_per_sent`, `mean_sent_len` | Clauses ÷ sentences; alphabetic tokens ÷ sentences. |
+| `passive_inc` | `auxpass` dependencies. |
+| `np_inc` | spaCy noun chunks. |
+| `vp_inc` | Tokens tagged VERB. |
+| `adjp_inc` | Tokens tagged ADJ. |
+| `pp_inc` | `prep` dependencies. |
+| `neg_inc` | `neg` dependencies. |
+| `gerund_inc` | VBG tokens without an `aux` child. |
+| `inf_inc` | TO tokens whose head is tagged VB. |
+
+All incidences (`_inc`) are per 1,000 alphabetic tokens.
+
+A token is a **finite-clause head** if all three conditions hold:
+1. It is a verb or auxiliary.
+2. Its dependency is `ROOT`, `ccomp`, `advcl`, `relcl`, `csubj` or `acl`, or it is a `conj` with its own `nsubj`/`nsubjpass`.
+3. It is finite: its tag, or the tag of one of its `aux`/`auxpass` children, is VBD, VBP, VBZ or MD. An imperative `ROOT` verb (tag VB) also counts.
+
+This follows Lu's (2010) clause definition as closely as the parser allows.
+
+**Cohesion**
+
+| Column | Definition |
+|---|---|
+| `cwo_adj` | For each pair of adjacent sentences A and B: the content tokens of A and B whose lower-cased lemma occurs in both sentences, divided by all content tokens of A and B. The text score is the mean over pairs. Pairs where either sentence has no content token are skipped. **Primary.** |
+| `cwo_skipped` | Percent of adjacent pairs skipped in `cwo_adj`. |
+| `sem_overlap`, `sem_skipped` | Cosine between the mean `en_core_web_md` 3.8.0 vectors of adjacent sentences' content lemmas. Lemmas without a vector are ignored, and pairs without a vector on either side are skipped. Replaces LSA. |
+| `conn_inc` | Connectives per 1,000 alphabetic tokens: TAACO's `all_connective`, `all_connective_ngram` and `basic_connectives` lists, matched on lower-cased words. Multiword items are matched first, longest first, without overlap. |
+| `causal_inc` | The same for TAACO's `all_causal` list. |
+
+TAACO's "caveat" items (*since*, *after*, *before*, …), which need context to decide, are not counted.
+
+**Readability**
+
+| Column | Definition |
+|---|---|
+| `fre`, `fkgl` | Flesch Reading Ease and Flesch–Kincaid Grade Level, with the `features.py` formulas and the pyphen syllable counter. |
+
+### Post-freeze changes
+
+None yet.

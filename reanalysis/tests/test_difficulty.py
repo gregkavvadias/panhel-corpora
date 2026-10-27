@@ -1,7 +1,8 @@
 import math
 from collections import namedtuple
 import pytest
-from difficulty import load_glasgow, content_tokens, norm_mean, syntax
+from difficulty import (load_glasgow, content_tokens, norm_mean, syntax, cwo_adj, semantic_overlap, load_taaco,
+                        connectives, readability)
 
 Tok = namedtuple('Tok', 'text lemma_ pos_ is_alpha')
 
@@ -48,3 +49,35 @@ def test_mlc_no_clause_sentence_and_nan(nlp):
 def test_passive_and_negation_incidence(nlp):
     s = syntax(nlp('The letter was not written by him.'))
     assert s['passive_inc'] == pytest.approx(1000 / 7) and s['neg_inc'] == pytest.approx(1000 / 7)
+
+def test_cwo_adj_formula():
+    A = [Tok('dogs', 'dog', 'NOUN', True), Tok('run', 'run', 'VERB', True)]
+    B = [Tok('dog', 'dog', 'NOUN', True), Tok('sleeps', 'sleep', 'VERB', True), Tok('well', 'well', 'ADV', True)]
+    C = [Tok('Yes', 'yes', 'INTJ', True)]
+    score, skipped = cwo_adj([A, B, C], lambda t: t.pos_ in {'NOUN', 'VERB', 'ADV'})
+    assert score == pytest.approx(2 / 5) and skipped == 50.0
+
+def test_semantic_overlap_skips_unvectored():
+    import numpy as np
+    vecs = {'dog': np.array([1.0, 0]), 'cat': np.array([1.0, 0])}
+    A, B, C = [Tok('dog', 'dog', 'NOUN', True)], [Tok('cat', 'cat', 'NOUN', True)], [Tok('zqx', 'zqx', 'NOUN', True)]
+    assert semantic_overlap([A, B, C], lambda t: True, vecs.get) == (pytest.approx(1.0), 50.0)
+
+def test_connectives_ngrams_counted_once():
+    lists = {'connective': ['in', 'addition', 'however'], 'connective_ngram': ['in addition'], 'basic': ['and'],
+             'causal': ['because', 'due to']}
+    toks = [Tok(w, w, 'X', True) for w in 'in addition he left and however due to rain because'.split()]
+    r = connectives(toks, lists)
+    assert r['conn_inc'] == pytest.approx(1000 * 3 / 10)      # in addition, and, however
+    assert r['causal_inc'] == pytest.approx(1000 * 2 / 10)    # due to, because
+
+def test_load_taaco_parses_literals(tmp_path):
+    p = tmp_path / 't.py'
+    p.write_text('\t\tall_causal = "because\\tdue to".split("\\t")\n\t\tall_connective = "and\\tbut".split("\\t")\n'
+                 '\t\tall_connective_ngram = "in fact".split("\\t")\n\t\tbasic_connectives = "and\\tor".split("\\t")\n')
+    assert load_taaco(p) == {'causal': ['because', 'due to'], 'connective': ['and', 'but'],
+                             'connective_ngram': ['in fact'], 'basic': ['and', 'or']}
+
+def test_readability_matches_features_formula(nlp):
+    r = readability(nlp('The cat sat. It was happy.'))
+    assert r['fre'] == pytest.approx(206.835 - 1.015 * 3 - 84.6 * (7 / 6), abs=1e-6)
