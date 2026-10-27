@@ -8,7 +8,7 @@
 
 The paper needs a table comparing coursebook and exam texts on **text difficulty**. Greg wants it to cover the variables of the original thesis, adjusted to what research says matters for difficulty.
 
-Coh-Metrix values exist only for the original 41 texts, and they come from a web service that nobody can rerun exactly. So the table is rebuilt with **open, reproducible measures computed on all 53 texts** (27 coursebook after excluding one exercise, 26 exam). On the original 41 texts, the thesis's Coh-Metrix values become a **validation check** for the new measures.
+Coh-Metrix values exist only for the original 41 texts, and they come from a web service that nobody can rerun exactly. So the table is rebuilt with **open, reproducible measures computed on all 53 texts** (27 coursebook after excluding one exercise, 26 exam). On the 40 original texts that remain, the thesis's Coh-Metrix values become a **validation check** for the new measures.
 
 **Framework.** Graesser, McNamara & Kulikowich (2011) describe five dimensions of text difficulty: word concreteness, syntactic simplicity, referential cohesion, deep cohesion and narrativity. The Coh-Metrix L2 readability index (Crossley, Greenfield & McNamara, 2008) combines word frequency, syntactic similarity and content-word overlap. The table is organised by dimension:
 - vocabulary;
