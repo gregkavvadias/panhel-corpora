@@ -78,6 +78,11 @@ def test_load_taaco_parses_literals(tmp_path):
     assert load_taaco(p) == {'causal': ['because', 'due to'], 'connective': ['and', 'but'],
                              'connective_ngram': ['in fact'], 'basic': ['and', 'or']}
 
+def test_lexdiv_returns_mtld_and_hdd(nlp):
+    from difficulty import lexdiv
+    r = lexdiv(nlp('The cat sat on the mat and the dog sat on the log near the cat and the hat. ' * 3))
+    assert set(r) == {'mtld', 'hdd'} and r['mtld'] > 0 and 0 < r['hdd'] <= 1
+
 def test_readability_matches_features_formula(nlp):
     r = readability(nlp('The cat sat. It was happy.'))
     assert r['fre'] == pytest.approx(206.835 - 1.015 * 3 - 84.6 * (7 / 6), abs=1e-6)

@@ -9,4 +9,5 @@ wordfreq
 lexical-diversity
 openpyxl
 pytest
-# plus: python -m spacy download en_core_web_sm
+setuptools<81  # lexical-diversity imports pkg_resources
+# plus: python -m spacy download en_core_web_sm  (and en_core_web_md 3.8.0 for word vectors)

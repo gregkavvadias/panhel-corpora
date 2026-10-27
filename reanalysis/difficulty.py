@@ -158,3 +158,50 @@ def readability(doc):
     wps = len(words) / n_sents
     spw = sum(max(1, len(dic.positions(w)) + 1) for w in words) / len(words)
     return {'fre': 206.835 - 1.015 * wps - 84.6 * spw, 'fkgl': 0.39 * wps + 11.8 * spw - 15.59}
+
+# ---- corpus run ----
+
+def measures(doc_full, doc_hf, families, overrides, glasgow, lists, vec):
+    """All difficulty measures for one text: vocabulary from doc_full, the rest from the heading-free doc_hf."""
+    is_content = lambda t: t.is_alpha and t.pos_ in CONTENT_POS and \
+        classify(t.text, t.lemma_, t.pos_, families, overrides)[0] != 'propn'
+    content = content_tokens(doc_full, families, overrides)
+    imag, imag_cov = norm_mean(content, glasgow, 'imag')
+    fam, fam_cov = norm_mean(content, glasgow, 'fam')
+    sents = [list(s) for s in doc_hf.sents if any(t.is_alpha for t in s)]
+    cwo, cwo_skipped = cwo_adj(sents, is_content)
+    sem, sem_skipped = semantic_overlap(sents, is_content, vec)
+    return dict(imag=imag, imag_cov=imag_cov, fam=fam, fam_cov=fam_cov, **lexdiv(doc_full), **syntax(doc_hf),
+                cwo_adj=cwo, cwo_skipped=cwo_skipped, sem_overlap=sem, sem_skipped=sem_skipped,
+                **connectives(doc_hf, lists), **readability(doc_hf))
+
+def main():
+    import spacy, pandas as pd
+    from lexical import load_families, load_overrides
+    from corpus import iter_texts, load_headings, remove_headings, window, is_exam
+    here = Path(__file__).resolve().parent
+    families = load_families(here / 'data' / 'bnc_coca')
+    overrides = load_overrides(here / 'data' / 'propn_overrides.csv')
+    glasgow = load_glasgow(here / 'data' / 'glasgow_norms.csv')
+    lists = load_taaco(here / 'data' / 'taaco' / 'TAACOnoGUI.py')
+    nlp, md = spacy.load('en_core_web_sm'), spacy.load('en_core_web_md')
+    vec = lambda w: md.vocab[w].vector if md.vocab.has_vector(w) else None
+    headings = load_headings()
+    rows = []
+    for book, text, raw in iter_texts():
+        doc = nlp(raw)
+        doc_hf = nlp(remove_headings(raw, headings.get((book, text), set())))
+        rows.append(dict(book=book, text=text, version='full',
+                         **measures(doc, doc_hf, families, overrides, glasgow, lists, vec)))
+        if not is_exam(book):
+            d = nlp(window(doc_hf))
+            rows.append(dict(book=book, text=text, version='first360',
+                             **measures(d, d, families, overrides, glasgow, lists, vec)))
+    F = pd.DataFrame(rows)
+    F.to_csv(here / 'results' / 'difficulty_features.csv', index=False)
+    show = ['mlc', 'cwo_adj', 'mean_sent_len', 'imag', 'imag_cov', 'sem_overlap', 'conn_inc', 'fre']
+    print(F.assign(group=F.book.map(lambda b: 'exam' if is_exam(b) else 'school'))
+           .groupby(['group', 'version'])[show].mean().round(3).T)
+
+if __name__ == '__main__':
+    main()
