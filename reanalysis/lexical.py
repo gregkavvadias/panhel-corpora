@@ -17,6 +17,8 @@ def load_families(dirpath):
             if line.strip():
                 form = line.split()[0].lower()
                 index[form] = min(n, index.get(form, n))
+    if not index:
+        raise FileNotFoundError(f'no basewrd*.txt lists in {dirpath}; run python fetch_resources.py')
     return index
 
 def load_norms(path):
@@ -31,11 +33,18 @@ def load_overrides(path):
     if not path.exists():
         return {}
     out = {}
-    with path.open(encoding='utf-8', newline='') as fh:
-        for row in csv.DictReader(fh):
-            t, label = row['type'].strip().lower(), row['label'].strip().lower()
+    with path.open(encoding='utf-8-sig', newline='') as fh:  # -sig: Excel's "CSV UTF-8" adds a BOM
+        reader = csv.DictReader(fh)
+        if reader.fieldnames is None or not {'type', 'label'} <= set(reader.fieldnames):
+            raise ValueError(f'{path}: header must be type,label (got {reader.fieldnames})')
+        for line, row in enumerate(reader, start=2):
+            t, label = (row['type'] or '').strip().lower(), (row['label'] or '').strip().lower()
+            if not t:
+                raise ValueError(f'{path} line {line}: empty type')
             if label not in ('proper', 'common'):
-                raise ValueError(f'propn override for {t!r}: label must be proper or common, got {label!r}')
+                raise ValueError(f'{path} line {line}: label for {t!r} must be proper or common, got {label!r}')
+            if out.get(t, label) != label:
+                raise ValueError(f'{path} line {line}: {t!r} already labelled {out[t]!r}')
             out[t] = label
     return out
 
@@ -64,9 +73,10 @@ def _pct(num, den):
 def profile(tokens, families, norms, overrides):
     """Coverage (percent) and concreteness for one text; also the (form, reason) of every proper-noun token."""
     bands, n_supp, n_propn, n_off, hits, conc, n_content = [], 0, 0, 0, [], [], 0
-    n = 0
+    n = n_excl = 0
     for t in tokens:
         if not t.is_alpha:
+            n_excl += any(c.isalpha() for c in t.text)  # clitics ('s, n't), U.S., words glued to punctuation
             continue
         n += 1
         cat, lst, reason = classify(t.text, t.lemma_, t.pos_, families, overrides)
@@ -81,7 +91,8 @@ def profile(tokens, families, norms, overrides):
             if lemma in norms: conc.append((lemma, norms[lemma]))
     known = n - n_propn
     upto = lambda k: sum(b <= k for b in bands)
-    row = dict(n_tokens=n, n_propn=n_propn, n_supp=n_supp, n_offlist=n_off)
+    row = dict(n_tokens=n, n_propn=n_propn, n_supp=n_supp, n_offlist=n_off, n_excluded=n_excl,
+               excluded_alpha_pct=_pct(n_excl, n + n_excl))
     for k in range(1, 10):
         row[f'cov{k}k'] = _pct(upto(k) + n_supp, known)
     row['cov5k_base_only'] = _pct(upto(5), known)

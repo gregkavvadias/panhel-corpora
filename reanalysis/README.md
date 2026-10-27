@@ -33,7 +33,7 @@ Run every script from this folder (`cd reanalysis`).
 - **9 of the thesis's 14 significant differences survive BH correction.** Three of those are just text length (paragraph, sentence and word counts). The other six survive: the exam texts are lower in concreteness, imageability and meaningfulness, have fewer passives, longer sentences and fewer causal verbs and particles.
 - **The readability formulas (FRE, FKGL, RDL2) show no difference, but the study is underpowered.** With 28 vs 13 texts, the minimum detectable effect is g ≈ 0.96. For RDL2, g = 0.29 with a 95% CI of [−0.34, 1.01], so the data can't show the groups are equivalent either.
 - **The coursebooks' higher WRDNOUN comes entirely from proper nouns** (83 vs 27 per 1,000 words). The exam texts actually have slightly more common nouns.
-- **The exam texts use more frequent vocabulary** (5k coverage 92.2% vs 90.2%) and this holds after length matching. Combined with the concreteness results, the exam texts are expository and abstract, while the coursebook texts are narrative.
+- **The exam texts use more frequent vocabulary** (5k coverage 92.2% vs 90.2%) and this holds after length matching. *Superseded by Phase 2: with BNC/COCA word families, the difference disappears (see below).* Combined with the concreteness results, the exam texts are expository and abstract, while the coursebook texts are narrative.
 - **The exam-group correlations in §4.7 reproduce from Appendix A.** Appendix D accidentally prints the school-text table twice.
 - **English 1 and English 2 don't differ on any index.**
 
@@ -53,9 +53,12 @@ Differences are exam − school.
   - The equivalence test passes: p = .00001 and .00007, Welch df = 18.8.
   - The difference test finds no difference: g = 0.15, 95% CI [−0.52, 0.98], Welch p = .69, BH-corrected p = .69.
   - The length-matched comparison agrees: +0.35 points, 90% CI [−0.35, 1.04], equivalence p = .0003.
-  - So by word frequency, the exam vocabulary is no harder than the coursebook vocabulary.
+  - So by word frequency, the two groups differ by less than 2 coverage points: at most the exam texts are 0.51 points lower.
+  - **How to read this:** the equivalence holds in raw coverage points, the scale on which the margin was set. In standardised terms the picture is less certain. Coverage is near ceiling, with an SD of about 1 point, so the ±2-point margin is about 1.9 pooled SDs. The 95% CI for g, [−0.52, 0.98], cannot rule out a moderate standardised difference. The claim is that any difference is too small to matter for comprehension, not that the groups are identical.
 - **This replaces the Phase 1 finding that the exam texts use more frequent vocabulary.** Measured by word families, with proper nouns left out of the count, that difference disappears.
-- **Thresholds (mean coverage):** the exam texts reach 95% at the 3k level and 98% at 6k (97.96% at 5k). The coursebook texts reach 95% at 4k and 98% at 6k. So a reader who knows about 6,000 word families would meet the 98% threshold in either group.
+- **Thresholds (mean coverage):** the exam texts reach 95% at the 3k level and 98% at 6k (97.96% at 5k). The coursebook texts reach 95% at 4k and 98% at 6k. These are group means; individual texts vary:
+  - At 6k, 9 of 13 exam texts and 20 of 28 coursebook texts reach 98%.
+  - At 5k, every coursebook text reaches 95%, and so do 12 of the 13 exam texts. The exception is 2016-06, at 94.4%.
 - **Concreteness: the exam texts use more abstract vocabulary.**
   - Mean Brysbaert concreteness of content words is 2.92 for the exam texts and 3.14 for the coursebooks: g = −1.00, 95% CI [−1.75, −0.42], Welch p = .003, BH-corrected p = .005.
   - This confirms the Phase 1 Coh-Metrix concreteness result with a measure anyone can reproduce.
@@ -65,6 +68,11 @@ Differences are exam − school.
   - type-weighted concreteness: g = −1.05, p = .0004;
   - 5k coverage from the band lists only, without the supplementary lists: g = 0.13, p = .71;
   - 5k coverage with proper nouns counted as known: g = 0.04, p = .92.
+- **Token accounting (mean % of tokens, exam vs coursebook):**
+  - proper nouns: 1.16 vs 6.43;
+  - supplementary lists: 0.80 vs 0.78;
+  - off-list: 0.33 vs 0.20.
+  - Tokens left out of the counts entirely: 1.56 vs 1.21. These are non-alphabetic tokens that contain a letter, such as clitics (*'s*, *n't*), abbreviations like *U.S.*, and a few words the tokenizer glued to punctuation. Numbers and punctuation are excluded as well.
 - **Caveats:**
   - **Proper nouns:** they are identified from Nation's proper-noun list (list 31) plus spaCy's PROPN tag. A word on a frequency-band list is never treated as a proper noun.
     - Greg reviewed all 404 detected types. 15 foreign or ordinary words were reclassified as common (`data/propn_overrides.csv`); 24 tokens changed category.

@@ -94,3 +94,29 @@ def test_concreteness_token_vs_type(families):
 def test_concreteness_no_matches_is_nan(families):
     row, _ = profile([Tok('heft', 'heft', 'VERB', True)], families, NORMS, {})
     assert math.isnan(row['conc_tok']) and math.isnan(row['conc_type'])
+
+def test_profile_counts_excluded_tokens_with_letters(families):
+    toks = [Tok('ray', 'ray', 'NOUN', True), Tok("n't", 'not', 'PART', False),
+            Tok('U.S.', 'U.S.', 'PROPN', False), Tok(',', ',', 'PUNCT', False), Tok('1999', '1999', 'NUM', False)]
+    row, _ = profile(toks, families, NORMS, {})
+    assert row['n_tokens'] == 1 and row['n_excluded'] == 2
+    assert row['excluded_alpha_pct'] == pytest.approx(100 * 2 / 3)
+
+def test_load_families_empty_dir_raises(tmp_path):
+    with pytest.raises(FileNotFoundError, match='fetch_resources'):
+        load_families(tmp_path)
+
+def test_overrides_utf8_bom(tmp_path):
+    p = tmp_path / 'o.csv'; p.write_bytes('type,label\nray,proper\n'.encode('utf-8-sig'))
+    assert load_overrides(p) == {'ray': 'proper'}
+
+@pytest.mark.parametrize('body, msg', [
+    ('type,label\nray\n', 'line 2'),
+    ('type,label\n,proper\n', 'line 2'),
+    ('word,label\nray,proper\n', 'type,label'),
+    ('type,label\nray,proper\nray,common\n', 'line 3'),
+])
+def test_overrides_malformed_rows_name_the_line(tmp_path, body, msg):
+    p = tmp_path / 'o.csv'; p.write_text(body)
+    with pytest.raises(ValueError, match=msg):
+        load_overrides(p)
