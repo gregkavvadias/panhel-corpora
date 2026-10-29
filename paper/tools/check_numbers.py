@@ -1,6 +1,6 @@
 # Lists numbers in a paper draft that no figure in paper/numbers.md rounds to.
 # A draft number matches if some numbers.md value, rounded to the draft's decimal places, equals it.
-# Ignored: integers <= 100, years 1900-2100, numbers right after "<" (thresholds), and lines with "<!-- source:".
+# Ignored: integers <= 100, years 1900-2100, numbers right after "<" (thresholds), the rate unit "per 1,000", and lines with "<!-- source:".
 import re
 import sys
 from pathlib import Path
@@ -16,6 +16,8 @@ def _tokens(text):
             if not re.search(r'\d', tok):
                 continue
             if re.search(r'<\s*$', line[:m.start()]):
+                continue
+            if tok in ('1,000', '1000') and re.search(r'per\s*$', line[:m.start()]):
                 continue
             yield tok
 

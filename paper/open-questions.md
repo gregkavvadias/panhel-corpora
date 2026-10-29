@@ -16,3 +16,10 @@
 - **Second-coder κ:** placeholders `[κ: pending]` (two). Appendix C will list disagreements once the responses are in.
 - **Coh-Metrix wording:** I describe it as "a web-based tool whose code is not open", as the reason for rebuilding the measures. Adjust if you'd put it differently.
 - **AI-use paragraph:** check it against RFL's policy and adjust the wording to what the journal asks for.
+
+## Results (Task 5)
+
+- **Table 3, length-matched coverage and concreteness:** the archived CSVs hold these only for the old 28-text coursebook set. I can add them to `numbers_build.py` (computed in memory, as the thresholds already are); until then the cells show dashes.
+- **Figure:** none so far. A coverage-by-band figure (1k–9k, both groups) is optional. Do you want one?
+- **Table count:** I've used five main-text tables, the maximum. If you want a figure, Table 3 could move to an appendix.
+- **The outlier:** I describe English 2 unit-6-1 ("I Have A Dream") without naming it. Name it if you prefer.

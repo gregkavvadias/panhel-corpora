@@ -24,3 +24,7 @@ def test_wordcount_excludes_tables_comments_headings():
 def test_numbers_build_contains_primary_rows():
     text = build(ROOT / 'reanalysis' / 'results')
     assert all(m in text for m in ('cov5k', 'conc_tok', 'mlc', 'cwo_adj'))
+
+def test_check_numbers_ignores_rate_unit():
+    from check_numbers import unmatched
+    assert unmatched('7.5 passives per 1,000 words; 1,000 texts', '- passive 7.5') == ['1,000']
