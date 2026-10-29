@@ -45,3 +45,10 @@
 - **Yearly statistics:** I say the published statistics cover the whole paper, not the reading task (marked [CHECK] for the 2019–2026 range).
 - **Implications:** I characterise the coursebooks' expository texts as "describe and report" and the exam's as "discuss". This rests on the measures and genre labels, not on a close reading. Does it match your sense of the texts?
 - **Prior wording:** I dropped any claim about what the thesis found on word frequency or clause length, because I couldn't check the thesis text. If the thesis did report a frequency difference, the discussion can note that the equivalence result revises it.
+
+## Front matter and appendices (Task 9)
+
+- **Title:** "Equally Frequent, More Abstract: …". Is that OK, or would you prefer something plainer?
+- **Keywords:** seven (the maximum).
+- **Funding and conflicts:** "None" for both; please confirm.
+- **Appendix C:** lists all 53 labels and has κ and disagreement placeholders.
