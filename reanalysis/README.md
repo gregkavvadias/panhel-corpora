@@ -344,6 +344,7 @@ The design is in `docs/superpowers/specs/2026-10-29-phase4-rq2-design.md`. This 
 
 - **The two groups are reliably distinguishable from these measures.** No permuted run reached the observed AUC; .005 is the smallest possible p with 200 permutations.
 - **The separation is clear but far from perfect.** About 3 in 10 texts are misclassified, so the groups overlap.
+- **The AUC is probably conservative:** a pooled leave-one-out AUC tends to be biased downward. The permutation p is unaffected, because the null runs are built the same way.
 
 **Which measures matter.** The inner CV chose a mostly ridge-like penalty (L1 ratio 0.1, C = 0.1) in both final fits. That keeps nearly every measure: 15 of 21 (full) and 17 of 21 (length-matched) pass the pre-specified rule of being selected in at least 80% of folds. **So the selection rule singles out little, and coefficient size is more informative.**
 
@@ -353,12 +354,12 @@ The design is in `docs/superpowers/specs/2026-10-29-phase4-rq2-design.md`. This 
 | Length-matched | semantic overlap +0.29, imageability −0.26, HD-D +0.25, clauses per sentence +0.24, passives −0.22, connectives +0.21 | mean sentence length, noun phrases (≤ 19% of folds) |
 
 The exam texts are marked by:
-- **abstract vocabulary:** lower imageability and concreteness, higher lexical diversity;
+- **abstract vocabulary:** lower imageability and concreteness, higher lexical diversity. Familiarity runs the other way (+0.17; univariate g = +0.74): the exam texts' words are abstract but slightly *more* familiar;
 - **more, shorter clauses per sentence;**
 - **fewer passives;**
 - **more semantic overlap and more connectives between sentences.**
 
-Sentence length plays no part. These are associations within a penalised model, not causes.
+Mean sentence length adds nothing once clauses per sentence and clause length are in the model (it correlates .61 with clauses per sentence). That does not make it irrelevant on its own: its univariate g is +0.41 [−0.12, 0.99]. All of these are associations within a penalised model, not causes.
 
 ### (b) Genre
 
@@ -375,7 +376,8 @@ Sentence length plays no part. These are associations within a penalised model, 
 | Other (narrative: a plot retelling, a historical recount) | 2 | 0 |
 
 - **Coarse:** 12 of 27 coursebook texts are narrative, against **0 of 26** exam texts.
-- **Fisher's exact test:** p = .0001. The conditional odds ratio is infinite because of the zero cell; its exact 95% CI is [3.95, ∞].
+- **Fisher's exact test:** p = .0001. The odds ratio compares the odds of a text being narrative in the coursebooks with the odds in the exam papers. It is infinite because of the zero cell; its exact 95% CI is [3.95, ∞].
+- **One departure from the coding rule:** the spec codes reviews and plot summaries as non-narrative (`review`). Greg recoded English 1 unit-7-2, a chapter-by-chapter plot retelling, as narrative (`other`), and also English 2 unit-8-6, a historical recount.
 
 **Within-genre comparison** (non-narrative texts only: 15 coursebook vs 26 exam; BH over the two pre-specified measures)
 
@@ -387,15 +389,19 @@ Sentence length plays no part. These are associations within a penalised model, 
 **Regression check** (OLS on all texts, with and without coarse genre)
 - **Concreteness:** the exam coefficient shrinks by 16% when genre is added (−0.22 → −0.19; 95% CI [−0.31, −0.06]).
 - **Passives:** it shrinks by 4% (−8.2 → −7.9; [−12.4, −3.3]).
+- **This restates the within-genre comparison; it is not separate evidence.** No exam text is narrative, so the genre-adjusted exam coefficient equals the non-narrative mean difference exactly (−0.187 and −7.87). The check shows the same result on the raw scale.
 
 **What genre does and does not explain**
 - **Genre composition differs sharply.** Narrative texts (fiction, biography, plot retellings) appear only in the coursebooks.
-- **But genre is not what makes the exam texts different.** Comparing only non-narrative texts, the exam texts are still clearly more abstract and use far fewer passives. The gaps are about as large as in the full comparison, and adjusting for genre removes at most a sixth of them.
-- **So the coursebooks' expository and argumentative texts are themselves more concrete and more passive-heavy** than the exam texts. The mismatch lies in *which* expository texts the coursebooks contain, not only in how many narratives they include.
-- **One caveat:** the coursebooks' non-narrative group includes speeches and reviews, which have no exam counterpart.
+- **But genre is not what makes the exam texts different.** Comparing only non-narrative texts, the exam texts are still clearly more abstract and use far fewer passives. The gaps are about as large as in the full comparison: removing the narrative texts shrinks them by at most a sixth.
+- **So the coursebooks' non-narrative texts are themselves more concrete and more passive-heavy** than the exam texts. The mismatch lies in *which* non-narrative texts the coursebooks contain, not only in how many narratives they include.
+- **It holds within matching genres too** (descriptive):
+  - coursebook informational 3.15 vs exam 2.95 (concreteness), 15.3 vs 8.6 (passives);
+  - argumentative 3.12 vs 2.83 and 14.3 vs 5.5.
+- **One caveat:** the coursebooks' non-narrative group includes speeches and reviews, which have no exam counterpart. The three speeches are as abstract as the exam texts (2.94) but use the most passives (16.4).
 
 ### Limitations
 
 - **Single human coder for genre:** Claude proposed the labels and Greg confirmed them. A blind second coder on a subset could be added for a reliability statistic.
-- **200 permutations, not 1,000:** a full nested run takes about 55 seconds, so 1,000 would take about 15 hours. With 200, the smallest reportable p is .005.
+- **200 permutations, not the spec's default of 1,000:** in parallel, 200 took 22 min (full) and 17 min (length-matched), so 1,000 would take about 3.3 hours. No permuted run reached the observed AUC, so p sits at the floor of .005 for 200 runs. More runs would only lower the floor, not change the conclusion. The 1,000-run version can be run if a reviewer asks.
 - **The yearly score statistics (2019–2026) were not analysed.** They cover the whole paper, not the reading task. At most they support a descriptive remark in the discussion.
