@@ -23,3 +23,10 @@
 - **Figure:** none so far. A coverage-by-band figure (1k–9k, both groups) is optional. Do you want one?
 - **Table count:** I've used five main-text tables, the maximum. If you want a figure, Table 3 could move to an appendix.
 - **The outlier:** I describe English 2 unit-6-1 ("I Have A Dream") without naming it. Name it if you prefer.
+
+## Introduction (Task 6)
+
+- **Who takes the English special subject:** which departments require it? Is there a source for candidate numbers? (Marked [CHECK] in the text.)
+- **Preparation outside school:** "candidates commonly prepare for it outside school as well" needs a source, or should be cut. Tsiplakou & Tsagari (2023) support this only for the Greek-language paper.
+- **Earlier studies' direction:** "Most report that the examination texts are harder" is [CHECK]. I haven't read every alignment study in full.
+- **Reading passage length:** the 2009 Gazette reportedly specifies about 330–370 words. I've written "a few hundred words" until you confirm from the decision itself.
