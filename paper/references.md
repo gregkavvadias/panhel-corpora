@@ -119,11 +119,20 @@ Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Ira
 Nahatame, S. (2021). Text readability and processing effort in second language reading: A computational and eye-tracking investigation. *Language Learning, 71*(4), 1004–1043. https://doi.org/10.1111/lang.12455
 <!-- verified: Crossref, 2026-10-29 -->
 
+Ministry of Education and Religious Affairs. (2009). [Ministerial decision introducing the reading component of the Panhellenic English special-subject examination]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
+<!-- [CHECK: Greg to supply decision number, Greek title and APA form from the thesis reference list; cited as Greek Official Gazette 493/Β/18-3-09] -->
+
 Nation, I. S. P. (2006). How large a vocabulary is needed for reading and listening? *The Canadian Modern Language Review, 63*(1), 59–82. https://doi.org/10.3138/cmlr.63.1.59
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
 
 Nation, I. S. P. (2017). *The BNC/COCA Level 6 word family lists* (Version 1.0.0) [Data file]. Victoria University of Wellington.
 <!-- [CHECK: the citation the list authors request for the lists bundled with basewords 1.3.0] -->
+
+Nika, [initials]. (2019a). *English 1* [Lyceum coursebook, digital edition]. Institute of Educational Policy / Diophantus. [URL]
+<!-- [CHECK: Greg to supply full entry from the thesis reference list] -->
+
+Nika, [initials]. (2019b). *English 2* [Lyceum coursebook, digital edition]. Institute of Educational Policy / Diophantus. [URL]
+<!-- [CHECK: Greg to supply full entry from the thesis reference list] -->
 
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825–2830.
 <!-- verified: JMLR citation requested by scikit-learn; no DOI -->
