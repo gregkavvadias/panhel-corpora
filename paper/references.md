@@ -47,17 +47,11 @@ Crossley, S. A., Kyle, K., & Dascalu, M. (2019). The Tool for the Automatic Anal
 Crossley, S. A., Kyle, K., & McNamara, D. S. (2016). The tool for the automatic analysis of text cohesion (TAACO): Automatic assessment of local, global, and text cohesion. *Behavior Research Methods, 48*(4), 1227–1237. https://doi.org/10.3758/s13428-015-0651-7
 <!-- verified: Crossref (online 2015, issue 2016), 2026-10-29 -->
 
-Crossley, S. A., Louwerse, M. M., McCarthy, P. M., & McNamara, D. S. (2007). A linguistic analysis of simplified and authentic texts. *The Modern Language Journal, 91*(1), 15–30. https://doi.org/10.1111/j.1540-4781.2007.00507.x
-<!-- verified: Crossref, 2026-10-29 -->
-
 Crossley, S. A., Skalicky, S., & Dascalu, M. (2019). Moving beyond classic readability formulas: New methods and new models. *Journal of Research in Reading, 42*(3–4), 541–561. https://doi.org/10.1111/1467-9817.12283
 <!-- verified: Crossref, 2026-10-29 -->
 
 Flesch, R. (1948). A new readability yardstick. *Journal of Applied Psychology, 32*(3), 221–233. https://doi.org/10.1037/h0057532
 <!-- verified: Crossref, 2026-10-29 -->
-
-Freedle, R., & Kostin, I. (1999). Does the text matter in a multiple-choice test of comprehension? The case for the construct validity of TOEFL's minitalks. *Language Testing, 16*(1), 2–35. https://doi.org/10.1191/026553299677907409
-<!-- verified: Crossref, 2026-10-29; thesis audit had wrong pages, corrected to 2–35 -->
 
 Fulcher, G. (1997). Text difficulty and accessibility: Reading formulae and expert judgement. *System, 25*(4), 497–513. https://doi.org/10.1016/S0346-251X(97)00048-1
 <!-- verified: Crossref, 2026-10-29 -->
@@ -92,9 +86,6 @@ Kincaid, J. P., Fishburne, R. P., Jr., Rogers, R. L., & Chissom, B. S. (1975). *
 Kintsch, W., & Vipond, D. (1979). Reading comprehension and readability in educational practice and psychological theory. In L.-G. Nilsson (Ed.), *Perspectives on memory research* (pp. 329–365). Lawrence Erlbaum.
 <!-- verified: no DOI (chapter); details from the thesis and secondary citations; [CHECK: page range against a library catalogue] -->
 
-Kyle, K., & Crossley, S. A. (2015). Automatically assessing lexical sophistication: Indices, tools, findings, and application. *TESOL Quarterly, 49*(4), 757–786. https://doi.org/10.1002/tesq.194
-<!-- verified: Crossref (online 2014, issue 2015), 2026-10-29 -->
-
 Lakens, D. (2017). Equivalence tests: A practical primer for *t* tests, correlations, and meta-analyses. *Social Psychological and Personality Science, 8*(4), 355–362. https://doi.org/10.1177/1948550617697177
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
 
@@ -107,23 +98,23 @@ Lee, H., & Kang, M. (2021). Text difficulty of English textbooks for senior high
 Lu, X. (2010). Automatic analysis of syntactic complexity in second language writing. *International Journal of Corpus Linguistics, 15*(4), 474–496. https://doi.org/10.1075/ijcl.15.4.02lu
 <!-- verified: Crossref, 2026-10-29 -->
 
+Mar, R. A., Li, J., Nguyen, A. T. P., & Ta, C. P. (2021). Memory and comprehension of narrative versus expository texts: A meta-analysis. *Psychonomic Bulletin & Review, 28*(3), 732–749. https://doi.org/10.3758/s13423-020-01853-1
+<!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
+
 McCarthy, P. M., & Jarvis, S. (2010). MTLD, vocd-D, and HD-D: A validation study of sophisticated approaches to lexical diversity assessment. *Behavior Research Methods, 42*(2), 381–392. https://doi.org/10.3758/BRM.42.2.381
 <!-- verified: Crossref, 2026-10-29 -->
 
 McNamara, D. S., Graesser, A. C., McCarthy, P. M., & Cai, Z. (2014). *Automated evaluation of text and discourse with Coh-Metrix*. Cambridge University Press. https://doi.org/10.1017/CBO9780511894664
 <!-- verified: Crossref, 2026-10-29 -->
 
+Ministry of Education and Religious Affairs. (2009). [Ministerial decision introducing the reading component of the Panhellenic English special-subject examination]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
+<!-- [CHECK: Greg to supply decision number, Greek title and APA form from the thesis reference list; cited as Greek Official Gazette 493/Β/18-3-09] -->
+
 Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Iranian general English books and MA reading comprehension tests: A corpus analysis. *Journal of Modern Research in English Language Studies, 2*(2), 77–98.
 <!-- verified: index record (journals.ikiu.ac.ir/article_797) via search, 2026-10-29; publisher site refused connection; [CHECK: pages and DOI on the publisher page] -->
 
 Nahatame, S. (2021). Text readability and processing effort in second language reading: A computational and eye-tracking investigation. *Language Learning, 71*(4), 1004–1043. https://doi.org/10.1111/lang.12455
 <!-- verified: Crossref, 2026-10-29 -->
-
-Mar, R. A., Li, J., Nguyen, A. T. P., & Ta, C. P. (2021). Memory and comprehension of narrative versus expository texts: A meta-analysis. *Psychonomic Bulletin & Review, 28*(3), 732–749. https://doi.org/10.3758/s13423-020-01853-1
-<!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
-
-Ministry of Education and Religious Affairs. (2009). [Ministerial decision introducing the reading component of the Panhellenic English special-subject examination]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
-<!-- [CHECK: Greg to supply decision number, Greek title and APA form from the thesis reference list; cited as Greek Official Gazette 493/Β/18-3-09] -->
 
 Nation, I. S. P. (2006). How large a vocabulary is needed for reading and listening? *The Canadian Modern Language Review, 63*(1), 59–82. https://doi.org/10.3138/cmlr.63.1.59
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->

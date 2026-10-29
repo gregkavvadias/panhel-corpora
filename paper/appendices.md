@@ -15,7 +15,7 @@ All measures are computed by `reanalysis/difficulty.py` and `reanalysis/lexical.
 | Syntax | Passives; noun phrases; verbs; adjectives; prepositional phrases; negation; gerunds; infinitives | Incidence of auxpass dependencies; noun chunks; VERB tokens; ADJ tokens; prep dependencies; neg dependencies; VBG tokens without an auxiliary; *to* + base-form verb. |
 | Cohesion | Content-word overlap (primary) | Mean over adjacent sentence pairs of the share of the pair's content tokens whose lemma occurs in both sentences. |
 | Cohesion | Semantic overlap | Mean cosine between the mean word vectors (spaCy `en_core_web_md`) of adjacent sentences' content lemmas. |
-| Cohesion | Connectives; causal connectives | Incidence of items on the TAACO connective lists and causal list (Crossley et al., 2016, 2019), longest match first; context-dependent items excluded. |
+| Cohesion | Connectives; causal connectives | Incidence of items on the TAACO connective lists and causal list (Crossley et al., 2016; Crossley, Kyle, & Dascalu, 2019), longest match first; context-dependent items excluded. |
 | Readability | Flesch Reading Ease; Flesch–Kincaid Grade Level | Standard formulas (Flesch, 1948; Kincaid et al., 1975), syllables counted with pyphen. |
 
 **Descriptive measures not shown in Table 2** (exam − coursebook)
