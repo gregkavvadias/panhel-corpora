@@ -102,6 +102,24 @@ The draft is written for RFL's standards. Preparing for RFL also strengthens the
 - A reference file is maintained as sections are written. Each entry carries a `verified:` note giving the source checked.
 - Once all sections are drafted: a whole-paper consistency pass (numbers, terminology, word count), then a review by a fresh reader acting as an RFL reviewer.
 
+## 9a. Decided by Greg (2026-10-29)
+
+- **Alignment framing:**
+  - The exam is **not formally tied** to *English 1* and *English 2*.
+  - The paper frames the comparison as a question of the public school's **ethical responsibility to prepare candidates** for the Panhellenic examinations, not as a check of formal alignment.
+  - Supporting facts: all Lyceum students take English in all three grades; the books were in use throughout the period covered (2010–2026); both the books and the past papers are publicly available on Greek state websites.
+- **Data availability:** the scripts and derived measures are shared; the corpus is available on request. For review, the repository link is anonymised (e.g. via an anonymised mirror).
+- **Thesis:** publicly available. It is cited as the origin of the corpus and of the earlier analysis (blinded as "Author, 2023" for review). The paper is not framed as a correction of the thesis. It reports its own analysis and notes, factually, where its findings revise earlier ones.
+- **AI assistance:** declared.
+  - **Method:** states that the genre labels were proposed with AI assistance (Claude) and confirmed or changed by the author, and that the exam passages were extracted by script and checked by the author against the PDFs.
+  - **Disclosure statement:** covers AI-assisted analysis code and drafting, in the form the journal requires.
+- **Second genre coder:** a person Greg arranges codes a sample blind. *Claude's call for the procedure:*
+  - **Sample:** 20 texts, stratified so that both groups and all fine labels in use are represented.
+  - **What the coder gets:** the coding scheme and its dominant-purpose rule, but not the author's labels.
+  - **Agreement:** Cohen's κ on the coarse labels (primary) and on the fine labels.
+  - **Disagreements:** reported, not resolved into the analysis; the confirmed labels stay frozen.
+  - **Timing:** this is new data collection (not new analysis), so it can run in parallel with drafting. The method section has a placeholder until the result is in.
+
 ## 10. Open items for Greg (known now)
 
 - **AI-assistance disclosure.** RFL's and the fallback journals' policies on disclosing AI-assisted drafting need checking. Greg decides how to declare it.
