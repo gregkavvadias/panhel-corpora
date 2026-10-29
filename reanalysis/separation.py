@@ -50,3 +50,39 @@ def final_fit(X, y):
         m = make_model().fit(X, y)
     lr = m[-1]
     return dict(coef=lr.coef_.ravel(), C=float(np.ravel(lr.C_)[0]), l1_ratio=float(np.ravel(lr.l1_ratio_)[0]))
+
+def _null_auc(X, y, i):
+    return nested_cv(X, np.random.default_rng(1 + i).permutation(y))['auc']
+
+def permutation_p(X, y, observed_auc, n_perm=200, n_jobs=-1):
+    """Permutation test of the cross-validated AUC: labels shuffled, the whole nested procedure rerun each time."""
+    from joblib import Parallel, delayed
+    null = np.array(Parallel(n_jobs=n_jobs)(delayed(_null_auc)(X, y, i) for i in range(n_perm)))
+    return {'p': (1 + np.sum(null >= observed_auc)) / (1 + n_perm), 'null_aucs': null}
+
+def main(n_perm=200):
+    import time
+    import pandas as pd
+    from stats6 import load_features
+    F = load_features()
+    summary, feats = [], []
+    for version in ('full', 'first360'):
+        t = time.time()
+        X, y, _ = design(F, version)
+        cv = nested_cv(X, y)
+        perm = permutation_p(X, y, cv['auc'], n_perm)
+        fit = final_fit(X, y)
+        summary.append(dict(version=version, n_school=int((y == 0).sum()), n_exam=int(y.sum()),
+                            accuracy=cv['accuracy'], balanced_accuracy=cv['balanced_accuracy'], auc=cv['auc'],
+                            perm_p=perm['p'], n_perm=n_perm, C=fit['C'], l1_ratio=fit['l1_ratio'],
+                            minutes=round((time.time() - t) / 60, 1)))
+        pct = 100 * cv['selected'].mean(axis=0)
+        feats += [dict(version=version, feature=f, selected_pct=p, coef=c, interpret=p >= 80)
+                  for f, p, c in zip(FEATURES, pct, fit['coef'])]
+        print(summary[-1], flush=True)
+    pd.DataFrame(summary).to_csv('results/separation_summary.csv', index=False)
+    P = pd.DataFrame(feats); P.to_csv('results/separation_features.csv', index=False)
+    print(P.sort_values(['version', 'selected_pct'], ascending=[True, False]).round(3).to_string(index=False))
+
+if __name__ == '__main__':
+    main()
