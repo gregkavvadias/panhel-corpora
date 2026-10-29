@@ -39,3 +39,9 @@
   - Mar et al. (2021) and Sadoski et al. (1993): cited from their abstracts.
 - **L2 genre evidence:** I didn't find a verified L2 study to cite. Either we add one you know, or the paper states the gap.
 - **New references:** Mar et al. (2021) and Sadoski et al. (1993), both verified on Crossref.
+
+## Discussion and conclusion (Task 8)
+
+- **Yearly statistics:** I say the published statistics cover the whole paper, not the reading task (marked [CHECK] for the 2019–2026 range).
+- **Implications:** I characterise the coursebooks' expository texts as "describe and report" and the exam's as "discuss". This rests on the measures and genre labels, not on a close reading. Does it match your sense of the texts?
+- **Prior wording:** I dropped any claim about what the thesis found on word frequency or clause length, because I couldn't check the thesis text. If the thesis did report a frequency difference, the discussion can note that the equivalence result revises it.
