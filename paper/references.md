@@ -119,6 +119,9 @@ Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Ira
 Nahatame, S. (2021). Text readability and processing effort in second language reading: A computational and eye-tracking investigation. *Language Learning, 71*(4), 1004–1043. https://doi.org/10.1111/lang.12455
 <!-- verified: Crossref, 2026-10-29 -->
 
+Mar, R. A., Li, J., Nguyen, A. T. P., & Ta, C. P. (2021). Memory and comprehension of narrative versus expository texts: A meta-analysis. *Psychonomic Bulletin & Review, 28*(3), 732–749. https://doi.org/10.3758/s13423-020-01853-1
+<!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
+
 Ministry of Education and Religious Affairs. (2009). [Ministerial decision introducing the reading component of the Panhellenic English special-subject examination]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
 <!-- [CHECK: Greg to supply decision number, Greek title and APA form from the thesis reference list; cited as Greek Official Gazette 493/Β/18-3-09] -->
 
@@ -136,6 +139,9 @@ Nika, [initials]. (2019b). *English 2* [Lyceum coursebook, digital edition]. Ins
 
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825–2830.
 <!-- verified: JMLR citation requested by scikit-learn; no DOI -->
+
+Sadoski, M., Goetz, E. T., & Fritz, J. B. (1993). Impact of concreteness on comprehensibility, interest, and memory for text: Implications for dual coding theory and text design. *Journal of Educational Psychology, 85*(2), 291–304. https://doi.org/10.1037/0022-0663.85.2.291
+<!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
 
 Scott, G. G., Keitel, A., Becirspahic, M., Yao, B., & Sereno, S. C. (2019). The Glasgow Norms: Ratings of 5,500 words on nine scales. *Behavior Research Methods, 51*(3), 1258–1270. https://doi.org/10.3758/s13428-018-1099-3
 <!-- verified: Crossref (online 2018, issue 2019), 2026-10-29 -->

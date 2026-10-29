@@ -30,3 +30,12 @@
 - **Preparation outside school:** "candidates commonly prepare for it outside school as well" needs a source, or should be cut. Tsiplakou & Tsagari (2023) support this only for the Greek-language paper.
 - **Earlier studies' direction:** "Most report that the examination texts are harder" is [CHECK]. I haven't read every alignment study in full.
 - **Reading passage length:** the 2009 Gazette reportedly specifies about 330–370 words. I've written "a few hundred words" until you confirm from the decision itself.
+
+## Background (Task 7)
+
+- **Content checks** (marked [CHECK]):
+  - Fulcher (1997): what exactly it found.
+  - The alignment studies: the findings attributed to each.
+  - Mar et al. (2021) and Sadoski et al. (1993): cited from their abstracts.
+- **L2 genre evidence:** I didn't find a verified L2 study to cite. Either we add one you know, or the paper states the gap.
+- **New references:** Mar et al. (2021) and Sadoski et al. (1993), both verified on Crossref.
