@@ -10,4 +10,5 @@ lexical-diversity
 openpyxl
 pytest
 setuptools<81  # lexical-diversity imports pkg_resources
+scikit-learn==1.9.1
 # plus: python -m spacy download en_core_web_sm  (and en_core_web_md 3.8.0 for word vectors)
