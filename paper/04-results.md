@@ -55,7 +55,7 @@ Neither readability formula separates the groups. Both point weakly towards the 
 
 ### Robustness
 
-The results do not depend on text length or on how the examination corpus was assembled (Table 3).
+The results do not depend on how the examination corpus was assembled, and the measures computed on length-matched texts point the same way (Table 3).
 
 **Table 3**
 *Primary results on length-matched texts and examination subsets*
@@ -69,9 +69,9 @@ The results do not depend on text length or on how the examination corpus was as
 
 *Note.* All coverage intervals lie within the ±2-point equivalence margin. Robustness checks are uncorrected. Dashes: length-matched coverage and concreteness are not yet in the generated results for the 27-text coursebook set [CHECK: add before submission].
 
-Every coverage interval falls within the equivalence margin. The concreteness difference is large in every subset, including the original 13 papers (BH *p* = .008) and the June papers alone (BH *p* = .001). It is about the same size in the original 13 papers as in the full set, so the 13 papers added since the earlier analysis do not create it. The shorter clauses in the examination texts appear in every check (length-matched *g* = −0.67, *p* = .02), but no check reaches significance under the main analysis's correction, so I treat clause length as showing no reliable difference. Content-word overlap shows no difference in any check.
+Every coverage interval falls within the equivalence margin. The concreteness difference is large in every subset, including the original 13 papers (*p* = .004, uncorrected) and the June papers alone (*p* < .001). Its size in the original 13 papers (*g* = −0.96) is close to that in the full set (−1.15), so the papers added since the earlier analysis do not create it. The shorter clauses in the examination texts appear in every check (length-matched *g* = −0.67, *p* = .02, uncorrected), but the pre-specified test is not significant after correction, so I treat clause length as showing no reliable difference. Content-word overlap shows no difference in any check.
 
-**Validation.** Most open measures agree closely with the Coh-Metrix indices they replace (Appendix B). Concreteness, a primary measure, correlates at ρ = .90 with Coh-Metrix concreteness (.85 within the coursebooks and .92 within the examination texts). Content-word overlap agrees well within the examination texts (ρ = .89) but only weakly within the coursebooks (ρ = .38, 95% CI [.00, .67]). The two indices differ by design: Coh-Metrix's index counts any shared stem across all sentence pairs, whereas the open measure counts the proportion of shared lemmas in adjacent sentences. Three descriptive measures agree poorly and should be read as related measures rather than replacements: adjectives (ρ = −.24), causal connectives (ρ = .15) and semantic overlap (ρ = .12).
+**Validation.** Most open measures agree closely with the Coh-Metrix indices they replace (Appendix B). Concreteness correlates at ρ = .90 with Coh-Metrix concreteness. Content-word overlap agrees well within the examination texts (ρ = .89) but weakly within the coursebooks (ρ = .38), because the two indices are defined differently. Three descriptive measures agree poorly and are best read as related measures, not replacements: adjectives, causal connectives and semantic overlap.
 
 ## RQ2: What distinguishes the examination texts, and does genre account for it?
 

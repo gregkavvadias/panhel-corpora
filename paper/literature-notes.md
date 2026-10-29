@@ -10,7 +10,7 @@ Working notes for drafting. Each line says what a source supports in the argumen
 - **Tai & Chen (2015):** Taiwan; junior-high textbooks vs the entrance exam. Short proceedings paper.
 - **Srisunakrua & Chumworatayee (2019):** Thailand; textbooks vs O-NET, readability formulas.
 - **Mirshojaee & Sahragard (2015):** Iran; general English books vs MA reading tests. It reports a sharp divergence in vocabulary, structure and discourse (from the abstract).
-- **Yıldız (2023):** Turkey; lexical coverage of the YDS/YÖKDİL-type tests. Supports coverage as the lead lexical measure in an exam context.
+- **Yıldız (2023):** Turkey; lexical coverage of the English tests of the university entrance examination (YKS). Supports coverage as the lead lexical measure in an exam context.
 - **Chen (2016):** difficulty progression within ELT textbook series. Relevant to the point that coursebooks are not uniform.
 - **Common pattern:** most of these studies are single-country and descriptive, rely on classic formulas or proprietary Coh-Metrix, and do not test equivalence. None examines genre as an explanation. This is the paper's opening.
 

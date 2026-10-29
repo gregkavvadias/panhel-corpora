@@ -52,3 +52,12 @@
 - **Keywords:** seven (the maximum).
 - **Funding and conflicts:** "None" for both; please confirm.
 - **Appendix C:** lists all 53 labels and has κ and disagreement placeholders.
+
+## Final review (RFL-reviewer pass): points for you to decide
+
+- **Grade level (likely the biggest reviewer objection):** *English 1/2* serve Lyceum years 1–2, but the exam comes at the end of year 3. What do year-3 students use for English? A reviewer will ask whether an exam "mismatch" is just the expected step up from years 1–2.
+- **Authentic vs adapted texts:** are the coursebook texts written or adapted for the book, while the exam uses authentic articles? If so, source/register is confounded with group and should be discussed.
+- **Why abstractness matters for L2 readers:** the evidence cited is L1 (Sadoski et al.; Mar et al.). An L2 source on concreteness or abstractness in reading would strengthen the argument considerably.
+- **Audience:** the reviewer suggests moving RQ2(a) (the elastic net) to an appendix and explaining *g* and TOST in plain terms. This would cost little in words; your call.
+- **Greenfield (2004):** the reviewer believes it found the classic formulas valid for EFL. I've rewritten the sentence that way, marked [CHECK].
+- **Word budget:** main text 7,203 + references 1,291 = 8,494 of 8,500. Any additions need matching cuts. Method is at 2,149 against a target of 1,800 because of the fuller pre-specification timeline.
