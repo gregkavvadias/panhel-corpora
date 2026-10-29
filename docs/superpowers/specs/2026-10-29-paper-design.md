@@ -108,7 +108,7 @@ The draft is written for RFL's standards. Preparing for RFL also strengthens the
   - The exam is **not formally tied** to *English 1* and *English 2*.
   - The paper frames the comparison as a question of the public school's **ethical responsibility to prepare candidates** for the Panhellenic examinations, not as a check of formal alignment.
   - Supporting facts: all Lyceum students take English in all three grades; the books were in use throughout the period covered (2010–2026); both the books and the past papers are publicly available on Greek state websites.
-- **Data availability:** the scripts and derived measures are shared; the corpus is available on request. For review, the repository link is anonymised (e.g. via an anonymised mirror).
+- **Data availability (updated 2026-10-29):** the corpus texts, scripts and derived measures are all **public** in the repository; the texts stay public (Greg). For review, the repository link is anonymised (e.g. via an anonymised mirror).
 - **Thesis:** publicly available. It is cited as the origin of the corpus and of the earlier analysis (blinded as "Author, 2023" for review). The paper is not framed as a correction of the thesis. It reports its own analysis and notes, factually, where its findings revise earlier ones.
 - **AI assistance:** declared.
   - **Method:** states that the genre labels were proposed with AI assistance (Claude) and confirmed or changed by the author, and that the exam passages were extracted by script and checked by the author against the PDFs.
