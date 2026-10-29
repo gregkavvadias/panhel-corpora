@@ -1,10 +1,11 @@
+from pathlib import Path
 import pandas as pd
 import pytest
 from second_coder import draw_sample, kappa
 
 @pytest.fixture
 def labels53():
-    return pd.read_csv('data/genre_labels.csv', dtype=str, keep_default_na=False)
+    return pd.read_csv(Path(__file__).resolve().parents[1] / 'data' / 'genre_labels.csv', dtype=str, keep_default_na=False)
 
 def test_sample_stratified_and_blind(labels53):
     S = draw_sample(labels53)
