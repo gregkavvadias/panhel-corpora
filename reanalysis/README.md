@@ -1,7 +1,7 @@
 # Reanalysis (2026)
 
 A reanalysis of the MA thesis data (Kavvadias, 2023, Hellenic Open University), comparing reading texts in the Greek state high-school English coursebooks (*English 1*, *English 2*; n = 28) with the Panhellenic English reading texts. The exam corpus originally held the 13 June papers of 2010–2022. Phase 3 extended it to **26** texts: 17 June papers (2010–2026) and 9 September resit papers (2018–2026).
-- **Diaspora (ομογενείς) papers are excluded.** They are a separate exam for a different group of candidates, widely believed to be easier.
+- **Diaspora (ομογενείς) papers are excluded.** They are a separate exam for a different group of candidates. They are popularly believed to be easier, an informal view rather than an established finding, so including them could bias the exam group.
 - **Coh-Metrix analyses stay at 13 exam texts.** The Phase 1 Coh-Metrix analyses and `features.py`/`stats4.py` still cover the original 13 only; part 2 of Phase 3 replaces them with open measures on all texts.
 
 Run every script from this folder (`cd reanalysis`).
@@ -270,7 +270,7 @@ None. No rule changed after the freeze commit (528abe9).
   - imageability −1.19 [−1.87, −0.65];
   - familiarity 0.74 [0.27, 1.26];
   - MTLD 0.74 [0.26, 1.28];
-  - HD-D 0.89 [0.43, 1.44].
+  - HD-D 0.90 [0.43, 1.44].
   - The exam vocabulary is less imageable but more varied, and slightly more familiar.
 - **Syntax:**
   - clauses per sentence 0.97 [0.46, 1.62];
