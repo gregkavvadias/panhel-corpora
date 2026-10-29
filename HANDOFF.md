@@ -3,7 +3,7 @@
 **Owner:** Greg Kavvadias
 **Source thesis:** *A computational comparative analysis of text difficulty in the Greek high school English coursebooks and the national university entrance examinations for English*. MA TEFL/TEIL, Hellenic Open University, 2023 (supervisor: Karasimos).
 **Goal:** a substantially reworked, publishable paper built on this corpus. It is a new paper, not a trimmed thesis.
-**Status (27 Oct 2026):** Phases 1–2 and Phase 3 (the 26-text exam corpus, plus open difficulty measures on 27 vs 26 texts) are done; see `reanalysis/README.md`. Next comes Phase 4 (a new RQ2; genre).
+**Status (29 Oct 2026):** Phases 1–4 are done (open difficulty measures on 27 vs 26 texts; RQ2 on separation and genre); see `reanalysis/README.md`. Next comes Phase 5, the paper.
 
 ---
 

@@ -77,10 +77,14 @@ def validation(F, cm):
     return pd.DataFrame([dict(measure=m, cohmetrix=c, group=g, **spearman_ci(G[m], G[c]))
                          for m, c in VALIDATION.items() for g, G in groups.items()])
 
-def main():
+def load_features():
+    """Phase 2 coverage/concreteness merged with the Phase 3 part 2 measures, one row per text and version."""
     keys = ['book', 'text', 'version']
-    F = pd.read_csv('results/lexical_features.csv')[keys + ['cov5k', 'conc_tok']].merge(
+    return pd.read_csv('results/lexical_features.csv')[keys + ['cov5k', 'conc_tok']].merge(
         pd.read_csv('results/difficulty_features.csv'), on=keys)
+
+def main():
+    F = load_features()
     C = comparisons(F); C.to_csv('results/difficulty_comparisons.csv', index=False)
     V = validation(F, pd.read_csv('data/cohmetrix_appA.csv')); V.to_csv('results/difficulty_validation.csv', index=False)
     pd.set_option('display.width', 250); pd.set_option('display.max_columns', 30)

@@ -17,6 +17,7 @@ Run every script from this folder (`cd reanalysis`).
 - `data/exam_corrections.csv`: Greg's corrections to the extracted passages, applied by `extract_exams.py`.
 - `data/exam_approvals.csv`: Greg's approval of each new passage, with the SHA-256 hash of the approved content. `promote_exams.py` refuses any file that has changed since approval.
 - `staging/Panhellenics/`: the extracted passages before promotion; `results/exam_review.md` is the review report Greg checked.
+- `data/genre_labels.csv`: the genre of each text, with a fine label, a coarse narrative/non-narrative group and a reason. Claude proposed each label; Greg confirmed or changed it (frozen in commit 4ce01fc).
 - `data/excluded_texts.csv`: texts left out of every analysis from Phase 3 part 2 on. Currently English 2 unit-4-1, a formatting exercise.
 - `data/heading_lines.csv`: the title and subheading lines that the sentence-based measures skip.
 - `data/glasgow_norms.csv`, `data/taaco/`: the Glasgow Norms and TAACO's connective lists, downloaded by `fetch_resources.py` and not committed. Word vectors come from spaCy's `en_core_web_md` 3.8.0.
@@ -43,6 +44,9 @@ Run every script from this folder (`cd reanalysis`).
 
 | `difficulty.py` | Phase 3 part 2: open difficulty measures for each text (vocabulary, syntax, cohesion, readability; definitions below) | `results/difficulty_features.csv` |
 | `stats6.py` | The difficulty table: four primary tests in one BH family, robustness checks, descriptive effect sizes, and validation against the thesis Coh-Metrix values | `results/difficulty_comparisons.csv`, `results/difficulty_validation.csv` |
+
+| `separation.py` | Phase 4 RQ2 (a): elastic-net logistic regression separating exam from coursebook texts on 21 open measures; nested leave-one-out CV and a 200-run permutation test (scikit-learn 1.9.1) | `results/separation_summary.csv`, `results/separation_features.csv` |
+| `genre.py` | Phase 4 RQ2 (b): genre composition, Fisher test, within-genre comparison and regression check | `results/genre_*.csv` |
 
 `corpus.py` (text loading, length-matching window) and `effects.py` (Hedges' g, bootstrap CI) are shared helpers. Tests: `python -m pytest tests`.
 
@@ -322,3 +326,82 @@ Pooled ρ partly reflects the difference between the groups, so the within-group
 - **Skipped pairs:** under 1% of adjacent sentence pairs are skipped on average for the overlap measures (maximum 17% in one text).
 
 **Scope paragraph for the paper (draft, replaces the Phase 2 draft):** Text difficulty was measured along four dimensions identified in the readability literature: vocabulary, syntax, cohesion (Graesser, McNamara & Kulikowich, 2011; Crossley, Greenfield & McNamara, 2008) and, for reference, classic readability formulas. Each dimension used open, reproducible measures computed on all texts. One or two measures per dimension were pre-specified as primary, giving four tests in a single Benjamini–Hochberg family: word-family coverage (Nation, 2017), concreteness (Brysbaert et al., 2014), mean length of clause (Lu, 2010), and adjacent-sentence content-word overlap. All other measures are reported descriptively with effect sizes. Where the thesis reported a corresponding Coh-Metrix index, the rebuilt measure was validated against it on the original texts, pooled and within each group. Mean length of clause has no Coh-Metrix counterpart and follows the L2SCA definition.
+
+## Phase 4: RQ2 (what distinguishes the exam texts, and does genre account for it?)
+
+The design is in `docs/superpowers/specs/2026-10-29-phase4-rq2-design.md`. This RQ2 replaces the thesis's circular question about which features correlate with RDL2. The corpus is 27 coursebook and 26 exam texts.
+
+### (a) What separates the two groups
+
+**Model:** an elastic-net logistic regression on 21 open measures (the Phase 3 part 2 measures minus the Flesch formulas).
+- **Validation:** nested cross-validation. The outer loop is leave-one-out. The inner loop is stratified 5-fold over C ∈ {0.01 … 100} (9 log-spaced values) and L1 ratio ∈ {0.1, 0.5, 0.9}.
+- **Chance check:** the AUC is compared with 200 label permutations, each rerunning the whole nested procedure.
+
+| Coursebook version | Accuracy | Balanced accuracy | AUC | Permutation p |
+|---|---|---|---|---|
+| Full texts | .70 | .70 | .78 | .005 |
+| Length-matched (first ~360 words) | .74 | .74 | .80 | .005 |
+
+- **The two groups are reliably distinguishable from these measures.** No permuted run reached the observed AUC; .005 is the smallest possible p with 200 permutations.
+- **The separation is clear but far from perfect.** About 3 in 10 texts are misclassified, so the groups overlap.
+- **The AUC is probably conservative:** a pooled leave-one-out AUC tends to be biased downward. The permutation p is unaffected, because the null runs are built the same way.
+
+**Which measures matter.** The inner CV chose a mostly ridge-like penalty (L1 ratio 0.1, C = 0.1) in both final fits. That keeps nearly every measure: 15 of 21 (full) and 17 of 21 (length-matched) pass the pre-specified rule of being selected in at least 80% of folds. **So the selection rule singles out little, and coefficient size is more informative.**
+
+| Version | Largest standardised coefficients (+ = more typical of exam texts) | Never or rarely selected |
+|---|---|---|
+| Full texts | passives −0.28, semantic overlap +0.27, imageability −0.25, clauses per sentence +0.24, HD-D +0.23, concreteness −0.18 | mean sentence length, noun phrases, infinitives, prepositional phrases (≤ 19% of folds) |
+| Length-matched | semantic overlap +0.29, imageability −0.26, HD-D +0.25, clauses per sentence +0.24, passives −0.22, connectives +0.21 | mean sentence length, noun phrases (≤ 19% of folds) |
+
+The exam texts are marked by:
+- **abstract vocabulary:** lower imageability and concreteness, higher lexical diversity. Familiarity runs the other way (+0.17; univariate g = +0.74): the exam texts' words are abstract but slightly *more* familiar;
+- **more, shorter clauses per sentence;**
+- **fewer passives;**
+- **more semantic overlap and more connectives between sentences.**
+
+Mean sentence length adds nothing once clauses per sentence and clause length are in the model (it correlates .61 with clauses per sentence). That does not make it irrelevant on its own: its univariate g is +0.41 [−0.12, 0.99]. All of these are associations within a penalised model, not causes.
+
+### (b) Genre
+
+**Composition** (`results/genre_composition.csv`)
+
+| Fine label | Coursebook | Exam |
+|---|---|---|
+| Informational | 7 | 17 |
+| Argumentative | 2 | 9 |
+| Biography | 7 | 0 |
+| Fiction | 3 | 0 |
+| Speech | 3 | 0 |
+| Review | 3 | 0 |
+| Other (narrative: a plot retelling, a historical recount) | 2 | 0 |
+
+- **Coarse:** 12 of 27 coursebook texts are narrative, against **0 of 26** exam texts.
+- **Fisher's exact test:** p = .0001. The odds ratio compares the odds of a text being narrative in the coursebooks with the odds in the exam papers. It is infinite because of the zero cell; its exact 95% CI is [3.95, ∞].
+- **One departure from the coding rule:** the spec codes reviews and plot summaries as non-narrative (`review`). Greg recoded English 1 unit-7-2, a chapter-by-chapter plot retelling, as narrative (`other`), and also English 2 unit-8-6, a historical recount.
+
+**Within-genre comparison** (non-narrative texts only: 15 coursebook vs 26 exam; BH over the two pre-specified measures)
+
+| Measure | Coursebook | Exam | g [95% CI], non-narrative only | BH p | g [95% CI], all texts (Phase 3 part 2) |
+|---|---|---|---|---|---|
+| Concreteness | 3.10 | 2.91 | −0.96 [−1.88, −0.28] | .017 | −1.15 [−1.85, −0.62] |
+| Passives per 1,000 words | 15.4 | 7.5 | −1.31 [−2.08, −0.73] | .004 | −1.17 [−1.74, −0.75] |
+
+**Regression check** (OLS on all texts, with and without coarse genre)
+- **Concreteness:** the exam coefficient shrinks by 16% when genre is added (−0.22 → −0.19; 95% CI [−0.31, −0.06]).
+- **Passives:** it shrinks by 4% (−8.2 → −7.9; [−12.4, −3.3]).
+- **This restates the within-genre comparison; it is not separate evidence.** No exam text is narrative, so the genre-adjusted exam coefficient equals the non-narrative mean difference exactly (−0.187 and −7.87). The check shows the same result on the raw scale.
+
+**What genre does and does not explain**
+- **Genre composition differs sharply.** Narrative texts (fiction, biography, plot retellings) appear only in the coursebooks.
+- **But genre is not what makes the exam texts different.** Comparing only non-narrative texts, the exam texts are still clearly more abstract and use far fewer passives. The gaps are about as large as in the full comparison: removing the narrative texts shrinks them by at most a sixth.
+- **So the coursebooks' non-narrative texts are themselves more concrete and more passive-heavy** than the exam texts. The mismatch lies in *which* non-narrative texts the coursebooks contain, not only in how many narratives they include.
+- **It holds within matching genres too** (descriptive):
+  - coursebook informational 3.15 vs exam 2.95 (concreteness), 15.3 vs 8.6 (passives);
+  - argumentative 3.12 vs 2.83 and 14.3 vs 5.5.
+- **One caveat:** the coursebooks' non-narrative group includes speeches and reviews, which have no exam counterpart. The three speeches are as abstract as the exam texts (2.94) but use the most passives (16.4).
+
+### Limitations
+
+- **Single human coder for genre:** Claude proposed the labels and Greg confirmed them. A blind second coder on a subset could be added for a reliability statistic.
+- **200 permutations, not the spec's default of 1,000:** in parallel, 200 took 22 min (full) and 17 min (length-matched), so 1,000 would take about 3.3 hours. No permuted run reached the observed AUC, so p sits at the floor of .005 for 200 runs. More runs would only lower the floor, not change the conclusion. The 1,000-run version can be run if a reviewer asks.
+- **The yearly score statistics (2019–2026) were not analysed.** They cover the whole paper, not the reading task. At most they support a descriptive remark in the discussion.
