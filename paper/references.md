@@ -83,6 +83,9 @@ Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). *spaCy: Industr
 Hu, M., & Nation, I. S. P. (2000). Unknown vocabulary density and reading comprehension. *Reading in a Foreign Language, 13*(1), 403–430. https://doi.org/10.64152/10125/66973
 <!-- verified: Crossref DOI lookup (author parsed as "Hsueh-chao, M."), 2026-10-29 -->
 
+Kim, J. (2024). Inside the digital hagwons: High-stakes reading test preparation in Korea. *Reading in a Foreign Language, 36*(1), 1–21. https://doi.org/10.64152/10125/67463
+<!-- verified: Crossref with abstract, 2026-10-30 -->
+
 Kincaid, J. P., Fishburne, R. P., Jr., Rogers, R. L., & Chissom, B. S. (1975). *Derivation of new readability formulas (Automated Readability Index, Fog Count and Flesch Reading Ease Formula) for Navy enlisted personnel* (Research Branch Report 8-75). Naval Technical Training Command. https://apps.dtic.mil/sti/pdfs/ADA006655.pdf
 <!-- verified: DTIC record ADA006655, 2026-10-29 -->
 
@@ -136,6 +139,9 @@ Nation, I. S. P. (2017). *The BNC/COCA Level 6 word family lists* (Version 1.0.0
 
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825–2830.
 <!-- verified: JMLR citation requested by scikit-learn; no DOI -->
+
+Plonsky, L., & Oswald, F. L. (2014). How big is "big"? Interpreting effect sizes in L2 research. *Language Learning, 64*(4), 878–912. https://doi.org/10.1111/lang.12079
+<!-- verified: Crossref with abstract, 2026-10-30; between-group benchmarks d = 0.40 / 0.70 / 1.00 from the article -->
 
 Sadoski, M., Goetz, E. T., & Fritz, J. B. (1993). Impact of concreteness on comprehensibility, interest, and memory for text: Implications for dual coding theory and text design. *Journal of Educational Psychology, 85*(2), 291–304. https://doi.org/10.1037/0022-0663.85.2.291
 <!-- verified: Crossref, 2026-10-29; content cited from the abstract -->

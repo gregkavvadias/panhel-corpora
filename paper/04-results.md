@@ -35,6 +35,8 @@ Table 2 gives the four primary tests and the main descriptive measures. Only one
 
 **Coverage.** By word frequency, the two groups are equivalent. At the 5k level, the examination texts cover 98.20% of running words and the coursebook texts 97.86%, a difference of 0.35 points. The 90% confidence interval for the difference, [−0.14, 0.83], lies well inside the ±2-point margin, so the equivalence test succeeds (*p* < .001 for both one-sided tests). The conventional difference test finds no difference either.
 
+The equivalence holds in raw coverage points, the scale on which the margin was set. In standardised terms it is less certain: coverage is close to the ceiling in every text, so small raw differences are large relative to the spread, and the interval for *g* does not rule out a moderate standardised difference. The claim, then, is that any difference in word frequency between the two sets of texts is too small to matter for comprehension, not that their vocabularies are identical.
+
 The coverage thresholds tell the same story (Figure 1). On average, the examination texts reach 95% coverage at the 3k level and 98% at 5k; the coursebook texts reach 95% at 4k and 98% at 6k. The groups' means are thus one band apart at most, and the examination texts, if anything, require slightly fewer word families. Text by text, every coursebook text and 25 of the 26 examination texts reach 95% coverage by the 5k level. At the 6k level, 20 of 27 coursebook texts and 18 of 26 examination texts reach 98%.
 
 **Figure 1**

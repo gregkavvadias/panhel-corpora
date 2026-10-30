@@ -98,3 +98,9 @@
   - Method AI paragraph removed (declared at submission);
   - Figure 1 (coverage by band, `paper/figures/coverage.py`).
 - **Word limit (resolved, Greg):** references do not count. The limit is 8,500 words for the main text, excluding references and appendices; the draft is at 6,969.
+
+- **Expansions (2026-10-30):**
+  - fuller review of the coursebook-exam studies (verified content only), plus Kim (2024, RFL) on test preparation;
+  - plain-language glosses of *g* (with Plonsky & Oswald benchmarks), BH, bootstrap, TOST, elastic net, cross-validation and the permutation test;
+  - the equivalence caveat restored in the Results.
+  - Main text now 7,514 of 8,500.
