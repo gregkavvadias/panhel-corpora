@@ -1,6 +1,6 @@
 # Discussion
 
-## What the examination texts demand
+## What the Examination Texts Demand
 
 The answer to RQ1 has three parts. First, by word frequency the examination texts are no harder than the coursebook texts. The two groups are equivalent in 5k coverage within the ±2-point margin, and both groups reach the 95% threshold by the 5k level in all but one text. On frequency alone, the examination texts demand no larger a vocabulary than the coursebook texts. Second, the examination texts are clearly more abstract. Their content words are less concrete and less imageable, and the difference is large (*g* above 1 in absolute value on both measures). It is of similar size in the original 13 papers and in the June papers alone. Third, on syntax and cohesion the examination texts are not harder by the primary measures. The descriptive measures suggest a different kind of prose rather than a harder one: the examination's sentences contain more clauses and far fewer passives, and two descriptive measures, semantic overlap and connectives, point to more explicit links between sentences. These cohesion differences should be read cautiously, because the primary cohesion test found no difference and the semantic overlap measure agreed poorly with its Coh-Metrix counterpart.
 
@@ -8,13 +8,13 @@ Taken together, the examination texts have a profile consistent with expository 
 
 The answer to RQ2 sharpens this picture. The two groups can be told apart reliably from the open measures, and the features that separate them are largely those that RQ1 found: abstractness, clauses per sentence, passives, and the semantic overlap and connective measures. The groups also differ sharply in genre. Twelve of the 27 coursebook texts are narratives, while none of the 26 examination passages is. But genre does not explain the difference. When the narratives are set aside, the coursebooks' 15 non-narrative texts are still more concrete and use far more passives than the examination's. Removing genre shrinks the concreteness gap by about a sixth and the passives gap hardly at all. The same pattern appears, descriptively, within the informational and the argumentative texts. One exception should be noted: the three speeches in the coursebooks are about as abstract as the examination texts, although they use the most passives. The mismatch, then, lies less in how many narratives the coursebooks contain than in the kind of non-narrative prose they offer: on these measures, their expository texts are more concrete and more passive than the examination's.
 
-## Relation to earlier work
+## Relation to Earlier Work
 
 The finding that vocabulary frequency does not differ, while abstractness does, refines the usual conclusion of coursebook–examination comparisons that the examination texts are simply "harder". Here they are not harder on the dimension that the most widely used lexical measures capture, and the difference lies where frequency-based and formula-based profiles do not look. Studies that read the absence of a significant difference as evidence of a match may miss mismatches of this kind; an equivalence test makes the distinction explicit.
 
 The earlier analysis of this corpus ([Author, 2023]) found the examination texts more abstract and lower in passives; both observations hold with open measures, corrected statistics and twice as many examination texts. The present study adds that the vocabulary is equally frequent, so abstractness is not a by-product of rarer words, and that the difference persists within genre.
 
-## Implications for materials and teaching
+## Implications for Materials and Teaching
 
 The study measures texts, not students, so its implications concern what the coursebooks offer rather than what students achieve. Three follow.
 
@@ -32,6 +32,6 @@ The corpus is small (27 and 26 texts) and comes from a single country and a sing
 
 Some measures rest on narrower foundations than others. The Glasgow norms cover only about half of each text's content words, so imageability and familiarity are reported descriptively. Three open measures agree poorly with the Coh-Metrix indices they were meant to parallel (adjectives, causal connectives and semantic overlap), and four, including mean length of clause, have no counterpart in the earlier data. The clause rule misses a small share of finite clauses. The genre labels were proposed with AI assistance and confirmed by the author. A blind second coder agreed with every narrative/non-narrative decision in a sample of 20 texts, but disagreed on three of the informational and argumentative labels, a boundary the genre analysis does not depend on. Finally, more than 200 permutations could lower the floor of the permutation *p* value but not change the conclusion.
 
-## Further research
+## Further Research
 
 Two lines of work would extend these findings. The first is reader-side: testing whether Greek Lyceum students comprehend abstract expository texts less well than concrete ones of matched frequency. The second is comparative: applying the same open, pre-specified procedure to other national systems would show whether the pattern found here is specific to Greece.

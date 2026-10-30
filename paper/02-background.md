@@ -1,10 +1,10 @@
 # Background
 
-## Text difficulty and comprehensibility
+## Text Difficulty and Comprehensibility
 
 How hard a text is to read depends on both the text and the reader. A reader's vocabulary, background knowledge, purpose and L2 proficiency all shape comprehension, and no measure of the text alone can predict how well a particular reader will understand it (Alderson, 2000; Grabe, 2009). Kintsch and Vipond (1979) made the distinction early: *readability* is a property of a text, while comprehension is an outcome of reading. Text measures are still useful, because the text is the part of the reading situation that materials writers and examiners control. A coursebook can be compared with an examination on what its texts demand of a reader, even though it cannot be compared on what its readers achieve. This study makes that text-side comparison and only that.
 
-## Readability formulas and their limits
+## Readability Formulas and Their Limits
 
 The classic readability formulas estimate difficulty from word length (in syllables or letters) and sentence length. Flesch Reading Ease (Flesch, 1948) and the Flesch–Kincaid Grade Level (Kincaid et al., 1975) are still the most widely used, and many of the alignment studies reviewed below rely on them. For L2 readers they have long been criticised. Carrell (1987) argued that they ignore the features that matter most for L2 reading, such as background knowledge and the organisation of the text. Brown (1998) found that L1 formulas predicted the difficulty of cloze passages for Japanese EFL students only weakly, and he proposed an EFL-specific index. Greenfield (2004) disputed this, arguing that Brown's result reflected his particular sample of passages and that the classic formulas predict EFL difficulty about as well as they do for native readers.
 
@@ -12,7 +12,7 @@ The alternative has been to model the cognitive processes that reading involves.
 
 Two practical problems follow for a study like this one. The first is that multi-index tools produce many correlated indices. Comparing two small groups of texts on dozens of them invites false positives unless the comparisons are limited and corrected. The second is that Coh-Metrix is a web-based tool whose code is not open, so its results cannot be fully reproduced or inspected. Open tools now cover most of what it measures: TAACO for cohesion (Crossley et al., 2016; Crossley, Kyle, & Dascalu, 2019), syntactic complexity analysers (Lu, 2010) and published word norms (Brysbaert et al., 2014; Scott et al., 2019).
 
-## Vocabulary: frequency, coverage and thresholds
+## Vocabulary: Frequency, Coverage and Thresholds
 
 Vocabulary knowledge is consistently among the strongest predictors of L2 reading comprehension (Grabe, 2009). The most direct way to relate a text's vocabulary to a reader's is *lexical coverage*: the percentage of a text's running words that the reader knows. Hu and Nation (2000) found that comprehension of a fiction text rose with coverage, and that most readers needed about 98% coverage to understand it adequately without help. Laufer and Ravenhorst-Kalovski (2010) proposed two thresholds: 95% coverage for minimal comprehension and 98% for optimal comprehension. Nation (2006) estimated, from frequency-ranked word-family lists, that reaching 98% coverage of written English requires 8,000–9,000 word families. <!-- source: Nation (2006), cited figure -->
 
@@ -26,10 +26,20 @@ Texts of different genres make different demands. Narratives follow a familiar t
 
 Genre matters for coursebook–examination comparisons in two ways. First, if the two sets of texts differ in genre mix, differences on text measures may reflect genre rather than difficulty within a genre. Second, the implications differ. A difference that genre explains suggests that the coursebook should include more texts of the examination's kind. A difference that persists within a genre suggests that the coursebook's texts of that kind are themselves unlike the examination's.
 
-## Coursebooks and examinations
+## Coursebooks and Examinations
 
 The comparisons outlined in the Introduction have used readability formulas and Coh-Metrix indices (Lee & Kang, 2021; Srisunakrua & Chumworatayee, 2019), vocabulary and readability profiles (Underwood, 2010), and lexical and syntactic complexity tools (Gedik & Kolsal, 2022). Where their findings are reported, they point the same way: the examination texts are harder in readability (Srisunakrua & Chumworatayee, 2019), in lexical sophistication, lexical diversity and syntactic complexity (Gedik & Kolsal, 2022), and in vocabulary, structure and discourse (Mirshojaee & Sahragard, 2015). Even within a single coursebook series, difficulty does not always progress as intended (Chen, 2016).
 
 These studies are motivated by a concern with alignment between what is taught and what is tested, a concern sharpened by the fact that high-stakes examinations shape teaching (Alderson & Wall, 1993; Cheng et al., 2004). In Greece, the Panhellenic examinations are known to shape upper-secondary teaching (Tsiplakou & Tsagari, 2023). Yet no published study has compared the Lyceum English coursebooks with the Panhellenic English examination, apart from the earlier analysis of the present corpus ([Author, 2023]).
 
-The present study departs from this body of work in four ways. It uses only open, reproducible measures, validated against Coh-Metrix where possible. It fixes a small number of primary measures in advance and corrects for multiple comparisons. It tests the central lexical comparison for equivalence, so that "no difference" can be distinguished from "not enough evidence". And it asks whether genre accounts for the differences it finds.
+# The Present Study
+
+This study re-examines the comparison with three changes. First, the examination corpus is doubled to 26 passages, adding the June papers of 2023–2026 and the September resit papers of 2018–2026. Second, every measure is rebuilt with open tools, validated against Coh-Metrix where possible, and fixed before the analysis. One or two measures per dimension are designated primary and tested within a single corrected family, and the central lexical comparison is tested for equivalence rather than difference. Third, a new question asks what distinguishes the examination texts when all the measures are taken together, and whether genre accounts for it.
+
+The study is about texts, not readers. It measures the demands that texts make (vocabulary, syntax and cohesion) rather than how well any group of students understands them.
+
+The research questions are:
+
+**RQ1.** How do the reading texts of the Panhellenic English examination compare with those of the state Lyceum coursebooks in vocabulary, syntax and cohesion?
+
+**RQ2.** What distinguishes the examination texts from the coursebook texts, and does genre account for the difference?

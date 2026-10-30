@@ -85,3 +85,16 @@
 - **AI disclosure:** Greg will supply the declaration at submission (RFL wants it in the cover letter and before the References, using its template). It has been removed from the draft.
 
 - **Second coder (2026-10-30):** done. Coarse κ = 1.00 (20/20); fine κ = .74 (16/20). The method, the limitations and Appendix C are filled in; the κ values come from `numbers_build.py`.
+
+## Style match with RFL (2026-10-30)
+
+- Applied:
+  - untitled introduction;
+  - "The Present Study" section with the research questions after the Background;
+  - APA title-case headings;
+  - impersonal wording for routine procedures (first person kept for the author's own decisions);
+  - Data Availability and Declarations moved before the References;
+  - "Data Analysis" heading;
+  - Method AI paragraph removed (declared at submission);
+  - Figure 1 (coverage by band, `paper/figures/coverage.py`).
+- **Word limit:** published RFL articles suggest references do not count towards the 8,500 words; confirm with the editor.

@@ -31,7 +31,7 @@ All measures are computed by `reanalysis/difficulty.py` and `reanalysis/lexical.
 | Infinitives per 1,000 words | 14.9 | 17.3 | 0.30 [−0.24, 0.81] |
 | Causal connectives per 1,000 words | 6.55 | 8.98 | 0.46 [−0.06, 1.03] |
 
-## Appendix B: Validation against Coh-Metrix
+## Appendix B: Validation Against Coh-Metrix
 
 Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metrix 3.0 index on the 40 original texts: pooled, and within the 27 coursebook and 13 examination texts. Confidence intervals use the Fisher *z* transformation and are slightly narrow for ρ at *n* = 13. Mean length of clause, clauses per sentence, MTLD and familiarity have no Coh-Metrix counterpart in the earlier data.
 
@@ -56,7 +56,7 @@ Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metri
 | Flesch Reading Ease | RDFRE | .93 [.87, .96] | .93 [.85, .97] | .94 [.81, .98] |
 | Flesch–Kincaid | RDFKGL | .92 [.85, .96] | .89 [.76, .95] | .92 [.74, .97] |
 
-## Appendix C: Genre labels
+## Appendix C: Genre Labels
 
 Labels were assigned by dominant communicative purpose, proposed with AI assistance and confirmed or changed by the author, and frozen before analysis. Coarse groups: narrative (fiction, personal, biography, and two texts labelled *other*: a plot retelling and a historical recount) and non-narrative (informational, argumentative, speech, review).
 

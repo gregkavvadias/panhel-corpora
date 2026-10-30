@@ -2,7 +2,7 @@
 
 All differences are reported as examination minus coursebook. A negative *g* means that the examination texts score lower.
 
-## RQ1: How do the examination texts compare with the coursebook texts?
+## RQ1: How Do the Examination Texts Compare With the Coursebook Texts?
 
 Table 2 gives the four primary tests and the main descriptive measures. Only one primary difference survives correction: the examination texts use more abstract vocabulary.
 
@@ -31,23 +31,30 @@ Table 2 gives the four primary tests and the main descriptive measures. Only one
 
 *Note.* 27 coursebook and 26 examination texts. *p*: Welch's *t* test. BH *p*: Benjamini–Hochberg correction across the four primary tests. Descriptive measures were not tested. The remaining descriptive measures are in Appendix A.
 
-### Vocabulary: equally frequent, more abstract
+### Vocabulary: Equally Frequent, More Abstract
 
 **Coverage.** By word frequency, the two groups are equivalent. At the 5k level, the examination texts cover 98.20% of running words and the coursebook texts 97.86%, a difference of 0.35 points. The 90% confidence interval for the difference, [−0.14, 0.83], lies well inside the ±2-point margin, so the equivalence test succeeds (*p* < .001 for both one-sided tests). The conventional difference test finds no difference either.
 
-The coverage thresholds tell the same story. On average, the examination texts reach 95% coverage at the 3k level and 98% at 5k; the coursebook texts reach 95% at 4k and 98% at 6k. The groups' means are thus one band apart at most, and the examination texts, if anything, require slightly fewer word families. Text by text, every coursebook text and 25 of the 26 examination texts reach 95% coverage by the 5k level. At the 6k level, 20 of 27 coursebook texts and 18 of 26 examination texts reach 98%.
+The coverage thresholds tell the same story (Figure 1). On average, the examination texts reach 95% coverage at the 3k level and 98% at 5k; the coursebook texts reach 95% at 4k and 98% at 6k. The groups' means are thus one band apart at most, and the examination texts, if anything, require slightly fewer word families. Text by text, every coursebook text and 25 of the 26 examination texts reach 95% coverage by the 5k level. At the 6k level, 20 of 27 coursebook texts and 18 of 26 examination texts reach 98%.
+
+**Figure 1**
+*Mean lexical coverage by BNC/COCA word-family band*
+
+![Mean coverage at each band from 1k to 9k for the coursebook and examination texts, with reference lines at 95% and 98%.](figures/coverage.png)
+
+*Note.* Full texts; proper nouns excluded; supplementary lists counted as known. Dotted lines mark the 95% and 98% coverage thresholds.
 
 **Concreteness.** The examination texts are clearly more abstract. Their content words have a mean concreteness rating of 2.91, against 3.13 in the coursebooks (*g* = −1.15, 95% CI [−1.85, −0.62], BH *p* < .001). The descriptive measures agree: the examination texts' words are also less imageable (*g* = −1.19) and more varied (MTLD, *g* = 0.74; HD-D, *g* = 0.90). They are, however, slightly *more* familiar (*g* = 0.74). The picture is of vocabulary that is no rarer and no less familiar, but more abstract and more varied.
 
-### Syntax: shorter clauses, more of them
+### Syntax: More Clauses per Sentence, Not Longer Clauses
 
 The examination texts do not have longer clauses. Their clauses are, if anything, shorter (10.27 against 11.39 words; *g* = −0.55, 95% CI [−1.15, −0.05]). This difference is significant before correction (*p* = .045) but not after it (BH *p* = .090). What the examination sentences contain is *more* clauses (1.68 per sentence in the coursebooks against 2.02; *g* = 0.97), so their sentences are slightly longer overall (*g* = 0.41, with an interval that includes zero). The examination texts also use far fewer passives: 7.5 per 1,000 words against 15.8 (*g* = −1.17).
 
-### Cohesion: no difference on the primary measure
+### Cohesion: No Difference on the Primary Measure
 
 Content-word overlap between adjacent sentences does not differ by the pre-specified Welch test (*g* = 0.21, BH *p* = .45). The Mann–Whitney test, run as a check, does find a difference (*p* = .029), with slightly higher overlap in the examination texts. <!-- source: README Phase 3 part 2, cwo_adj outlier (unit-6-1 = 0.268; coursebook median 0.049; exam max 0.124) -->The two tests disagree because of a single coursebook outlier: a speech built on repetition ("Let freedom ring…"), whose overlap of 0.268 is more than twice the highest examination value. The outlier inflates the coursebook variance, and the Welch test misses the shift in ranks. I report the disagreement but keep the pre-specified result. The descriptive cohesion measures point the same way as the rank test: the examination texts show more semantic overlap between adjacent sentences (*g* = 1.21) and more connectives (*g* = 0.60).
 
-### Readability formulas
+### Readability Formulas
 
 Neither readability formula separates the groups. Both point weakly towards the examination texts being harder (Flesch Reading Ease *g* = −0.38; Flesch–Kincaid *g* = 0.44), but both intervals include zero. The formulas do not register the difference in abstractness that the concreteness and imageability measures show clearly.
 
@@ -67,11 +74,11 @@ The results do not depend on text length or on how the examination corpus was as
 
 *Note.* All coverage intervals lie within the ±2-point equivalence margin. Robustness checks are uncorrected.
 
-Every coverage interval falls within the equivalence margin, including the check with proper nouns counted as known (difference 0.22, 90% CI [−0.24, 0.68]). On the length-matched texts, the interval excludes zero: the examination texts have slightly *higher* 5k coverage, by about half a point. The concreteness difference is large in every subset, including the original 13 papers (*p* = .004, uncorrected) and the June papers alone (*p* < .001). Its size in the original 13 papers (*g* = −0.96) is close to that in the full set (−1.15), so the papers added since the earlier analysis do not create it. The shorter clauses in the examination texts appear in every check (length-matched *g* = −0.67, *p* = .02, uncorrected), but the pre-specified test is not significant after correction, so I treat clause length as showing no reliable difference. Content-word overlap shows no difference in any check.
+Every coverage interval falls within the equivalence margin, including the check with proper nouns counted as known (difference 0.22, 90% CI [−0.24, 0.68]). On the length-matched texts, the interval excludes zero: the examination texts have slightly *higher* 5k coverage, by about half a point. The concreteness difference is large in every subset, including the original 13 papers (*p* = .004, uncorrected) and the June papers alone (*p* < .001). Its size in the original 13 papers (*g* = −0.96) is close to that in the full set (−1.15), so the papers added since the earlier analysis do not create it. The shorter clauses in the examination texts appear in every check (length-matched *g* = −0.67, *p* = .02, uncorrected), but the pre-specified test is not significant after correction, so clause length is treated as showing no reliable difference. Content-word overlap shows no difference in any check.
 
-## RQ2: What distinguishes the examination texts, and does genre account for it?
+## RQ2: What Distinguishes the Examination Texts, and Does Genre Account for It?
 
-### Separating the groups
+### Separating the Groups
 
 The elastic-net model separates the two groups reliably but not perfectly (Table 4). On the full texts it classifies 70% of texts correctly (AUC = .78), and on the length-matched texts 74% (AUC = .80). No permuted run reached the observed AUC in either case (*p* = .005, the smallest possible with 200 permutations). About three texts in ten are misclassified, so the groups overlap.
 

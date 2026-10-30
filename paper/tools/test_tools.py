@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 from check_numbers import unmatched
 from wordcount import count
@@ -39,3 +40,10 @@ def test_numbers_build_has_second_coder_kappa():
     text = build(ROOT / 'reanalysis' / 'results')
     sec = text.split('## Second coder (genre)')[1].split('\n## ')[0]
     assert 'kappa coarse' in sec and 'kappa fine' in sec and 'agree' in sec
+
+def test_coverage_figure_data_matches_thresholds():
+    sys.path.insert(0, str(ROOT / 'paper' / 'figures'))
+    from coverage import coverage_table
+    T = coverage_table(ROOT / 'reanalysis' / 'results')
+    assert list(T.columns) == ['band', 'Coursebook', 'Examination'] and list(T.band) == list(range(1, 10))
+    assert round(T.loc[T.band == 5, 'Examination'].item(), 2) == 98.20
