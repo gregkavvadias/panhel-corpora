@@ -87,7 +87,7 @@ Kincaid, J. P., Fishburne, R. P., Jr., Rogers, R. L., & Chissom, B. S. (1975). *
 <!-- verified: DTIC record ADA006655, 2026-10-29 -->
 
 Kintsch, W., & Vipond, D. (1979). Reading comprehension and readability in educational practice and psychological theory. In L.-G. Nilsson (Ed.), *Perspectives on memory research* (pp. 329–365). Lawrence Erlbaum.
-<!-- verified: no DOI (chapter); pp. 329–365 agree in the thesis (which cites a 2014 reissue) and secondary citations; [CHECK: cite the 1979 original or the 2014 Psychology Press reissue, not both] -->
+<!-- verified: no DOI (chapter); pp. 329–365 agree in the thesis (2014 reissue) and secondary citations; the 1979 original is cited (Greg) -->
 
 Kyle, K. (n.d.). *lexical-diversity* (Version 0.1.1) [Computer software]. https://github.com/kristopherkyle/lexical_diversity
 <!-- verified: package metadata (pip show), 2026-10-30 -->
@@ -98,8 +98,8 @@ Lakens, D. (2017). Equivalence tests: A practical primer for *t* tests, correlat
 Laufer, B., & Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Lexical text coverage, learners' vocabulary size and reading comprehension. *Reading in a Foreign Language, 22*(1), 15–30. https://doi.org/10.64152/10125/66648
 <!-- verified: Crossref, 2026-10-29 -->
 
-Lee, H., & Kang, M. (2021). Text difficulty of English textbooks for senior high school and the College Scholastic Ability Test in South Korea. *Asia-Pacific Journal of Educational Management Research, 6*(1), 55–62. https://doi.org/10.21742/AJEMR.2021.6.1.05
-<!-- verified: Crossref metadata, 2026-10-29; the thesis gave a different venue, corrected. [CHECK: the DOI landing page currently shows a different article; the thesis cited a similar title in Review of International Geographical Education Online 11(8). Possibly published twice; confirm which to cite] -->
+Lee, H.-Y., & Kang, M.-K. (2021). Text difficulty of English textbooks for senior high school and the College Scholastic Ability Test in South Korea. *Asia-Pacific Journal of Educational Management Research, 6*(1), 53–60. https://doi.org/10.21742/ajemr.2021.6.1.05
+<!-- verified: article PDF (gvpress.com/journals/AJEMR/vol6_no1/4.pdf), 2026-10-30: pp. 53–60 and DOI as printed on the article; Crossref lists pp. 55–62 and the publisher's DOI landing page shows another article. The thesis cited a similar title in Review of International Geographical Education Online; this version is the one with an accessible PDF (Greg). -->
 
 Lu, X. (2010). Automatic analysis of syntactic complexity in second language writing. *International Journal of Corpus Linguistics, 15*(4), 474–496. https://doi.org/10.1075/ijcl.15.4.02lu
 <!-- verified: Crossref, 2026-10-29 -->

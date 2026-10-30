@@ -13,8 +13,6 @@ This study compares the reading texts of the two Greek state Lyceum English cour
 
 ## Disclosure statements
 
-**Use of AI tools.** An AI assistant (Claude, Anthropic) was used to propose genre labels, which the author confirmed or changed; to write and test the analysis scripts; and to draft the manuscript, which the author revised. The author specified the analyses, verified the corpus against its sources, and is responsible for the content. [CHECK: adjust to the journal's policy.]
-
 **Data availability.** The corpus texts, analysis scripts and derived measures are openly available at [anonymised repository link].
 
 **Conflicts of interest.** None.

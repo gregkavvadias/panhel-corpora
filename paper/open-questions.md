@@ -77,3 +77,9 @@
   - Greenfield's last page.
   - The outside-school preparation claim (intro).
   - Funding and the AI-policy wording (front matter).
+
+## Resolved 2026-10-30
+
+- **Lee & Kang (2021):** citing the AJEMR version, which has an accessible PDF. The PDF shows pp. 53–60.
+- **Kintsch & Vipond:** citing the 1979 original.
+- **AI disclosure:** RFL's template is now placed before the References (end of `06-conclusion.md`); the front-matter duplicate was removed. The cover-letter text is still to be written.
