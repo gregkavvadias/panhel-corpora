@@ -59,11 +59,8 @@ Crossley, S. A., Skalicky, S., & Dascalu, M. (2019). Moving beyond classic reada
 Flesch, R. (1948). A new readability yardstick. *Journal of Applied Psychology, 32*(3), 221–233. https://doi.org/10.1037/h0057532
 <!-- verified: Crossref, 2026-10-29 -->
 
-Fulcher, G. (1997). Text difficulty and accessibility: Reading formulae and expert judgement. *System, 25*(4), 497–513. https://doi.org/10.1016/S0346-251X(97)00048-1
-<!-- verified: Crossref, 2026-10-29 -->
-
 Gedik, T. A., & Kolsal, Y. (2022). A corpus-based analysis of high school English textbooks and English university entrance exams in Turkey. *Theory and Practice of Second Language Acquisition, 8*(1), 157–176. https://doi.org/10.31261/TAPSLA.9152
-<!-- verified: Crossref, 2026-10-29 -->
+<!-- verified: Crossref and journal abstract (exam corpus higher in sophistication, diversity, syntactic complexity), 2026-10-30 -->
 
 Grabe, W. (2009). *Reading in a second language: Moving from theory to practice*. Cambridge University Press. https://doi.org/10.1017/CBO9781139150484
 <!-- verified: Crossref (online 2008; print 2009), 2026-10-29 -->
@@ -75,10 +72,10 @@ Graesser, A. C., McNamara, D. S., Louwerse, M. M., & Cai, Z. (2004). Coh-Metrix:
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
 
 Greenfield, J. (2004). Readability formulas for EFL. *JALT Journal, 26*(1), 5–24. https://doi.org/10.37546/JALTJJ26.1-1
-<!-- verified: Crossref (first page 5); [CHECK: last page] -->
+<!-- verified: Crossref (first page 5); content from the JALT abstract, 2026-10-30; [CHECK: last page] -->
 
 Hedges, L. V. (1981). Distribution theory for Glass's estimator of effect size and related estimators. *Journal of Educational Statistics, 6*(2), 107–128. https://doi.org/10.3102/10769986006002107
-<!-- verified: Crossref (JSTOR 10.2307/1164588, first page 107); SAGE DOI is the canonical one, [CHECK: last page 128] -->
+<!-- verified: Crossref 10.3102/10769986006002107 (pp. 107–128), 2026-10-30 -->
 
 Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). *spaCy: Industrial-strength natural language processing in Python* [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.1212303
 <!-- verified: the citation the spaCy project requests; [CHECK: version cited matches requirements.txt] -->
@@ -102,7 +99,7 @@ Laufer, B., & Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Le
 <!-- verified: Crossref, 2026-10-29 -->
 
 Lee, H., & Kang, M. (2021). Text difficulty of English textbooks for senior high school and the College Scholastic Ability Test in South Korea. *Asia-Pacific Journal of Educational Management Research, 6*(1), 55–62. https://doi.org/10.21742/AJEMR.2021.6.1.05
-<!-- verified: Crossref, 2026-10-29; the thesis gave a different venue, corrected -->
+<!-- verified: Crossref metadata, 2026-10-29; the thesis gave a different venue, corrected. [CHECK: the DOI landing page currently shows a different article; confirm on the journal's site] -->
 
 Lu, X. (2010). Automatic analysis of syntactic complexity in second language writing. *International Journal of Corpus Linguistics, 15*(4), 474–496. https://doi.org/10.1075/ijcl.15.4.02lu
 <!-- verified: Crossref, 2026-10-29 -->
@@ -114,7 +111,7 @@ Manolopoulou-Sergi, E., Papachristou, E., Poulla, E., Kalfoglou, C., Karavota, M
 <!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; [CHECK: edition year and publisher name] -->
 
 Mar, R. A., Li, J., Nguyen, A. T. P., & Ta, C. P. (2021). Memory and comprehension of narrative versus expository texts: A meta-analysis. *Psychonomic Bulletin & Review, 28*(3), 732–749. https://doi.org/10.3758/s13423-020-01853-1
-<!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
+<!-- verified: Crossref with abstract (75+ samples; stories better understood and recalled), 2026-10-30 -->
 
 McCarthy, P. M., & Jarvis, S. (2010). MTLD, vocd-D, and HD-D: A validation study of sophisticated approaches to lexical diversity assessment. *Behavior Research Methods, 42*(2), 381–392. https://doi.org/10.3758/BRM.42.2.381
 <!-- verified: Crossref, 2026-10-29 -->
@@ -122,11 +119,11 @@ McCarthy, P. M., & Jarvis, S. (2010). MTLD, vocd-D, and HD-D: A validation study
 McNamara, D. S., Graesser, A. C., McCarthy, P. M., & Cai, Z. (2014). *Automated evaluation of text and discourse with Coh-Metrix*. Cambridge University Press. https://doi.org/10.1017/CBO9780511894664
 <!-- verified: Crossref, 2026-10-29 -->
 
-Ministry of National Education and Religious Affairs. (2009). [Decision on the examination of the foreign-language special subjects]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
-<!-- [CHECK: decision number and Greek title. Decision Φ.253/27456/Β6/2009 in the same issue concerns EPAL access, so the foreign-language decision is a different one in ΦΕΚ 493/Β/2009] -->
+Ministry of Education, Religious Affairs and Sports. (2024). Ορισμός των Σχολών, των Τμημάτων και των Εισαγωγικών Κατευθύνσεων Τμημάτων ΑΕΙ και των ΑΣΤΕ, για την εισαγωγή στα οποία απαιτείται εξέταση σε ειδικά μαθήματα [Definition of the schools and departments for admission to which an examination in special subjects is required] (Ministerial Decision Φ.253/154481/Α5). *Government Gazette of the Hellenic Republic*, B(7261), 31 December 2024.
+<!-- verified: e-nomothesia.gr text (Art. 1 departments; Art. 2 exam structure), 2026-10-30 -->
 
 Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Iranian general English books and MA reading comprehension tests: A corpus analysis. *Journal of Modern Research in English Language Studies, 2*(2), 77–98.
-<!-- verified: index record (journals.ikiu.ac.ir/article_797) via search, 2026-10-29; publisher site refused connection; [CHECK: pages and DOI on the publisher page] -->
+<!-- verified: DOAJ record (vol. 2, no. 2, March 2015), 2026-10-30; [CHECK: pages 77–98 from an index record; journal site unreachable] -->
 
 Nahatame, S. (2021). Text readability and processing effort in second language reading: A computational and eye-tracking investigation. *Language Learning, 71*(4), 1004–1043. https://doi.org/10.1111/lang.12455
 <!-- verified: Crossref, 2026-10-29 -->
@@ -153,22 +150,22 @@ Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and statistical mod
 <!-- verified: Crossref, 2026-10-30 -->
 
 Srisunakrua, T., & Chumworatayee, T. (2019). Readability of reading passages in English textbooks and the Thai national education English test: A comparative study. *Arab World English Journal, 10*(2), 257–269. https://doi.org/10.24093/awej/vol10no2.20
-<!-- verified: Crossref DOI lookup, 2026-10-29 -->
+<!-- verified: Crossref and AWEJ abstract (textbook passages easier than the test), 2026-10-30 -->
 
-Tai, S.-J. D., & Chen, H. H.-J. (2015). Are teachers test-oriented? A comparative corpus-based analysis of the English entrance exam and junior high school textbooks in Taiwan. In F. Helm, L. Bradley, M. Guarda, & S. Thouësny (Eds.), *Critical CALL – Proceedings of the 2015 EUROCALL Conference, Padova, Italy* (pp. 518–522). Research-publishing.net. https://doi.org/10.14705/rpnet.2015.000386
-<!-- verified: Crossref, 2026-10-29; [CHECK: editors and author initials] -->
+Tai, S., & Chen, H.-J. (2015). Are teachers test-oriented? A comparative corpus-based analysis of the English entrance exam and junior high school textbooks in Taiwan. In F. Helm, L. Bradley, M. Guarda, & S. Thouësny (Eds.), *Critical CALL – Proceedings of the 2015 EUROCALL Conference, Padova, Italy* (pp. 518–522). Research-publishing.net. https://doi.org/10.14705/rpnet.2015.000386
+<!-- verified: Crossref (authors Sophie Tai, Hao-Jan Chen; pp. 518–522), 2026-10-30; editors from the proceedings volume -->
 
 Tsiplakou, S., & Tsagari, D. (2023). Language ideologies and washback effects in a high-stakes Greek language examination. *Research Papers in Language Teaching and Learning, 13*(1), 64–92.
 <!-- verified: article PDF title page (rpltl.eap.gr/images/2023/04_Tsiplakou___Tsagari.pdf), 2026-10-29 -->
 
 Underwood, P. (2010). A comparative analysis of MEXT English reading textbooks and Japan's National Center Test. *RELC Journal, 41*(2), 165–182. https://doi.org/10.1177/0033688210373128
-<!-- verified: Crossref, 2026-10-29 -->
+<!-- verified: Crossref with abstract (vocabulary, readability, skills, item formats), 2026-10-30 -->
 
 Webb, S. (2021). Research investigating lexical coverage and lexical profiling: What we know, what we don't know, and what needs to be examined. *Reading in a Foreign Language, 33*(2), 278–293. https://doi.org/10.64152/10125/67407
 <!-- verified: Crossref, 2026-10-29 -->
 
-Yıldız, M. (2023). Lexical coverage required for minimal and optimal levels of reading comprehension in the English tests of the Higher Education Institutions Examination. *rEFLections, 30*(3), 695–711. https://doi.org/10.61508/refl.v30i3.268077
-<!-- verified: Crossref, 2026-10-29; [CHECK: dotless ı in surname] -->
+Yildiz, M. (2023). Lexical coverage required for minimal and optimal levels of reading comprehension in the English tests of the Higher Education Institutions Examination. *rEFLections, 30*(3), 695–711. https://doi.org/10.61508/refl.v30i3.268077
+<!-- verified: Crossref and journal page (spelled Yildiz), 2026-10-30 -->
 
 Zou, H., & Hastie, T. (2005). Regularization and variable selection via the elastic net. *Journal of the Royal Statistical Society: Series B (Statistical Methodology), 67*(2), 301–320. https://doi.org/10.1111/j.1467-9868.2005.00503.x
 <!-- verified: Crossref, 2026-10-29 -->

@@ -12,7 +12,7 @@ The answer to RQ2 sharpens this picture. The two groups can be told apart reliab
 
 The finding that vocabulary frequency does not differ, while abstractness does, refines the usual conclusion of coursebook–examination comparisons that the examination texts are simply "harder". Here they are not harder on the dimension that the most widely used lexical measures capture, and the difference lies where frequency-based and formula-based profiles do not look. Studies that read the absence of a significant difference as evidence of a match may miss mismatches of this kind; an equivalence test makes the distinction explicit.
 
-The results also bear on the earlier analysis of this corpus ([Author, 2023]). Its central observation, that the examination texts are more abstract and use fewer passives, holds with open measures, corrected statistics and twice as many examination texts, and the concreteness difference is of similar size in the original 13 papers and in the full set. What the present study adds is the equivalence in vocabulary frequency, which shows that the abstractness difference is not a by-product of rarer words, and the finding that the difference persists within genre.
+The earlier analysis of this corpus ([Author, 2023]) found the examination texts more abstract and lower in passives; both observations hold with open measures, corrected statistics and twice as many examination texts. The present study adds that the vocabulary is equally frequent, so abstractness is not a by-product of rarer words, and that the difference persists within genre.
 
 ## Implications for materials and teaching
 
@@ -26,7 +26,7 @@ Third, teachers working with the current books can supplement them with such tex
 
 ## Limitations
 
-The study is text-side. It shows that the examination texts make different lexical and discourse demands, not that these demands make the texts harder for Greek candidates to comprehend. Evidence on that question would require data from readers, such as comprehension scores on texts of both kinds. The published examination statistics do not provide it, because they report scores for the whole paper rather than for the reading task. [CHECK: Greg to confirm the statistics cover 2019–2026 only.]
+The study is text-side. It shows that the examination texts make different lexical and discourse demands, not that these demands make the texts harder for Greek candidates to comprehend. Evidence on that question would require data from readers, such as comprehension scores on texts of both kinds. The published examination statistics do not provide it, because they report scores for the whole paper rather than for the reading task.
 
 The corpus is small (27 and 26 texts) and comes from a single country and a single pair of coursebooks. The confidence intervals are correspondingly wide, and only large differences can be detected with confidence. Coverage is near the ceiling in every text, so the coverage measure has little room to vary; the equivalence result should be read in raw points, as stated, and not as evidence that the vocabulary is identical in every respect.
 

@@ -35,8 +35,6 @@ Table 2 gives the four primary tests and the main descriptive measures. Only one
 
 **Coverage.** By word frequency, the two groups are equivalent. At the 5k level, the examination texts cover 98.20% of running words and the coursebook texts 97.86%, a difference of 0.35 points. The 90% confidence interval for the difference, [−0.14, 0.83], lies well inside the ±2-point margin, so the equivalence test succeeds (*p* < .001 for both one-sided tests). The conventional difference test finds no difference either.
 
-As noted under Method, the equivalence concerns group means in raw coverage points; it does not mean that the groups are identical in vocabulary.
-
 The coverage thresholds tell the same story. On average, the examination texts reach 95% coverage at the 3k level and 98% at 5k; the coursebook texts reach 95% at 4k and 98% at 6k. The groups' means are thus one band apart at most, and the examination texts, if anything, require slightly fewer word families. Text by text, every coursebook text and 25 of the 26 examination texts reach 95% coverage by the 5k level. At the 6k level, 20 of 27 coursebook texts and 18 of 26 examination texts reach 98%.
 
 **Concreteness.** The examination texts are clearly more abstract. Their content words have a mean concreteness rating of 2.91, against 3.13 in the coursebooks (*g* = −1.15, 95% CI [−1.85, −0.62], BH *p* < .001). The descriptive measures agree: the examination texts' words are also less imageable (*g* = −1.19) and more varied (MTLD, *g* = 0.74; HD-D, *g* = 0.90). They are, however, slightly *more* familiar (*g* = 0.74). The picture is of vocabulary that is no rarer and no less familiar, but more abstract and more varied.

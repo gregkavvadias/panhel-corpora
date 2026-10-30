@@ -2,8 +2,8 @@
 
 ## References (Task 3)
 
-- **Coursebooks (resolved 2026-10-30):** ebooks.edu.gr lists Manolopoulou-Sergi et al. as authors and Nika as critical reader, so the books are now cited under their authors. *English 1* is for Year 1; *English 2* is for Years 2–3. Still needed: the edition year (2019?) and the publisher's name as printed.
-- **Gazette decision in ΦΕΚ 493/Β/18-3-2009:** I need its number and Greek title. The Φ.253/27456/Β6 decision in that issue concerns EPAL access, so the foreign-language decision is a different one.
+- **Coursebooks (resolved 2026-10-30):** ebooks.edu.gr lists Manolopoulou-Sergi et al. as authors and Nika as critical reader, so the books are now cited under their authors. *English 1* is for Year 1; *English 2* is for Years 2–3. Edition year and publisher confirmed by Greg.
+- **Exam regulation (resolved 2026-10-30):** now cited as Φ.253/154481/Α5, ΦΕΚ 7261/Β/31-12-2024 (Art. 1 departments, Art. 2 format: authentic text of about 330–370 words, 8–10 questions).
 - **The `[CHECK]` items in `references.md`:**
   - Mirshojaee & Sahragard: the publisher site was down.
   - Kintsch & Vipond: chapter page range.
@@ -62,3 +62,18 @@
 - **Audience:** the reviewer suggests moving RQ2(a) (the elastic net) to an appendix and explaining *g* and TOST in plain terms. This would cost little in words; your call.
 - **Greenfield (2004):** the reviewer believes it found the classic formulas valid for EFL. I've rewritten the sentence that way, marked [CHECK].
 - **Word budget:** main text 7,079 + references 1,416 = 8,495 of 8,500. Any additions need matching cuts. Method is at 2,149 against a target of 1,800 because of the fuller pre-specification timeline.
+
+## Reference check (2026-10-30)
+
+- **Verified against abstracts or publisher records:** Srisunakrua & Chumworatayee, Gedik & Kolsal, Underwood, Mar et al., Greenfield, Hedges's pages, Tai & Chen's authors, and Yildiz (no diacritics).
+- **Corrected in the text:**
+  - Greenfield (2004) *supports* the classic formulas for EFL readers.
+  - "Most report harder" now cites the three studies whose direction I could verify.
+- **Dropped:** Fulcher (1997). I couldn't access its findings.
+- **Still open:**
+  - Mirshojaee pages: the journal site is down. DOAJ confirms 2(2), March 2015.
+  - Kintsch & Vipond chapter pages: need a library catalogue.
+  - Lee & Kang: the DOI currently resolves to another article.
+  - Greenfield's last page.
+  - The outside-school preparation claim (intro).
+  - Funding and the AI-policy wording (front matter).
