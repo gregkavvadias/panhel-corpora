@@ -3,7 +3,7 @@
 **Owner:** Greg Kavvadias
 **Source thesis:** *A computational comparative analysis of text difficulty in the Greek high school English coursebooks and the national university entrance examinations for English*. MA TEFL/TEIL, Hellenic Open University, 2023 (supervisor: Karasimos).
 **Goal:** a substantially reworked, publishable paper built on this corpus. It is a new paper, not a trimmed thesis.
-**Status (29 Oct 2026):** Phases 1–4 are done (open difficulty measures on 27 vs 26 texts; RQ2 on separation and genre); see `reanalysis/README.md`. Next comes Phase 5, the paper.
+**Status (30 Oct 2026):** Phases 1–5 are done. The analyses are in `reanalysis/README.md`. The paper is drafted in `paper/`, targeting *Reading in a Foreign Language*; what is left before submission is in `paper/open-questions.md`.
 
 ---
 
@@ -11,17 +11,18 @@
 
 ```
 Texts/
-  English 1/      10 reading texts (state coursebook, grade A)
-  English 2/      18 reading texts (state coursebook, grades B–C)
-  Panhellenics/   13 exam reading texts, June 2010–2022 (~350 words each)
-reanalysis/
-  data/cohmetrix_appA.csv      Coh-Metrix 3.0 values per text, parsed from thesis Appendix A
-  parse_appA.py                re-creates that CSV from the thesis PDF (PDF not in repo)
-  stats1.py  stats2.py  stats3.py  stats4.py  features.py  noun_split.py
-  results/                     CSV outputs
-  README.md                    what each script does + main findings
-  requirements.txt
-HANDOFF.md                     this file
+  English 1/      10 reading texts (state coursebook, Lyceum Year 1)
+  English 2/      18 reading texts (state coursebook, Years 2–3; unit-4-1 is excluded from analysis)
+  Panhellenics/   26 exam reading passages: June 2010–2026 and September resits 2018–2026
+reanalysis/       analysis scripts (Phases 1–4), data, results/ and tests/; README.md documents every step
+  staging/        extracted exam passages as approved before promotion (provenance)
+paper/            the article: one Markdown file per section, references, appendices
+  numbers.md      every figure the paper may quote, generated from reanalysis/results
+  tools/          numbers_build.py, check_numbers.py, wordcount.py, build_pdf.py (+ tests)
+  figures/        coverage.py → coverage.png (Figure 1)
+  second-coder/   blind genre-coding sample, instructions, key and responses
+docs/superpowers/ design specs and implementation plans for each phase
+HANDOFF.md        this file
 ```
 
 Run all scripts from `reanalysis/` (`cd reanalysis`). Setup:
@@ -29,6 +30,8 @@ Run all scripts from `reanalysis/` (`cd reanalysis`). Setup:
 ```
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_md
+python fetch_resources.py        # BNC/COCA lists, Brysbaert and Glasgow norms, TAACO lists (not committed)
 ```
 
 Note: `textstat` is not used because it needs NLTK's cmudict. Syllables are counted with `pyphen`.
@@ -118,38 +121,16 @@ All figures come from `reanalysis/results/`. Sample: 28 coursebook texts vs 13 e
 
 ---
 
-## 4. Next steps
+## 4. Phases (all done)
 
-### Phase 2: methods upgrade (Claude Code, local machine with full internet)
-1. **Frequency bands.** Download a BNC/COCA word-family list (Nation's lists) and replace the wordfreq coverage in `features.py` with coverage by band (1k–9k).
-   - Leave proper nouns out of the counts, which is the standard way of treating them as known.
-   - Report 95% and 98% thresholds.
-2. **Concreteness norms.** Download the Brysbaert et al. (2014) concreteness norms and compute mean concreteness of content lemmas. This replaces Coh-Metrix WRDCNCc and makes the result reproducible.
-3. **Further NLP tools** (optional): run TAALES, TAASSC and TAACO (desktop apps from Kristopher Kyle and Scott Crossley) to get validated lexical, syntactic and cohesion indices.
-4. **A modern difficulty estimate:** CAREC, or a transformer-based readability model. This replaces relying on RDL2 alone.
-5. **CEFR vocabulary profiling** (English Vocabulary Profile or a CEFR-J wordlist), if accessible.
-6. **Statistics stay as in Phase 1:** Welch or Mann–Whitney tests, Hedges' g with bootstrap CIs, BH correction, and the length-matched comparison as a robustness check.
+The plan below was written in Phase 1; each phase now has a design spec and a plan in `docs/superpowers/`, and its results in `reanalysis/README.md`.
 
-### Phase 3: corpus extension
-7. Add the June 2023–2026 Panhellenic English reading texts to `Texts/Panhellenics/`, named `YYYY-06.txt` and cleaned the same way as the existing files. Greg has to source these.
-8. Optionally add the matching coursebook texts from any revised editions, with metadata on grade and unit.
-9. Rerun every script and update `reanalysis/README.md`.
+- **Phase 2, methods upgrade:** BNC/COCA word-family coverage, Brysbaert concreteness, an equivalence test (TOST ±2 points).
+- **Phase 3, corpus extension and open measures:** 13 exam passages added (June 2023–2026, resits 2018–2026); open measures of vocabulary, syntax and cohesion replace Coh-Metrix; one primary family of four tests.
+- **Phase 4, new RQ2:** elastic-net separation model; genre composition and within-genre comparison.
+- **Phase 5, the paper:** drafted in `paper/` for *Reading in a Foreign Language*; second-coder reliability done (κ = 1.00 coarse, .74 fine).
 
-### Phase 4: a new RQ2 to replace the circular one
-10. Drop the "which features correlate with RDL2" question. Candidates to replace it:
-    - (a) Which features best separate the coursebook and exam texts? Use a regularised logistic regression or a random forest with permutation importance; at n ≈ 45, prefer the simpler models and cross-validate.
-    - (b) Genre composition: classify each text as narrative or expository and test whether genre explains the differences in abstractness and passives.
-
-### Phase 5: the paper
-11. **Framing.**
-    - In the Panhellenics, English is a *special subject* taken mainly by candidates for English and foreign-language departments, most of whom prepare in frontistiria and often already hold C1/C2 certificates.
-    - The paper asks whether the state-school reading input matches the exam's demands, and answers with the genre/abstractness mismatch.
-12. **Literature:** the teaching–testing alignment studies already cited in the thesis (Thailand, Korea, Turkey/Gedik & Kolsal 2022, Iran, Japan). Before writing, check for anything on Greece published since 2023.
-13. **Possible venues:**
-    - Within the current scope: *Research Papers in Language Teaching and Learning*, GALA's *Journal of Applied Linguistics*, ISTAL proceedings.
-    - With the upgraded methods: *RELC Journal*, *Reading in a Foreign Language*.
-14. **Co-authorship:** raise the plan with Karasimos, the MA supervisor, first.
-15. **Open-data statement:** point to https://github.com/gregkavvadias/panhel-corpora (renamed from `thesis-corpora`; the old URL printed in the thesis redirects).
+Rebuild order after any change: run the relevant `reanalysis/` script, then `python paper/tools/numbers_build.py`, `python paper/tools/check_numbers.py paper/0*.md paper/appendices.md`, `python paper/figures/coverage.py` and `python paper/tools/build_pdf.py`.
 
 ---
 

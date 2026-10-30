@@ -1,8 +1,7 @@
 # Builds paper/numbers.md: every figure the paper may quote, at full precision, from reanalysis/results.
-# Thresholds and exam subsets are recomputed in memory with the stats5 functions on the current
-# 27 + 26 lexical features (the archived lexical_thresholds/lexical_subsets CSVs hold the 28-text run).
+# Thresholds, exam subsets, lexical robustness rows and token shares are computed in memory with the
+# stats5 functions on the current 27 + 26 lexical features; they match the regenerated lexical_*.csv files.
 # Second-coder kappa is computed from paper/second-coder (responses + key) against the frozen labels.
-# So are the lexical robustness rows and token shares (archived lexical_comparisons.csv is the 28-text run).
 import sys
 from pathlib import Path
 import pandas as pd
