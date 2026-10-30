@@ -242,7 +242,7 @@ None. No rule changed after the freeze commit (528abe9).
 
 **What changed in the corpus**
 - English 2 unit-4-1 is excluded from here on, so `results/lexical_features.csv` now holds 27 coursebook texts.
-- The Phase 2 and Phase 3 part 1 figures above were computed with 28 coursebook texts. They remain as published in git history (commits `ee0280e` and `e9fbaab`), and rerunning `stats5.py` now gives the 27-text versions.
+- The Phase 2 and Phase 3 part 1 figures above were computed with 28 coursebook texts. They remain as published in git history (commits `ee0280e` and `e9fbaab`). The `lexical_*` CSVs in `results/` were regenerated with `stats5.py` on 30 Oct 2026 and now hold the 27-text versions, which match `paper/numbers.md`.
 - The Phase 1 Coh-Metrix analyses are unchanged and keep all 28 texts.
 
 **Primary tests** (one BH family of four; Welch tests; exam − school)
