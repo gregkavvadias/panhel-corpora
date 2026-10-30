@@ -47,8 +47,8 @@ Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metri
 | Infinitives | DRINF | .97 [.94, .98] | .95 [.89, .98] | .96 [.88, .99] |
 | Gerunds | DRGERUND | .84 [.71, .91] | .82 [.64, .92] | .86 [.59, .96] |
 | Negation | DRNEG | .79 [.64, .88] | .68 [.40, .84] | .89 [.66, .97] |
-| Verb phrases | DRVP | .70 [.50, .83] | .75 [.51, .88] | .51 [−.06, .83] |
-| Noun phrases | DRNP | .51 [.24, .71] | .54 [.20, .76] | .31 [−.29, .73] |
+| Verbs | DRVP | .70 [.50, .83] | .75 [.51, .88] | .51 [−.06, .83] |
+| Noun phrases (noun chunks) | DRNP | .51 [.24, .71] | .54 [.20, .76] | .31 [−.29, .73] |
 | Connectives | CNCAll | .85 [.73, .92] | .82 [.64, .92] | .93 [.79, .98] |
 | Causal connectives | SMCAUSvp | .15 [−.16, .44] | .23 [−.16, .56] | .63 [.12, .88] |
 | Semantic overlap | LSASSp | .12 [−.19, .42] | .26 [−.14, .58] | .25 [−.35, .70] |

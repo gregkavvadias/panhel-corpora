@@ -28,3 +28,9 @@ def test_numbers_build_contains_primary_rows():
 def test_check_numbers_ignores_rate_unit():
     from check_numbers import unmatched
     assert unmatched('7.5 passives per 1,000 words; 1,000 texts', '- passive 7.5') == ['1,000']
+
+def test_numbers_build_has_lexical_robustness_and_token_shares():
+    text = build(ROOT / 'reanalysis' / 'results')
+    sec = text.split('## Lexical robustness (27 vs 26)')[1].split('\n## ')[0]
+    for row in ('cov5k (first360', 'conc_tok (first360', 'cov5k_propn_known (full', 'propn_pct'):
+        assert row in sec

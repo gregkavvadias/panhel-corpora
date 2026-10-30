@@ -35,7 +35,7 @@ Table 2 gives the four primary tests and the main descriptive measures. Only one
 
 **Coverage.** By word frequency, the two groups are equivalent. At the 5k level, the examination texts cover 98.20% of running words and the coursebook texts 97.86%, a difference of 0.35 points. The 90% confidence interval for the difference, [−0.14, 0.83], lies well inside the ±2-point margin, so the equivalence test succeeds (*p* < .001 for both one-sided tests). The conventional difference test finds no difference either.
 
-The equivalence holds in raw coverage points, the scale on which the margin was set. In standardised terms it is less certain: coverage is close to the ceiling in every text, and the interval for *g* does not rule out a moderate standardised difference. The claim is therefore that any difference in word frequency is too small to matter for comprehension, not that the groups are identical.
+As noted under Method, the equivalence concerns group means in raw coverage points; it does not mean that the groups are identical in vocabulary.
 
 The coverage thresholds tell the same story. On average, the examination texts reach 95% coverage at the 3k level and 98% at 5k; the coursebook texts reach 95% at 4k and 98% at 6k. The groups' means are thus one band apart at most, and the examination texts, if anything, require slightly fewer word families. Text by text, every coursebook text and 25 of the 26 examination texts reach 95% coverage by the 5k level. At the 6k level, 20 of 27 coursebook texts and 18 of 26 examination texts reach 98%.
 
@@ -55,7 +55,7 @@ Neither readability formula separates the groups. Both point weakly towards the 
 
 ### Robustness
 
-The results do not depend on how the examination corpus was assembled, and the measures computed on length-matched texts point the same way (Table 3).
+The results do not depend on text length or on how the examination corpus was assembled (Table 3).
 
 **Table 3**
 *Primary results on length-matched texts and examination subsets*
@@ -63,15 +63,13 @@ The results do not depend on how the examination corpus was assembled, and the m
 | Check | 5k coverage: difference [90% CI] | Concreteness *g* [95% CI] | Mean length of clause *g* | Content-word overlap *g* |
 |---|---|---|---|---|
 | All texts (main analysis) | 0.35 [−0.14, 0.83] | −1.15 [−1.85, −0.62] | −0.55 | 0.21 |
-| Coursebooks length-matched | — | — | −0.67 | 0.18 |
+| Coursebooks length-matched | 0.54 [0.02, 1.06] | −1.23 [−1.95, −0.70] | −0.67 | 0.18 |
 | June papers only (*n* = 17) | 0.16 [−0.42, 0.74] | −1.05 [−1.75, −0.51] | −0.58 | 0.11 |
 | Original 13 June papers | 0.10 [−0.57, 0.77] | −0.96 [−1.68, −0.36] | −0.65 | 0.24 |
 
-*Note.* All coverage intervals lie within the ±2-point equivalence margin. Robustness checks are uncorrected. Dashes: length-matched coverage and concreteness are not yet in the generated results for the 27-text coursebook set [CHECK: add before submission].
+*Note.* All coverage intervals lie within the ±2-point equivalence margin. Robustness checks are uncorrected.
 
-Every coverage interval falls within the equivalence margin. The concreteness difference is large in every subset, including the original 13 papers (*p* = .004, uncorrected) and the June papers alone (*p* < .001). Its size in the original 13 papers (*g* = −0.96) is close to that in the full set (−1.15), so the papers added since the earlier analysis do not create it. The shorter clauses in the examination texts appear in every check (length-matched *g* = −0.67, *p* = .02, uncorrected), but the pre-specified test is not significant after correction, so I treat clause length as showing no reliable difference. Content-word overlap shows no difference in any check.
-
-**Validation.** Most open measures agree closely with the Coh-Metrix indices they replace (Appendix B). Concreteness correlates at ρ = .90 with Coh-Metrix concreteness. Content-word overlap agrees well within the examination texts (ρ = .89) but weakly within the coursebooks (ρ = .38), because the two indices are defined differently. Three descriptive measures agree poorly and are best read as related measures, not replacements: adjectives, causal connectives and semantic overlap.
+Every coverage interval falls within the equivalence margin, including the check with proper nouns counted as known (difference 0.22, 90% CI [−0.24, 0.68]). On the length-matched texts, the interval excludes zero: the examination texts have slightly *higher* 5k coverage, by about half a point. The concreteness difference is large in every subset, including the original 13 papers (*p* = .004, uncorrected) and the June papers alone (*p* < .001). Its size in the original 13 papers (*g* = −0.96) is close to that in the full set (−1.15), so the papers added since the earlier analysis do not create it. The shorter clauses in the examination texts appear in every check (length-matched *g* = −0.67, *p* = .02, uncorrected), but the pre-specified test is not significant after correction, so I treat clause length as showing no reliable difference. Content-word overlap shows no difference in any check.
 
 ## RQ2: What distinguishes the examination texts, and does genre account for it?
 
@@ -97,7 +95,7 @@ The inner cross-validation chose a mostly ridge-like penalty in both fits, which
 
 ### Genre
 
-The genre composition of the two groups differs sharply (Table 5). Twelve of the 27 coursebook texts are narrative (biographies, fiction, and two other narratives: a chapter-by-chapter plot retelling and a historical recount). None of the 26 examination texts is narrative. Every examination passage is informational or argumentative (Fisher's exact test, *p* = .0001; odds ratio 95% CI [3.95, ∞]).
+The genre composition of the two groups differs sharply (Table 5). Twelve of the 27 coursebook texts are narrative (biographies, fiction, and two other narratives: a chapter-by-chapter plot retelling and a historical recount). None of the 26 examination texts is narrative. Every examination passage is informational or argumentative (Fisher's exact test, *p* < .001). The odds of a text being narrative are higher in the coursebooks; the odds ratio is infinite because of the zero cell (exact 95% CI [3.95, ∞]).
 
 **Table 5**
 *Genre composition and the within-genre comparison*
@@ -120,4 +118,4 @@ The genre composition of the two groups differs sharply (Table 5). Twelve of the
 
 Genre does not, however, account for the differences found under RQ1. Comparing only the non-narrative texts, the examination texts remain clearly more abstract and use far fewer passives. The gaps are about as large as in the full comparison. For concreteness, the regression check shows that adding genre shrinks the examination coefficient by 16% (from −0.22 to −0.19; 95% CI [−0.31, −0.06]). For passives it shrinks by 4% (from −8.2 to −7.9; 95% CI [−12.4, −3.3]). Because no examination text is narrative, this check restates the within-genre comparison on the raw scale; it is not separate evidence.
 
-<!-- source: README Phase 4 (b), within matching genres (descriptive): informational 3.15 vs 2.95, 15.3 vs 8.6; argumentative 3.12 vs 2.83, 14.3 vs 5.5 -->The pattern also holds within matching genres. The coursebooks' informational texts are more concrete than the examination's (3.15 against 2.95) and use more passives (15.3 against 8.6 per 1,000 words), and the same is true of the argumentative texts (3.12 against 2.83; 14.3 against 5.5). These genre-level figures are descriptive, as the coursebooks contain only two argumentative texts. The coursebooks' non-narrative group also includes speeches and reviews, which have no examination counterpart. Even so, the difference does not come from the coursebooks containing narratives. It comes from the kind of expository and argumentative prose they contain.
+<!-- source: README Phase 4 (b), within matching genres (descriptive): informational 3.15 vs 2.95, 15.3 vs 8.6; argumentative 3.12 vs 2.83, 14.3 vs 5.5 -->The pattern also holds, descriptively, within matching genres: the coursebooks' informational texts are more concrete than the examination's (3.15 against 2.95) and use more passives (15.3 against 8.6 per 1,000 words), and so are their two argumentative texts (3.12 against 2.83; 14.3 against 5.5). The difference, then, comes less from the coursebooks' narratives than from the kind of expository and argumentative prose they contain.

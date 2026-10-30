@@ -2,7 +2,8 @@
 
 ## References (Task 3)
 
-- **Nika (2019a, 2019b), the Government Gazette decision 493/Β/18-3-09, and IEP Act 43/19-10-2017:** I couldn't recover their full entries. Please paste them from the thesis reference list; placeholders are in `references.md`.
+- **Coursebooks (resolved 2026-10-30):** ebooks.edu.gr lists Manolopoulou-Sergi et al. as authors and Nika as critical reader, so the books are now cited under their authors. *English 1* is for Year 1; *English 2* is for Years 2–3. Still needed: the edition year (2019?) and the publisher's name as printed.
+- **Gazette decision in ΦΕΚ 493/Β/18-3-2009:** I need its number and Greek title. The Φ.253/27456/Β6 decision in that issue concerns EPAL access, so the foreign-language decision is a different one.
 - **The `[CHECK]` items in `references.md`:**
   - Mirshojaee & Sahragard: the publisher site was down.
   - Kintsch & Vipond: chapter page range.
@@ -19,7 +20,7 @@
 
 ## Results (Task 5)
 
-- **Table 3, length-matched coverage and concreteness:** the archived CSVs hold these only for the old 28-text coursebook set. I can add them to `numbers_build.py` (computed in memory, as the thresholds already are); until then the cells show dashes.
+- **Table 3 (resolved):** length-matched coverage and concreteness are now generated for 27 texts. The length-matched coverage CI excludes zero (exam slightly higher), and the results text says so.
 - **Figure:** none so far. A coverage-by-band figure (1k–9k, both groups) is optional. Do you want one?
 - **Table count:** I've used five main-text tables, the maximum. If you want a figure, Table 3 could move to an appendix.
 - **The outlier:** I describe English 2 unit-6-1 ("I Have A Dream") without naming it. Name it if you prefer.
@@ -55,9 +56,9 @@
 
 ## Final review (RFL-reviewer pass): points for you to decide
 
-- **Grade level (likely the biggest reviewer objection):** *English 1/2* serve Lyceum years 1–2, but the exam comes at the end of year 3. What do year-3 students use for English? A reviewer will ask whether an exam "mismatch" is just the expected step up from years 1–2.
-- **Authentic vs adapted texts:** are the coursebook texts written or adapted for the book, while the exam uses authentic articles? If so, source/register is confounded with group and should be discussed.
-- **Why abstractness matters for L2 readers:** the evidence cited is L1 (Sadoski et al.; Mar et al.). An L2 source on concreteness or abstractness in reading would strengthen the argument considerably.
+- **Grade level (resolved):** *English 2* covers Years 2 and 3, so the books span the three years before the exam.
+- **Authentic vs adapted (resolved):** both sets are adapted (Greg); the method says so.
+- **L2 evidence on abstractness (partly resolved):** I added Salsbury et al. (2011) and Crossley, Salsbury & McNamara (2012), both developmental/proficiency evidence. I found no direct L2 comprehension study, and the paper says so.
 - **Audience:** the reviewer suggests moving RQ2(a) (the elastic net) to an appendix and explaining *g* and TOST in plain terms. This would cost little in words; your call.
 - **Greenfield (2004):** the reviewer believes it found the classic formulas valid for EFL. I've rewritten the sentence that way, marked [CHECK].
-- **Word budget:** main text 7,203 + references 1,291 = 8,494 of 8,500. Any additions need matching cuts. Method is at 2,149 against a target of 1,800 because of the fuller pre-specification timeline.
+- **Word budget:** main text 7,079 + references 1,416 = 8,495 of 8,500. Any additions need matching cuts. Method is at 2,149 against a target of 1,800 because of the fuller pre-specification timeline.

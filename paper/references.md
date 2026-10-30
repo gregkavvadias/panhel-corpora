@@ -32,6 +32,9 @@ Cheng, L., Watanabe, Y., & Curtis, A. (Eds.). (2004). *Washback in language test
 Cobb, T. (2016). Numbers or numerology? A response to Nation (2014) and McQuillan (2016). *Reading in a Foreign Language, 28*(2), 299–304. https://doi.org/10.64152/10125/66904
 <!-- verified: Crossref, 2026-10-29 -->
 
+CourtBouillon. (n.d.). *Pyphen* (Version 0.18.1) [Computer software]. https://www.courtbouillon.org/pyphen
+<!-- verified: package metadata (pip show), 2026-10-30 -->
+
 Crossley, S. A., Allen, D. B., & McNamara, D. S. (2011). Text readability and intuitive simplification: A comparison of readability formulas. *Reading in a Foreign Language, 23*(1), 86–101. https://doi.org/10.64152/10125/66657
 <!-- verified: Crossref, 2026-10-29; thesis audit had wrong pages, corrected to 86–101 -->
 
@@ -46,6 +49,9 @@ Crossley, S. A., Kyle, K., & Dascalu, M. (2019). The Tool for the Automatic Anal
 
 Crossley, S. A., Kyle, K., & McNamara, D. S. (2016). The tool for the automatic analysis of text cohesion (TAACO): Automatic assessment of local, global, and text cohesion. *Behavior Research Methods, 48*(4), 1227–1237. https://doi.org/10.3758/s13428-015-0651-7
 <!-- verified: Crossref (online 2015, issue 2016), 2026-10-29 -->
+
+Crossley, S. A., Salsbury, T., & McNamara, D. S. (2012). Predicting the proficiency level of language learners using lexical indices. *Language Testing, 29*(2), 243–263. https://doi.org/10.1177/0265532211419331
+<!-- verified: Crossref with abstract (online 2011, issue 2012), 2026-10-30 -->
 
 Crossley, S. A., Skalicky, S., & Dascalu, M. (2019). Moving beyond classic readability formulas: New methods and new models. *Journal of Research in Reading, 42*(3–4), 541–561. https://doi.org/10.1111/1467-9817.12283
 <!-- verified: Crossref, 2026-10-29 -->
@@ -86,6 +92,9 @@ Kincaid, J. P., Fishburne, R. P., Jr., Rogers, R. L., & Chissom, B. S. (1975). *
 Kintsch, W., & Vipond, D. (1979). Reading comprehension and readability in educational practice and psychological theory. In L.-G. Nilsson (Ed.), *Perspectives on memory research* (pp. 329–365). Lawrence Erlbaum.
 <!-- verified: no DOI (chapter); details from the thesis and secondary citations; [CHECK: page range against a library catalogue] -->
 
+Kyle, K. (n.d.). *lexical-diversity* (Version 0.1.1) [Computer software]. https://github.com/kristopherkyle/lexical_diversity
+<!-- verified: package metadata (pip show), 2026-10-30 -->
+
 Lakens, D. (2017). Equivalence tests: A practical primer for *t* tests, correlations, and meta-analyses. *Social Psychological and Personality Science, 8*(4), 355–362. https://doi.org/10.1177/1948550617697177
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
 
@@ -98,6 +107,12 @@ Lee, H., & Kang, M. (2021). Text difficulty of English textbooks for senior high
 Lu, X. (2010). Automatic analysis of syntactic complexity in second language writing. *International Journal of Corpus Linguistics, 15*(4), 474–496. https://doi.org/10.1075/ijcl.15.4.02lu
 <!-- verified: Crossref, 2026-10-29 -->
 
+Manolopoulou-Sergi, E., Papachristou, E., Gkouvatsou, G., Pyrovolaki, R., & Tourampelis, M. (2019). *Αγγλικά 1* [English 1] (M. Nika, Critical reader) [Coursebook, General Lyceum Year 1]. Institute of Computer Technology and Publications "Diophantus". https://ebooks.edu.gr/ebooks/handle/8547/2445
+<!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; [CHECK: edition year and publisher name] -->
+
+Manolopoulou-Sergi, E., Papachristou, E., Poulla, E., Kalfoglou, C., Karavota, M., & Poulios, A. (2019). *Αγγλικά 2* [English 2] (M. Nika, Critical reader) [Coursebook, General Lyceum Years 2–3]. Institute of Computer Technology and Publications "Diophantus". https://ebooks.edu.gr/ebooks/handle/8547/2446
+<!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; [CHECK: edition year and publisher name] -->
+
 Mar, R. A., Li, J., Nguyen, A. T. P., & Ta, C. P. (2021). Memory and comprehension of narrative versus expository texts: A meta-analysis. *Psychonomic Bulletin & Review, 28*(3), 732–749. https://doi.org/10.3758/s13423-020-01853-1
 <!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
 
@@ -107,8 +122,8 @@ McCarthy, P. M., & Jarvis, S. (2010). MTLD, vocd-D, and HD-D: A validation study
 McNamara, D. S., Graesser, A. C., McCarthy, P. M., & Cai, Z. (2014). *Automated evaluation of text and discourse with Coh-Metrix*. Cambridge University Press. https://doi.org/10.1017/CBO9780511894664
 <!-- verified: Crossref, 2026-10-29 -->
 
-Ministry of Education and Religious Affairs. (2009). [Ministerial decision introducing the reading component of the Panhellenic English special-subject examination]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
-<!-- [CHECK: Greg to supply decision number, Greek title and APA form from the thesis reference list; cited as Greek Official Gazette 493/Β/18-3-09] -->
+Ministry of National Education and Religious Affairs. (2009). [Decision on the examination of the foreign-language special subjects]. *Government Gazette of the Hellenic Republic*, B(493), 18 March 2009.
+<!-- [CHECK: decision number and Greek title. Decision Φ.253/27456/Β6/2009 in the same issue concerns EPAL access, so the foreign-language decision is a different one in ΦΕΚ 493/Β/2009] -->
 
 Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Iranian general English books and MA reading comprehension tests: A corpus analysis. *Journal of Modern Research in English Language Studies, 2*(2), 77–98.
 <!-- verified: index record (journals.ikiu.ac.ir/article_797) via search, 2026-10-29; publisher site refused connection; [CHECK: pages and DOI on the publisher page] -->
@@ -120,13 +135,7 @@ Nation, I. S. P. (2006). How large a vocabulary is needed for reading and listen
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
 
 Nation, I. S. P. (2017). *The BNC/COCA Level 6 word family lists* (Version 1.0.0) [Data file]. Victoria University of Wellington.
-<!-- [CHECK: the citation the list authors request for the lists bundled with basewords 1.3.0] -->
-
-Nika, [initials]. (2019a). *English 1* [Lyceum coursebook, digital edition]. Institute of Educational Policy / Diophantus. [URL]
-<!-- [CHECK: Greg to supply full entry from the thesis reference list] -->
-
-Nika, [initials]. (2019b). *English 2* [Lyceum coursebook, digital edition]. Institute of Educational Policy / Diophantus. [URL]
-<!-- [CHECK: Greg to supply full entry from the thesis reference list] -->
+<!-- verified: the citation the list authors request, as recorded in reanalysis/data/SOURCES.md; lists used in the basewords 1.3.0 distribution -->
 
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825–2830.
 <!-- verified: JMLR citation requested by scikit-learn; no DOI -->
@@ -134,8 +143,14 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O.,
 Sadoski, M., Goetz, E. T., & Fritz, J. B. (1993). Impact of concreteness on comprehensibility, interest, and memory for text: Implications for dual coding theory and text design. *Journal of Educational Psychology, 85*(2), 291–304. https://doi.org/10.1037/0022-0663.85.2.291
 <!-- verified: Crossref, 2026-10-29; content cited from the abstract -->
 
+Salsbury, T., Crossley, S. A., & McNamara, D. S. (2011). Psycholinguistic word information in second language oral discourse. *Second Language Research, 27*(3), 343–360. https://doi.org/10.1177/0267658310395851
+<!-- verified: Crossref with abstract, 2026-10-30 -->
+
 Scott, G. G., Keitel, A., Becirspahic, M., Yao, B., & Sereno, S. C. (2019). The Glasgow Norms: Ratings of 5,500 words on nine scales. *Behavior Research Methods, 51*(3), 1258–1270. https://doi.org/10.3758/s13428-018-1099-3
 <!-- verified: Crossref (online 2018, issue 2019), 2026-10-29 -->
+
+Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and statistical modeling with Python. In *Proceedings of the 9th Python in Science Conference* (pp. 92–96). https://doi.org/10.25080/Majora-92bf1922-011
+<!-- verified: Crossref, 2026-10-30 -->
 
 Srisunakrua, T., & Chumworatayee, T. (2019). Readability of reading passages in English textbooks and the Thai national education English test: A comparative study. *Arab World English Journal, 10*(2), 257–269. https://doi.org/10.24093/awej/vol10no2.20
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
