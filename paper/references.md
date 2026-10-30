@@ -72,7 +72,7 @@ Graesser, A. C., McNamara, D. S., Louwerse, M. M., & Cai, Z. (2004). Coh-Metrix:
 <!-- verified: Crossref DOI lookup, 2026-10-29 -->
 
 Greenfield, J. (2004). Readability formulas for EFL. *JALT Journal, 26*(1), 5–24. https://doi.org/10.37546/JALTJJ26.1-1
-<!-- verified: Crossref (first page 5); content from the JALT abstract, 2026-10-30; [CHECK: last page] -->
+<!-- verified: Crossref (first page 5), pages 5–24 as in the thesis reference list; content from the JALT abstract, 2026-10-30 -->
 
 Hedges, L. V. (1981). Distribution theory for Glass's estimator of effect size and related estimators. *Journal of Educational Statistics, 6*(2), 107–128. https://doi.org/10.3102/10769986006002107
 <!-- verified: Crossref 10.3102/10769986006002107 (pp. 107–128), 2026-10-30 -->
@@ -87,7 +87,7 @@ Kincaid, J. P., Fishburne, R. P., Jr., Rogers, R. L., & Chissom, B. S. (1975). *
 <!-- verified: DTIC record ADA006655, 2026-10-29 -->
 
 Kintsch, W., & Vipond, D. (1979). Reading comprehension and readability in educational practice and psychological theory. In L.-G. Nilsson (Ed.), *Perspectives on memory research* (pp. 329–365). Lawrence Erlbaum.
-<!-- verified: no DOI (chapter); details from the thesis and secondary citations; [CHECK: page range against a library catalogue] -->
+<!-- verified: no DOI (chapter); pp. 329–365 agree in the thesis (which cites a 2014 reissue) and secondary citations; [CHECK: cite the 1979 original or the 2014 Psychology Press reissue, not both] -->
 
 Kyle, K. (n.d.). *lexical-diversity* (Version 0.1.1) [Computer software]. https://github.com/kristopherkyle/lexical_diversity
 <!-- verified: package metadata (pip show), 2026-10-30 -->
@@ -99,7 +99,7 @@ Laufer, B., & Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Le
 <!-- verified: Crossref, 2026-10-29 -->
 
 Lee, H., & Kang, M. (2021). Text difficulty of English textbooks for senior high school and the College Scholastic Ability Test in South Korea. *Asia-Pacific Journal of Educational Management Research, 6*(1), 55–62. https://doi.org/10.21742/AJEMR.2021.6.1.05
-<!-- verified: Crossref metadata, 2026-10-29; the thesis gave a different venue, corrected. [CHECK: the DOI landing page currently shows a different article; confirm on the journal's site] -->
+<!-- verified: Crossref metadata, 2026-10-29; the thesis gave a different venue, corrected. [CHECK: the DOI landing page currently shows a different article; the thesis cited a similar title in Review of International Geographical Education Online 11(8). Possibly published twice; confirm which to cite] -->
 
 Lu, X. (2010). Automatic analysis of syntactic complexity in second language writing. *International Journal of Corpus Linguistics, 15*(4), 474–496. https://doi.org/10.1075/ijcl.15.4.02lu
 <!-- verified: Crossref, 2026-10-29 -->
@@ -123,7 +123,7 @@ Ministry of Education, Religious Affairs and Sports. (2024). Ορισμός τω
 <!-- verified: e-nomothesia.gr text (Art. 1 departments; Art. 2 exam structure), 2026-10-30 -->
 
 Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Iranian general English books and MA reading comprehension tests: A corpus analysis. *Journal of Modern Research in English Language Studies, 2*(2), 77–98.
-<!-- verified: DOAJ record (vol. 2, no. 2, March 2015), 2026-10-30; [CHECK: pages 77–98 from an index record; journal site unreachable] -->
+<!-- verified: DOAJ record (vol. 2, no. 2, March 2015); pages 77–98 agree in an index record and the thesis reference list, 2026-10-30 -->
 
 Nahatame, S. (2021). Text readability and processing effort in second language reading: A computational and eye-tracking investigation. *Language Learning, 71*(4), 1004–1043. https://doi.org/10.1111/lang.12455
 <!-- verified: Crossref, 2026-10-29 -->

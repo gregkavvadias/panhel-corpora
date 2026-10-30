@@ -19,4 +19,4 @@ This study compares the reading texts of the two Greek state Lyceum English cour
 
 **Conflicts of interest.** None.
 
-**Funding.** None. [CHECK: Greg to confirm.]
+**Funding.** None.
