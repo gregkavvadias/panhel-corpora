@@ -34,3 +34,8 @@ def test_numbers_build_has_lexical_robustness_and_token_shares():
     sec = text.split('## Lexical robustness (27 vs 26)')[1].split('\n## ')[0]
     for row in ('cov5k (first360', 'conc_tok (first360', 'cov5k_propn_known (full', 'propn_pct'):
         assert row in sec
+
+def test_numbers_build_has_second_coder_kappa():
+    text = build(ROOT / 'reanalysis' / 'results')
+    sec = text.split('## Second coder (genre)')[1].split('\n## ')[0]
+    assert 'kappa coarse' in sec and 'kappa fine' in sec and 'agree' in sec

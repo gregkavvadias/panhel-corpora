@@ -83,3 +83,5 @@
 - **Lee & Kang (2021):** citing the AJEMR version, which has an accessible PDF. The PDF shows pp. 53–60.
 - **Kintsch & Vipond:** citing the 1979 original.
 - **AI disclosure:** Greg will supply the declaration at submission (RFL wants it in the cover letter and before the References, using its template). It has been removed from the draft.
+
+- **Second coder (2026-10-30):** done. Coarse κ = 1.00 (20/20); fine κ = .74 (16/20). The method, the limitations and Appendix C are filled in; the κ values come from `numbers_build.py`.

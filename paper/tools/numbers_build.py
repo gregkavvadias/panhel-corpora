@@ -1,6 +1,7 @@
 # Builds paper/numbers.md: every figure the paper may quote, at full precision, from reanalysis/results.
 # Thresholds and exam subsets are recomputed in memory with the stats5 functions on the current
 # 27 + 26 lexical features (the archived lexical_thresholds/lexical_subsets CSVs hold the 28-text run).
+# Second-coder kappa is computed from paper/second-coder (responses + key) against the frozen labels.
 # So are the lexical robustness rows and token shares (archived lexical_comparisons.csv is the 28-text run).
 import sys
 from pathlib import Path
@@ -104,6 +105,18 @@ def build(results_dir):
     for _, r in pd.read_csv(R / 'genre_regression.csv').iterrows():
         out.append(f'- regression {r.measure}: exam coef unadjusted {f4(r.coef_unadj)}, adjusted {f4(r.coef_adj)} '
                    f'[{f4(r.adj_lo)}, {f4(r.adj_hi)}], change {f4(r['pct_change'])}%')
+    out += ['', '## Second coder (genre)', '']
+    from second_coder import kappa
+    pack = ROOT / 'paper' / 'second-coder'
+    key = pd.read_csv(pack / 'key.csv', dtype=str)
+    coder = pd.read_csv(pack / 'responses.csv', dtype=str, keep_default_na=False)
+    coder = coder.apply(lambda c: c.str.strip()).merge(key, on='NN')
+    labels = pd.read_csv(ROOT / 'reanalysis' / 'data' / 'genre_labels.csv', dtype=str, keep_default_na=False)
+    author = labels.merge(key, on=['book', 'text'])
+    m = author.merge(coder, on=['book', 'text'], suffixes=('_a', '_b'))
+    for c in ('coarse', 'fine'):
+        agree = int((m[c + '_a'] == m[c + '_b']).sum())
+        out.append(f'- kappa {c} {f4(kappa(author, coder, c))}; agree {agree} of {len(m)}')
     return '\n'.join(out) + '\n'
 
 if __name__ == '__main__':

@@ -60,7 +60,16 @@ Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metri
 
 Labels were assigned by dominant communicative purpose, proposed with AI assistance and confirmed or changed by the author, and frozen before analysis. Coarse groups: narrative (fiction, personal, biography, and two texts labelled *other*: a plot retelling and a historical recount) and non-narrative (informational, argumentative, speech, review).
 
-**Second-coder agreement:** [κ: pending] (coarse), [κ: pending] (fine), on a stratified sample of 20 texts. Disagreements: [to be listed].
+**Second-coder agreement** (blind coder, stratified sample of 20 texts): narrative/non-narrative κ = 1.00 (20 of 20 agree); fine labels κ = .74 (16 of 20). The four disagreements were all within the same coarse group:
+
+| Text | Author | Second coder |
+|---|---|---|
+| Panhellenics 2023-06 | informational | argumentative |
+| Panhellenics 2024-06 | argumentative | informational |
+| English 1 unit-8-1 | informational | argumentative |
+| English 1 unit-7-2 (plot retelling) | other (narrative) | fiction (narrative) |
+
+The second coder also coded the plot retelling as narrative, in line with the author's departure from the coding scheme for that text (see Method). The frozen labels were not changed.
 
 | Book | Text | Label | Group |
 |---|---|---|---|
