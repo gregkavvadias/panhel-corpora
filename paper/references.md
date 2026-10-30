@@ -78,7 +78,7 @@ Hedges, L. V. (1981). Distribution theory for Glass's estimator of effect size a
 <!-- verified: Crossref 10.3102/10769986006002107 (pp. 107–128), 2026-10-30 -->
 
 Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). *spaCy: Industrial-strength natural language processing in Python* [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.1212303
-<!-- verified: the citation the spaCy project requests; [CHECK: version cited matches requirements.txt] -->
+<!-- verified: the citation the spaCy project requests; spaCy 3.8 with en_core_web_sm/md 3.8.0, as in the README -->
 
 Hu, M., & Nation, I. S. P. (2000). Unknown vocabulary density and reading comprehension. *Reading in a Foreign Language, 13*(1), 403–430. https://doi.org/10.64152/10125/66973
 <!-- verified: Crossref DOI lookup (author parsed as "Hsueh-chao, M."), 2026-10-29 -->
@@ -105,10 +105,10 @@ Lu, X. (2010). Automatic analysis of syntactic complexity in second language wri
 <!-- verified: Crossref, 2026-10-29 -->
 
 Manolopoulou-Sergi, E., Papachristou, E., Gkouvatsou, G., Pyrovolaki, R., & Tourampelis, M. (2019). *Αγγλικά 1* [English 1] (M. Nika, Critical reader) [Coursebook, General Lyceum Year 1]. Institute of Computer Technology and Publications "Diophantus". https://ebooks.edu.gr/ebooks/handle/8547/2445
-<!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; [CHECK: edition year and publisher name] -->
+<!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; edition year and publisher confirmed by the author -->
 
 Manolopoulou-Sergi, E., Papachristou, E., Poulla, E., Kalfoglou, C., Karavota, M., & Poulios, A. (2019). *Αγγλικά 2* [English 2] (M. Nika, Critical reader) [Coursebook, General Lyceum Years 2–3]. Institute of Computer Technology and Publications "Diophantus". https://ebooks.edu.gr/ebooks/handle/8547/2446
-<!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; [CHECK: edition year and publisher name] -->
+<!-- verified: ebooks.edu.gr record (authors, roles, classes), 2026-10-30; edition year and publisher confirmed by the author -->
 
 Mar, R. A., Li, J., Nguyen, A. T. P., & Ta, C. P. (2021). Memory and comprehension of narrative versus expository texts: A meta-analysis. *Psychonomic Bulletin & Review, 28*(3), 732–749. https://doi.org/10.3758/s13423-020-01853-1
 <!-- verified: Crossref with abstract (75+ samples; stories better understood and recalled), 2026-10-30 -->
