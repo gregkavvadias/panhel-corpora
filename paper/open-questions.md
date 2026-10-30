@@ -97,4 +97,4 @@
   - "Data Analysis" heading;
   - Method AI paragraph removed (declared at submission);
   - Figure 1 (coverage by band, `paper/figures/coverage.py`).
-- **Word limit:** published RFL articles suggest references do not count towards the 8,500 words; confirm with the editor.
+- **Word limit (resolved, Greg):** references do not count. The limit is 8,500 words for the main text, excluding references and appendices; the draft is at 6,969.
