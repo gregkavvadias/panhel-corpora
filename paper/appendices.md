@@ -33,7 +33,7 @@ All measures are computed by `reanalysis/difficulty.py` and `reanalysis/lexical.
 
 ## Appendix B: Validation Against Coh-Metrix
 
-Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metrix 3.0 index on the 40 original texts: pooled, and within the 27 coursebook and 13 examination texts. Confidence intervals use the Fisher *z* transformation and are slightly narrow for ρ at *n* = 13. Mean length of clause, clauses per sentence, MTLD and familiarity have no Coh-Metrix counterpart in the earlier data.
+Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metrix 3.0 index on the 40 original texts: pooled, and within the 27 coursebook and 13 examination texts. Confidence intervals use the Fisher *z* transformation and are slightly narrow for ρ at *n* = 13. Mean length of clause, clauses per sentence, MTLD and familiarity have no Coh-Metrix counterpart in the earlier data. Content-word overlap, modelled on CRFCWO1, is validated against CRFSOa (stem overlap across all sentences), the nearest index the earlier analysis reported.
 
 | New measure | Coh-Metrix | Pooled | Coursebook | Exam |
 |---|---|---|---|---|

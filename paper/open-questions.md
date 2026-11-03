@@ -6,7 +6,7 @@ Last tidied 30 Oct 2026. Everything resolved so far is listed under "Resolved" b
 
 - The manuscript is being edited in a Claude Doc: https://claude.ai/artifact/FMPqwihXGzUWRFzzVANPmK
 - The Doc is the master copy for the wording until it is synced back; don't edit `paper/0*.md` meanwhile.
-- Baseline for the sync is commit `9a46350`. Numbers and references stay mastered here; after the sync, run `check_numbers.py`, `wordcount.py`, the citation check and `build_pdf.py`.
+- Last synced 3 Nov 2026 from Doc revision 33 (16 paragraphs updated). Earlier baseline: commit `9a46350`. Numbers and references stay mastered here; after the sync, run `check_numbers.py`, `wordcount.py`, the citation check and `build_pdf.py`.
 
 ## Still open
 
