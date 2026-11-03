@@ -2,6 +2,12 @@
 
 Last tidied 30 Oct 2026. Everything resolved so far is listed under "Resolved" below; the full history is in git.
 
+## Editing in Claude Docs (from 3 Nov 2026)
+
+- The manuscript is being edited in a Claude Doc: https://claude.ai/artifact/FMPqwihXGzUWRFzzVANPmK
+- The Doc is the master copy for the wording until it is synced back; don't edit `paper/0*.md` meanwhile.
+- Baseline for the sync is commit `9a46350`. Numbers and references stay mastered here; after the sync, run `check_numbers.py`, `wordcount.py`, the citation check and `build_pdf.py`.
+
 ## Still open
 
 - **Coursebook exclusions:** the Method says texts that only present vocabulary, and audio scripts, were excluded (following the thesis). Is that accurate, and were any other kinds excluded?
