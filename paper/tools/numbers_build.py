@@ -104,6 +104,13 @@ def build(results_dir):
     for _, r in pd.read_csv(R / 'genre_regression.csv').iterrows():
         out.append(f'- regression {r.measure}: exam coef unadjusted {f4(r.coef_unadj)}, adjusted {f4(r.coef_adj)} '
                    f'[{f4(r.adj_lo)}, {f4(r.adj_hi)}], change {f4(r['pct_change'])}%')
+    out += ['', '## Genre means (full texts)', '']
+    labels_g = pd.read_csv(ROOT / 'reanalysis' / 'data' / 'genre_labels.csv', dtype=str, keep_default_na=False)
+    D = pd.read_csv(R / 'difficulty_features.csv')
+    D = D[D.version == 'full'].merge(full[['book', 'text', 'conc_tok']], on=['book', 'text']).merge(labels_g, on=['book', 'text'])
+    D['grp'] = D.book.map(lambda b: 'exam' if is_exam(b) else 'school')
+    for (g, fine), d in D.groupby(['grp', 'fine']):
+        out.append(f'- {g} {fine} (n = {len(d)}): concreteness {f4(d.conc_tok.mean())}, passives {f4(d.passive_inc.mean())}')
     out += ['', '## Second coder (genre)', '']
     from second_coder import kappa
     pack = ROOT / 'paper' / 'second-coder'

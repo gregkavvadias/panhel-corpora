@@ -47,3 +47,8 @@ def test_coverage_figure_data_matches_thresholds():
     T = coverage_table(ROOT / 'reanalysis' / 'results')
     assert list(T.columns) == ['band', 'Coursebook', 'Examination'] and list(T.band) == list(range(1, 10))
     assert round(T.loc[T.band == 5, 'Examination'].item(), 2) == 98.20
+
+def test_numbers_build_has_genre_means():
+    text = build(ROOT / 'reanalysis' / 'results')
+    sec = text.split('## Genre means (full texts)')[1].split('\n## ')[0]
+    assert 'school speech' in sec and 'exam informational' in sec
