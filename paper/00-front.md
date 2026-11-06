@@ -1,9 +1,12 @@
 # Equally Frequent, More Abstract: Reading Texts in the Greek Lyceum English Coursebooks and the Panhellenic English Examination
 
-<!-- Blinded version for review. Author name, affiliation and self-citations are placeholders; see paper/blinding.md. -->
+<!-- Non-blinded master copy. Build the review PDF with `python paper/tools/build_pdf.py --blind`, which removes this block and the self-identifying details; see paper/blinding.md. -->
 
-[Author]
-[affiliation]
+Grigorios Kavvadias · Aristotle University of Thessaloniki
+
+gkavvada@enl.auth.gr · ORCID: https://orcid.org/0009-0007-2274-5731
+
+*Author bio.* Grigorios Kavvadias is a PhD candidate in computational linguistics at Aristotle University of Thessaloniki and Head of the ESAP Programme at Mediterranean College Thessaloniki. He also teaches on the University of Edinburgh's pre-sessional programme and is a BALEAP Fellow. His research interests include text difficulty and L2 reading.
 
 ## Abstract
 

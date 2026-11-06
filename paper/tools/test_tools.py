@@ -52,3 +52,17 @@ def test_numbers_build_has_genre_means():
     text = build(ROOT / 'reanalysis' / 'results')
     sec = text.split('## Genre means (full texts)')[1].split('\n## ')[0]
     assert 'school speech' in sec and 'exam informational' in sec
+
+def test_check_numbers_ignores_urls():
+    from check_numbers import unmatched
+    assert unmatched('ORCID: https://orcid.org/0009-0007-2274-5731 and 1234.5', '- x 1') == ['1234.5']
+
+def test_build_pdf_blind_removes_identity():
+    sys.path.insert(0, str(ROOT / 'paper' / 'tools'))
+    from build_pdf import blind
+    text = ("# Title\n\nGrigorios Kavvadias · Aristotle University of Thessaloniki\n\ngkavvada@enl.auth.gr · ORCID: x\n\n"
+            "*Author bio.* Grigorios Kavvadias is a PhD candidate.\n\n## Abstract\n\n"
+            "(Kavvadias, 2023) and Kavvadias (2023) at https://github.com/gregkavvadias/panhel-corpora.")
+    out = blind(text)
+    assert 'Kavvadias' not in out and 'gregkavvadias' not in out and 'Thessaloniki' not in out
+    assert '(Author, 2023)' in out and 'Author (2023)' in out and '[anonymised repository link]' in out

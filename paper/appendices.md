@@ -2,7 +2,7 @@
 
 ## Appendix A: Measures
 
-All measures are computed by `reanalysis/difficulty.py` and `reanalysis/lexical.py` in the repository ([anonymised repository link]); the code, its tests and the frozen definitions are there. Content tokens are alphabetic tokens tagged NOUN, VERB, ADJ or ADV that are not proper nouns. Incidences are per 1,000 alphabetic tokens.
+All measures are computed by `reanalysis/difficulty.py` and `reanalysis/lexical.py` in the repository (https://github.com/gregkavvadias/panhel-corpora); the code, its tests and the frozen definitions are there. Content tokens are alphabetic tokens tagged NOUN, VERB, ADJ or ADV that are not proper nouns. Incidences are per 1,000 alphabetic tokens.
 
 | Dimension | Measure | Definition |
 |---|---|---|
@@ -58,7 +58,7 @@ Spearman's ρ [95% CI] between each open measure and the corresponding Coh-Metri
 
 ## Appendix C: Genre Labels
 
-Labels were assigned by dominant communicative purpose, proposed with AI assistance and confirmed or changed by the author, and frozen before analysis. Coarse groups: narrative (fiction, personal, biography, and two texts labelled *other*: a plot retelling and a historical recount) and non-narrative (informational, argumentative, speech, review).
+Labels were assigned by dominant communicative purpose and frozen before analysis. Coarse groups: narrative (fiction, personal, biography, and two texts labelled *other*: a plot retelling and a historical recount) and non-narrative (informational, argumentative, speech, review). Labels were first proposed with AI assistance (Claude, Anthropic) and confirmed or changed by the author (see Method).
 
 **Second-coder agreement** (blind coder, stratified sample of 20 texts): narrative/non-narrative κ = 1.00 (20 of 20 agree); fine labels κ = .74 (16 of 20). The four disagreements were all within the same coarse group:
 

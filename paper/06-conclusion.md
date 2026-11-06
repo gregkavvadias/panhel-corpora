@@ -6,8 +6,10 @@ The state Lyceum coursebooks offer texts that match the examination's in vocabul
 
 # Data Availability Statement
 
-The corpus texts, analysis scripts and derived measures are openly available at [anonymised repository link].
+The corpus texts, analysis scripts and derived measures are openly available at https://github.com/gregkavvadias/panhel-corpora.
 
 # Declarations
 
 **Conflicts of interest.** None. **Funding.** None.
+
+**Declaration of AI Use in the Writing Process:** During the writing of this work the author used generative AI and/or AI-assisted technologies (Claude, Anthropic) for the purpose of proposing initial genre labels for the corpus texts, each of which the author then confirmed or changed (see Method), editing the manuscript's prose, and checking its references. The author takes responsibility for the content and intended meaning of this article.

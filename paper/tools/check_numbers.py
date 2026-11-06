@@ -11,6 +11,7 @@ def _tokens(text):
     for line in text.splitlines():
         if '<!-- source:' in line:
             continue
+        line = re.sub(r'https?://\S+', ' ', line)  # URLs (DOIs, ORCID) are not figures
         for m in NUM.finditer(line):
             tok = m.group()
             if not re.search(r'\d', tok):

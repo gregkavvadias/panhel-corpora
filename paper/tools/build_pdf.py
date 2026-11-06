@@ -1,8 +1,10 @@
 # Builds the blinded manuscript as HTML and PDF (paper/build/) from the paper's Markdown files.
 # HTML comments (verification notes, number sources) are stripped; placeholders stay as they are.
-# PDF is printed with headless Chrome or Edge. Usage: python paper/tools/build_pdf.py
+# PDF is printed with headless Chrome or Edge. Usage: python paper/tools/build_pdf.py [--blind]
+# --blind writes manuscript-blinded.pdf for peer review: author block removed, self-citations and the repository link anonymised.
 import re
 import shutil
+import sys
 import subprocess
 from pathlib import Path
 import markdown
@@ -52,7 +54,17 @@ def section_html(name, text):
     breaks = {'01-introduction.md', 'references.md', 'appendices.md'}
     return (f'<div class="pagebreak"></div>' if name in breaks else '') + html
 
-def build():
+REPO_URL = 'https://github.com/gregkavvadias/panhel-corpora'
+
+def blind(text):
+    """Anonymise a manuscript file for peer review (see paper/blinding.md)."""
+    if text.startswith('# ') and '## Abstract' in text:  # front matter: keep the title, drop the author block
+        text = text.split('\n', 1)[0] + '\n\n' + text[text.index('## Abstract'):]
+    text = re.sub(r'^Kavvadias, G\. \(2023\)\..*$', 'Author (2023). [Details removed for peer review.]', text, flags=re.M)
+    text = re.sub(r'Kavvadias(,? \(?2023)', r'Author\1', text)
+    return text.replace(REPO_URL, '[anonymised repository link]')
+
+def build(blinded=False):
     out = PAPER / 'build'
     out.mkdir(exist_ok=True)
     (out / 'figures').mkdir(exist_ok=True)
@@ -60,18 +72,20 @@ def build():
         shutil.copy(f, out / 'figures' / f.name)
     title = re.search(r'^# (.+)$', (PAPER / '00-front.md').read_text(encoding='utf-8'), re.M).group(1)
     intro = (PAPER / '01-introduction.md').read_text(encoding='utf-8')
-    body = ''.join(section_html(n, (PAPER / n).read_text(encoding='utf-8') if n != '01-introduction.md'
-                                else f'# {title}\n\n' + intro) for n in ORDER)
-    html_path = out / 'manuscript.html'
+    read = (lambda n: blind((PAPER / n).read_text(encoding='utf-8'))) if blinded else (lambda n: (PAPER / n).read_text(encoding='utf-8'))
+    body = ''.join(section_html(n, read(n) if n != '01-introduction.md'
+                                else f'# {title}\n\n' + (blind(intro) if blinded else intro)) for n in ORDER)
+    stem = 'manuscript-blinded' if blinded else 'manuscript'
+    html_path = out / f'{stem}.html'
     html_path.write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{title}</title>'
                          f'<style>{CSS}</style></head><body>{body}</body></html>', encoding='utf-8')
     browser = next((b for b in BROWSERS if Path(b).exists()), None)
     if browser is None:
         raise SystemExit(f'wrote {html_path}; no Chrome/Edge found for PDF')
-    pdf = out / 'manuscript.pdf'
+    pdf = out / f'{stem}.pdf'
     subprocess.run([browser, '--headless=new', '--disable-gpu', '--no-pdf-header-footer',
                     f'--print-to-pdf={pdf}', html_path.as_uri()], check=True, capture_output=True)
     print(f'wrote {pdf}')
 
 if __name__ == '__main__':
-    build()
+    build(blinded='--blind' in sys.argv)
