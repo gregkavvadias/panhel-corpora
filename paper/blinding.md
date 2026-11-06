@@ -1,6 +1,6 @@
 # Blinding key (not for submission)
 
-The draft uses placeholders so the manuscript can be sent for blind review. Before submitting the final, non-blinded version, replace each placeholder with its real value.
+Since 6 Nov 2026 the manuscript files are the non-blinded master copy. `python paper/tools/build_pdf.py --blind` produces the review copy (`paper/build/manuscript-blinded.pdf`): it drops the author block and bio and applies the substitutions below in reverse. Check the blinded PDF before submission (any new self-reference must be added to `blind()` in `build_pdf.py`).
 
 | Placeholder | Real value |
 |---|---|

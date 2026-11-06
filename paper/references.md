@@ -8,9 +8,6 @@ Alderson, J. C. (2000). *Assessing reading*. Cambridge University Press. https:/
 Alderson, J. C., & Wall, D. (1993). Does washback exist? *Applied Linguistics, 14*(2), 115–129. https://doi.org/10.1093/applin/14.2.115
 <!-- verified: Crossref, 2026-10-29 -->
 
-[Author, 2023]
-<!-- verified: thesis PDF supplied by the author; full entry in paper/blinding.md -->
-
 Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. *Journal of the Royal Statistical Society: Series B (Methodological), 57*(1), 289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
 <!-- verified: Crossref, 2026-10-29 -->
 
@@ -56,6 +53,9 @@ Crossley, S. A., Salsbury, T., & McNamara, D. S. (2012). Predicting the proficie
 Crossley, S. A., Skalicky, S., & Dascalu, M. (2019). Moving beyond classic readability formulas: New methods and new models. *Journal of Research in Reading, 42*(3–4), 541–561. https://doi.org/10.1111/1467-9817.12283
 <!-- verified: Crossref, 2026-10-29 -->
 
+de Groot, A. M. B., & Keijzer, R. (2000). What is hard to learn is easy to forget: The roles of word concreteness, cognate status, and word frequency in foreign-language vocabulary learning and forgetting. *Language Learning, 50*(1), 1–56. https://doi.org/10.1111/0023-8333.00110
+<!-- verified: Crossref with abstract (concrete words easier to learn, less forgotten), 2026-11-06 -->
+
 Flesch, R. (1948). A new readability yardstick. *Journal of Applied Psychology, 32*(3), 221–233. https://doi.org/10.1037/h0057532
 <!-- verified: Crossref, 2026-10-29 -->
 
@@ -83,6 +83,9 @@ Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). *spaCy: Industr
 Hu, M., & Nation, I. S. P. (2000). Unknown vocabulary density and reading comprehension. *Reading in a Foreign Language, 13*(1), 403–430. https://doi.org/10.64152/10125/66973
 <!-- verified: Crossref DOI lookup (author parsed as "Hsueh-chao, M."), 2026-10-29 -->
 
+Kavvadias, G. (2023). *A computational comparative analysis of text difficulty in the Greek high school English coursebooks and the national university entrance examinations for English* [Master's thesis, Hellenic Open University]. Apothesis. https://apothesis.eap.gr/archive/item/183660
+<!-- verified: thesis title page (PDF supplied by the author); repository URL supplied by the author, 2026-11-06. Blinded as "Author (2023)" by build_pdf.py --blind -->
+
 Kim, J. (2024). Inside the digital hagwons: High-stakes reading test preparation in Korea. *Reading in a Foreign Language, 36*(1), 1–21. https://doi.org/10.64152/10125/67463
 <!-- verified: Crossref with abstract, 2026-10-30 -->
 
@@ -103,6 +106,9 @@ Laufer, B., & Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Le
 
 Lee, H.-Y., & Kang, M.-K. (2021). Text difficulty of English textbooks for senior high school and the College Scholastic Ability Test in South Korea. *Asia-Pacific Journal of Educational Management Research, 6*(1), 53–60. https://doi.org/10.21742/ajemr.2021.6.1.05
 <!-- verified: article PDF (gvpress.com/journals/AJEMR/vol6_no1/4.pdf), 2026-10-30: pp. 53–60 and DOI as printed on the article; Crossref lists pp. 55–62 and the publisher's DOI landing page shows another article. The thesis cited a similar title in Review of International Geographical Education Online; this version is the one with an accessible PDF (Greg). -->
+
+Liontou, T. (2015). *Computational text analysis and reading comprehension exam complexity: Towards automatic text classification* (Language Testing and Evaluation, Vol. 36). Peter Lang. https://doi.org/10.3726/978-3-653-04944-2
+<!-- verified: Crossref DOI; Peter Lang listing (vol. 36; KPG B2/C1 reading texts, classification profile and difficulty formula), 2026-11-06. Some catalogues give 2014 (print release 29.12.2014) -->
 
 Lu, X. (2010). Automatic analysis of syntactic complexity in second language writing. *International Journal of Corpus Linguistics, 15*(4), 474–496. https://doi.org/10.1075/ijcl.15.4.02lu
 <!-- verified: Crossref, 2026-10-29 -->
@@ -128,6 +134,9 @@ Ministry of Education, Religious Affairs and Sports. (2024). Ορισμός τω
 Mirshojaee, S. B., & Sahragard, R. (2015). Reading comprehension passages of Iranian general English books and MA reading comprehension tests: A corpus analysis. *Journal of Modern Research in English Language Studies, 2*(2), 77–98.
 <!-- verified: DOAJ record (vol. 2, no. 2, March 2015); pages 77–98 agree in an index record and the thesis reference list, 2026-10-30 -->
 
+Morid, M., & Sabourin, L. (2024). Affective and sensory–motor norms for idioms by L1 and L2 English speakers. *Applied Psycholinguistics, 45*(1), 138–155. https://doi.org/10.1017/S0142716423000504
+<!-- verified: Crossref with abstract (L1 and L2 ratings differed for concreteness and arousal), 2026-11-06 -->
+
 Nahatame, S. (2021). Text readability and processing effort in second language reading: A computational and eye-tracking investigation. *Language Learning, 71*(4), 1004–1043. https://doi.org/10.1111/lang.12455
 <!-- verified: Crossref, 2026-10-29 -->
 
@@ -142,6 +151,9 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O.,
 
 Plonsky, L., & Oswald, F. L. (2014). How big is "big"? Interpreting effect sizes in L2 research. *Language Learning, 64*(4), 878–912. https://doi.org/10.1111/lang.12079
 <!-- verified: Crossref with abstract, 2026-10-30; between-group benchmarks d = 0.40 / 0.70 / 1.00 from the article -->
+
+Rafatbakhsh, E., & Ahmadi, A. (2023). Predicting the difficulty of EFL reading comprehension tests based on linguistic indices. *Asian-Pacific Journal of Second and Foreign Language Education, 8*, Article 41. https://doi.org/10.1186/s40862-023-00214-4
+<!-- verified: open-access PDF, 2026-11-06: Iranian National University Entrance Exam for the Master's Program, 63 passages; word concreteness p = .516; five-factor adjusted R2 = .071 -->
 
 Sadoski, M., Goetz, E. T., & Fritz, J. B. (1993). Impact of concreteness on comprehensibility, interest, and memory for text: Implications for dual coding theory and text design. *Journal of Educational Psychology, 85*(2), 291–304. https://doi.org/10.1037/0022-0663.85.2.291
 <!-- verified: Crossref, 2026-10-29; content cited from the abstract -->

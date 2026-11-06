@@ -6,7 +6,8 @@ Last tidied 30 Oct 2026. Everything resolved so far is listed under "Resolved" b
 
 - The manuscript is being edited in a Claude Doc: https://claude.ai/artifact/FMPqwihXGzUWRFzzVANPmK
 - The Doc is the master copy for the wording until it is synced back; don't edit `paper/0*.md` meanwhile.
-- Last synced 3 Nov 2026 from Doc revision 33 (16 paragraphs updated). Earlier baseline: commit `9a46350`. Numbers and references stay mastered here; after the sync, run `check_numbers.py`, `wordcount.py`, the citation check and `build_pdf.py`.
+- Last synced 6 Nov 2026 from Doc revision 63. Earlier syncs: revision 33 (3 Nov), baseline commit `9a46350`.
+- The master copy is now **non-blinded** (name, affiliation, ORCID, bio, Kavvadias 2023, repository link). The review copy is built with `python paper/tools/build_pdf.py --blind` → `paper/build/manuscript-blinded.pdf`. Numbers and references stay mastered here; after the sync, run `check_numbers.py`, `wordcount.py`, the citation check and `build_pdf.py`.
 
 ## Still open
 
@@ -19,10 +20,8 @@ Last tidied 30 Oct 2026. Everything resolved so far is listed under "Resolved" b
 
 ## Before submission
 
-- Fill the blinded placeholders in the non-blinded version: `[Author]`, `[affiliation]`, `[Author, 2023]`, `[anonymised repository link]` (see `blinding.md`).
 - Set up the anonymised repository mirror for review (e.g. anonymous.4open.science).
-- Author bio (at most 50 words), for the submission form.
-- AI declaration, in RFL's template, in the cover letter and before the References (Greg supplies).
+- AI declaration: now in the manuscript, before the References; also put it in the cover letter.
 - Cover letter.
 - File format: check whether RFL wants .docx; the PDF is built by `python paper/tools/build_pdf.py`.
 
